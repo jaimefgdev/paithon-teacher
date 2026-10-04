@@ -4,7 +4,7 @@ El mismo tutor sin servidor: un Gem de Gemini con instrucciones y archivos de co
 
 ## Montarlo
 
-1. En gemini.google.com, abre **Gems › PyMentor › Editar** (o crea uno nuevo).
+1. En gemini.google.com, abre **Gems › pAIthon Teacher › Editar** (o crea uno nuevo).
 2. **Instrucciones:** pega el contenido de [`instrucciones.md`](instrucciones.md) (sustituye todo el texto).
 3. **Conocimiento:** sube estos cuatro archivos de [`../conocimiento`](../conocimiento):
    - `02_kb_fundamentos_python.md`
