@@ -5,12 +5,12 @@ Las claves se leen siempre de variables de entorno (ANTHROPIC_API_KEY, GEMINI_AP
 
 from __future__ import annotations
 
-import json
 import os
-import urllib.request
 from collections.abc import Sequence
 from dataclasses import dataclass
 from typing import Protocol
+
+from .red import post_json
 
 
 @dataclass(frozen=True)
@@ -46,7 +46,7 @@ class Claude:
 class Gemini:
     URL = "https://generativelanguage.googleapis.com/v1beta/models/{modelo}:generateContent"
 
-    def __init__(self, clave_api: str, modelo: str = "gemini-2.5-flash") -> None:
+    def __init__(self, clave_api: str, modelo: str = "gemini-flash-latest") -> None:
         self.clave_api, self.modelo = clave_api, modelo
         self.nombre = modelo
 
@@ -57,13 +57,7 @@ class Gemini:
                 {"role": "model" if m.rol == "assistant" else "user", "parts": [{"text": m.texto}]} for m in mensajes
             ],
         }
-        peticion = urllib.request.Request(
-            self.URL.format(modelo=self.modelo),
-            data=json.dumps(cuerpo).encode("utf-8"),
-            headers={"Content-Type": "application/json", "x-goog-api-key": self.clave_api},
-        )
-        with urllib.request.urlopen(peticion, timeout=120) as r:
-            datos = json.loads(r.read())
+        datos = post_json(self.URL.format(modelo=self.modelo), cuerpo, self.clave_api)
         partes = datos["candidates"][0]["content"]["parts"]
         return "".join(p.get("text", "") for p in partes)
 
@@ -73,5 +67,5 @@ def desde_entorno() -> LLM | None:
     if clave := os.environ.get("ANTHROPIC_API_KEY"):
         return Claude(clave, os.environ.get("PAITHON_MODELO", "claude-sonnet-5-5"))
     if clave := os.environ.get("GEMINI_API_KEY"):
-        return Gemini(clave, os.environ.get("PAITHON_MODELO", "gemini-2.5-flash"))
+        return Gemini(clave, os.environ.get("PAITHON_MODELO", "gemini-flash-latest"))
     return None

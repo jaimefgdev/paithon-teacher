@@ -22,7 +22,9 @@ pregunta ──► BM25 (léxico) ──┐
   `for`, que en otro contexto serían palabras vacías). Los embeddings (`gemini-embedding-001`) cubren las preguntas
   dichas con otras palabras. Las dos listas se combinan con *Reciprocal Rank Fusion*.
 - **Funciona sin claves.** Sin `GEMINI_API_KEY` la búsqueda es solo BM25; los embeddings se guardan en una caché
-  SQLite, así que la base se vectoriza una vez.
+  SQLite, así que la base se vectoriza una vez. Las llamadas a la API reintentan solas ante cuota agotada (429) o
+  saturación (503), esperando lo que pide la propia API: con el nivel gratuito (100 textos/minuto) la primera
+  indexación tarda en torno a minuto y medio.
 - **Citas verificables.** El modelo recibe los fragmentos numerados y debe citar `[n]`; la aplicación comprueba
   qué números existen y enseña el texto de cada fuente.
 - **Evaluación.** `evals/preguntas.jsonl` tiene 38 preguntas de alumno con el apartado que debería recuperarse.
@@ -32,9 +34,15 @@ pregunta ──► BM25 (léxico) ──┐
 
 ## Resultados de recuperación
 
+38 preguntas de alumno; acierto = el apartado esperado aparece entre los 5 fragmentos recuperados.
+
 | Modo | recall@5 | MRR |
 |---|---|---|
 | Solo BM25 | 82 % | 0,65 |
+| Híbrido (BM25 + `gemini-embedding-001`, RRF) | **95 %** | **0,80** |
+
+Los embeddings rescatan las preguntas dichas con otras palabras («repetir algo mientras el usuario no
+acierte» → bucle `while`); BM25, las que nombran algo exacto (`isinstance`, `0.1 + 0.2`).
 
 ```
 paithon evaluar --detalle            # lista las preguntas falladas
@@ -67,7 +75,7 @@ docker run -p 8000:8000 -e GEMINI_API_KEY paithon
 |---|---|
 | `GEMINI_API_KEY` | Embeddings y generación con Gemini |
 | `ANTHROPIC_API_KEY` | Generación con Claude (tiene prioridad) |
-| `PAITHON_MODELO` | Modelo de generación (por defecto `claude-sonnet-5-5` o `gemini-2.5-flash`) |
+| `PAITHON_MODELO` | Modelo de generación (por defecto `claude-sonnet-5-5` o `gemini-flash-latest`) |
 | `PAITHON_CONOCIMIENTO` | Carpeta con los `.md` de la base de conocimiento |
 | `PAITHON_CACHE` | Ruta de la caché de embeddings |
 

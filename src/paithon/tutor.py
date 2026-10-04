@@ -22,6 +22,7 @@ Cómo respondes:
 - Termina, cuando tenga sentido, con un mini ejercicio para practicar lo explicado."""
 
 CITA = re.compile(r"\[(\d+)\]")
+CODIGO = re.compile(r"```.*?```|`[^`\n]*`", re.DOTALL)  # «print(x)  # [1]» es una salida, no una cita
 HISTORIAL_MAXIMO = 8
 
 
@@ -33,7 +34,7 @@ def contexto(resultados: Sequence[Resultado]) -> str:
 def citas_usadas(respuesta: str, total: int) -> list[int]:
     """Números de fragmento citados en la respuesta, sin repetir y descartando los que no existen."""
     vistos: list[int] = []
-    for m in CITA.finditer(respuesta):
+    for m in CITA.finditer(CODIGO.sub("", respuesta)):
         n = int(m.group(1))
         if 1 <= n <= total and n not in vistos:
             vistos.append(n)

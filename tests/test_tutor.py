@@ -9,6 +9,11 @@ def test_citas_usadas():
     assert citas_usadas("Sí [2], y [1] y otra vez [2]; [7] no existe", 5) == [2, 1]
 
 
+def test_citas_ignoran_el_codigo():
+    respuesta = "Se evalúa una vez [2].\n```python\nprint(f())  # [1]\n```\nY `x[3]` tampoco cuenta."
+    assert citas_usadas(respuesta, 5) == [2]
+
+
 def test_tutor_pasa_contexto_numerado_y_citas(fragmentos):
     llm = LLMFalso()
     r = Tutor(Buscador(fragmentos), llm, k=4).preguntar("¿Qué diferencia hay entre una lista y una tupla?")

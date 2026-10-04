@@ -8,14 +8,14 @@ la tarea, la dimensión y el texto.
 from __future__ import annotations
 
 import hashlib
-import json
 import math
 import sqlite3
-import urllib.request
 from array import array
 from collections.abc import Sequence
 from pathlib import Path
 from typing import Protocol
+
+from .red import post_json
 
 URL = "https://generativelanguage.googleapis.com/v1beta/models/{modelo}:batchEmbedContents"
 
@@ -61,7 +61,7 @@ class GeminiEmbedder:
     """Embeddings de Gemini. La clave se lee de la variable de entorno GEMINI_API_KEY (nunca del código)."""
 
     def __init__(
-        self, clave_api: str, cache: Cache, modelo: str = "gemini-embedding-001", dimension: int = 768, lote: int = 100
+        self, clave_api: str, cache: Cache, modelo: str = "gemini-embedding-001", dimension: int = 768, lote: int = 50
     ) -> None:
         self.clave_api, self.cache, self.modelo, self.dimension, self.lote = clave_api, cache, modelo, dimension, lote
         self.nombre = f"{modelo}/{dimension}"
@@ -78,13 +78,7 @@ class GeminiEmbedder:
                 for t in textos
             ]
         }
-        peticion = urllib.request.Request(
-            URL.format(modelo=self.modelo),
-            data=json.dumps(cuerpo).encode("utf-8"),
-            headers={"Content-Type": "application/json", "x-goog-api-key": self.clave_api},
-        )
-        with urllib.request.urlopen(peticion, timeout=60) as r:
-            datos = json.loads(r.read())
+        datos = post_json(URL.format(modelo=self.modelo), cuerpo, self.clave_api, timeout=60)
         return [normalizar(e["values"]) for e in datos["embeddings"]]
 
     def _con_cache(self, textos: Sequence[str], tarea: str) -> list[list[float]]:
