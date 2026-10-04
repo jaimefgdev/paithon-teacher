@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PyMentor</title>
+<style>
+  :root {
+    --fondo: #f6f7f4; --papel: #ffffff; --tinta: #1d2420; --suave: #5d6862; --linea: #dfe3dc;
+    --acento: #2f6b4f; --acento-suave: #e3efe8; --codigo: #f0f2ee;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --fondo: #141816; --papel: #1b201d; --tinta: #e5eae6; --suave: #9aa59f; --linea: #2c332f;
+            --acento: #7cc4a0; --acento-suave: #1f3329; --codigo: #222824; }
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body { background: var(--fondo); color: var(--tinta); font: 15px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif;
+         display: grid; grid-template-rows: auto 1fr auto; }
+  header { padding: 14px 16px; border-bottom: 1px solid var(--linea); display: flex; gap: 12px; align-items: baseline;
+           flex-wrap: wrap; }
+  header h1 { font-size: 17px; margin: 0; }
+  header small { color: var(--suave); }
+  main { overflow-y: auto; padding: 16px; }
+  .chat { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+  .msg { padding: 12px 14px; border-radius: 10px; background: var(--papel); border: 1px solid var(--linea); }
+  .msg.user { background: var(--acento-suave); border-color: transparent; align-self: flex-end; max-width: 85%; }
+  .msg p { margin: 0 0 8px; } .msg p:last-child { margin-bottom: 0; }
+  pre { background: var(--codigo); padding: 10px 12px; border-radius: 6px; overflow-x: auto; font-size: 13px; }
+  code { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; }
+  p code, li code { background: var(--codigo); padding: 1px 4px; border-radius: 4px; font-size: 13px; }
+  sup a { color: var(--acento); text-decoration: none; font-weight: 600; }
+  details { margin-top: 10px; font-size: 13px; color: var(--suave); }
+  details li { margin: 4px 0; } details li.citada { color: var(--tinta); }
+  details pre { white-space: pre-wrap; max-height: 260px; }
+  form { padding: 12px 16px; border-top: 1px solid var(--linea); background: var(--papel); }
+  .fila { max-width: 760px; margin: 0 auto; display: flex; gap: 8px; }
+  textarea { flex: 1; resize: none; font: inherit; padding: 10px; border: 1px solid var(--linea); border-radius: 8px;
+             background: var(--fondo); color: var(--tinta); min-height: 46px; }
+  button { font: inherit; padding: 0 18px; border: 0; border-radius: 8px; background: var(--acento); color: var(--papel);
+           cursor: pointer; }
+  button:disabled { opacity: .5; cursor: wait; }
+  :focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; }
+  .vacio { color: var(--suave); text-align: center; margin-top: 10vh; }
+</style>
+</head>
+<body>
+<header>
+  <h1>PyMentor</h1>
+  <small id="estado">cargando…</small>
+</header>
+<main><div class="chat" id="chat"><p class="vacio">Pregunta lo que quieras sobre Python. Las respuestas citan los apuntes en los que se basan.</p></div></main>
+<form id="form">
+  <div class="fila">
+    <textarea id="pregunta" rows="1" placeholder="¿Qué diferencia hay entre una lista y una tupla?" required></textarea>
+    <button id="enviar">Preguntar</button>
+  </div>
+</form>
+<script>
+const chat = document.getElementById("chat"), form = document.getElementById("form");
+const campo = document.getElementById("pregunta"), boton = document.getElementById("enviar");
+const historial = [];
+let turno = 0;
+
+fetch("/api/estado").then(r => r.json()).then(e => {
+  document.getElementById("estado").textContent =
+    `${e.fragmentos} fragmentos · búsqueda ${e.busqueda} · ${e.modelo ?? "sin modelo configurado"}`;
+});
+
+const escapar = s => s.replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+
+function formatear(texto, id) {
+  // Markdown mínimo: bloques de código, código en línea, negrita y citas [n].
+  return texto.split(/```[\w-]*\n?/).map((trozo, i) => {
+    if (i % 2) return `<pre><code>${escapar(trozo.replace(/\n$/, ""))}</code></pre>`;
+    return escapar(trozo).split(/\n{2,}/).filter(p => p.trim()).map(p => "<p>" + p
+      .replace(/`([^`]+)`/g, "<code>$1</code>")
+      .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+      .replace(/\[(\d+)\]/g, `<sup><a href="#f${id}-$1">[$1]</a></sup>`)
+      .replace(/\n/g, "<br>") + "</p>").join("");
+  }).join("");
+}
+
+function añadir(rol, html) {
+  chat.querySelector(".vacio")?.remove();
+  const div = document.createElement("div");
+  div.className = "msg " + rol;
+  div.innerHTML = html;
+  chat.append(div);
+  div.scrollIntoView({block: "end"});
+  return div;
+}
+
+form.addEventListener("submit", async ev => {
+  ev.preventDefault();
+  const pregunta = campo.value.trim();
+  if (!pregunta) return;
+  añadir("user", formatear(pregunta, -1));
+  campo.value = "";
+  boton.disabled = true;
+  const respuesta = añadir("assistant", "<p>Pensando…</p>");
+  try {
+    const r = await fetch("/api/preguntar", {method: "POST", headers: {"Content-Type": "application/json"},
+                                             body: JSON.stringify({pregunta, historial})});
+    const datos = await r.json();
+    if (!r.ok) throw new Error(datos.detail ?? r.statusText);
+    const id = ++turno;
+    const fuentes = datos.fuentes.map(f => `<li id="f${id}-${f.n}" class="${f.citada ? "citada" : ""}">
+      <details><summary>[${f.n}] ${escapar(f.ruta)}${f.citada ? " · citada" : ""}</summary>
+      <pre>${escapar(f.texto)}</pre></details></li>`).join("");
+    respuesta.innerHTML = formatear(datos.respuesta, id) +
+      `<details><summary>Fuentes consultadas (${datos.fuentes.length})</summary><ol>${fuentes}</ol></details>`;
+    historial.push({rol: "user", texto: pregunta}, {rol: "assistant", texto: datos.respuesta});
+  } catch (e) {
+    respuesta.innerHTML = `<p>No se pudo responder: ${escapar(String(e.message))}</p>`;
+  } finally {
+    boton.disabled = false;
+    campo.focus();
+  }
+});
+
+campo.addEventListener("keydown", ev => {
+  if (ev.key === "Enter" && !ev.shiftKey) { ev.preventDefault(); form.requestSubmit(); }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+"""Embeddings para la búsqueda semántica, con caché en SQLite.
+
+Se usa la API de Gemini (modelo gemini-embedding-001, con nivel gratuito) mediante HTTP simple, sin SDK.
+La caché evita volver a pagar (o a esperar) por textos ya calculados: la clave es un hash del modelo,
+la tarea, la dimensión y el texto.
+"""
+
+from __future__ import annotations
+
+import hashlib
+import json
+import math
+import sqlite3
+import urllib.request
+from array import array
+from collections.abc import Sequence
+from pathlib import Path
+from typing import Protocol
+
+URL = "https://generativelanguage.googleapis.com/v1beta/models/{modelo}:batchEmbedContents"
+
+
+class Embedder(Protocol):
+    nombre: str
+
+    def documentos(self, textos: Sequence[str]) -> list[list[float]]: ...
+
+    def consulta(self, texto: str) -> list[float]: ...
+
+
+def normalizar(v: Sequence[float]) -> list[float]:
+    n = math.sqrt(sum(x * x for x in v)) or 1.0
+    return [x / n for x in v]
+
+
+def coseno(a: Sequence[float], b: Sequence[float]) -> float:
+    """Producto escalar: los vectores ya están normalizados."""
+    return sum(x * y for x, y in zip(a, b, strict=True))
+
+
+class Cache:
+    def __init__(self, ruta: Path) -> None:
+        ruta.parent.mkdir(parents=True, exist_ok=True)
+        self.db = sqlite3.connect(ruta)
+        self.db.execute("create table if not exists vectores (clave text primary key, vector blob not null)")
+
+    @staticmethod
+    def clave(*partes: str) -> str:
+        return hashlib.sha256("\x1f".join(partes).encode("utf-8")).hexdigest()
+
+    def leer(self, clave: str) -> list[float] | None:
+        fila = self.db.execute("select vector from vectores where clave=?", (clave,)).fetchone()
+        return list(array("f", fila[0])) if fila else None
+
+    def guardar(self, clave: str, vector: Sequence[float]) -> None:
+        self.db.execute("insert or replace into vectores values (?, ?)", (clave, array("f", vector).tobytes()))
+        self.db.commit()
+
+
+class GeminiEmbedder:
+    """Embeddings de Gemini. La clave se lee de la variable de entorno GEMINI_API_KEY (nunca del código)."""
+
+    def __init__(
+        self, clave_api: str, cache: Cache, modelo: str = "gemini-embedding-001", dimension: int = 768, lote: int = 100
+    ) -> None:
+        self.clave_api, self.cache, self.modelo, self.dimension, self.lote = clave_api, cache, modelo, dimension, lote
+        self.nombre = f"{modelo}/{dimension}"
+
+    def _pedir(self, textos: Sequence[str], tarea: str) -> list[list[float]]:
+        cuerpo = {
+            "requests": [
+                {
+                    "model": f"models/{self.modelo}",
+                    "content": {"parts": [{"text": t}]},
+                    "taskType": tarea,
+                    "outputDimensionality": self.dimension,
+                }
+                for t in textos
+            ]
+        }
+        peticion = urllib.request.Request(
+            URL.format(modelo=self.modelo),
+            data=json.dumps(cuerpo).encode("utf-8"),
+            headers={"Content-Type": "application/json", "x-goog-api-key": self.clave_api},
+        )
+        with urllib.request.urlopen(peticion, timeout=60) as r:
+            datos = json.loads(r.read())
+        return [normalizar(e["values"]) for e in datos["embeddings"]]
+
+    def _con_cache(self, textos: Sequence[str], tarea: str) -> list[list[float]]:
+        claves = [Cache.clave(self.nombre, tarea, t) for t in textos]
+        vectores: list[list[float] | None] = [self.cache.leer(c) for c in claves]
+        faltan = [i for i, v in enumerate(vectores) if v is None]
+        for inicio in range(0, len(faltan), self.lote):
+            grupo = faltan[inicio : inicio + self.lote]
+            for i, v in zip(grupo, self._pedir([textos[i] for i in grupo], tarea), strict=True):
+                self.cache.guardar(claves[i], v)
+                vectores[i] = v
+        return [v for v in vectores if v is not None]
+
+    def documentos(self, textos: Sequence[str]) -> list[list[float]]:
+        return self._con_cache(textos, "RETRIEVAL_DOCUMENT")
+
+    def consulta(self, texto: str) -> list[float]:
+        return self._con_cache([texto], "RETRIEVAL_QUERY")[0]

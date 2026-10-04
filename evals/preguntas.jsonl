@@ -1,0 +1,38 @@
+{"pregunta": "¿Cómo compruebo si una variable es un número entero?", "esperado": ["isinstance"]}
+{"pregunta": "¿Cómo se deben nombrar las variables en Python?", "esperado": ["Convenciones de nombres"]}
+{"pregunta": "Convertir un texto a número", "esperado": ["Conversión de tipos"]}
+{"pregunta": "¿Qué diferencia hay entre is y ==?", "esperado": ["identidad y pertenencia", "Comparar strings con =="]}
+{"pregunta": "¿Cómo meto el valor de una variable dentro de un texto?", "esperado": ["F-strings"]}
+{"pregunta": "Quitar los espacios del principio y del final de una cadena", "esperado": ["Métodos de string"]}
+{"pregunta": "¿Cómo pido un dato al usuario por teclado?", "esperado": ["Entrada y salida"]}
+{"pregunta": "Repetir algo mientras el usuario no acierte la contraseña", "esperado": ["Bucle while"]}
+{"pregunta": "¿Cómo recorro una lista con su índice?", "esperado": ["Bucle for", "Listas"]}
+{"pregunta": "Añadir y quitar elementos de una lista", "esperado": ["Listas"]}
+{"pregunta": "¿Para qué sirve una tupla si ya existen las listas?", "esperado": ["Tuplas"]}
+{"pregunta": "Obtener un valor de un diccionario sin que falle si no existe la clave", "esperado": ["Diccionarios"]}
+{"pregunta": "Quitar duplicados de una lista", "esperado": ["Conjuntos", "Listas"]}
+{"pregunta": "¿Qué son *args y **kwargs?", "esperado": ["Funciones"]}
+{"pregunta": "Crear una lista con los cuadrados de los números del 1 al 10 en una línea", "esperado": ["Comprehensions"]}
+{"pregunta": "¿Cómo capturo un error para que el programa no se cierre?", "esperado": ["Manejo de errores"]}
+{"pregunta": "Leer un fichero de texto línea a línea", "esperado": ["Ficheros", "Open sin encoding"]}
+{"pregunta": "¿Qué es una clase y cómo funciona __init__?", "esperado": ["Programación orientada a objetos"]}
+{"pregunta": "Medir cuánto tarda en ejecutarse una función con un decorador", "esperado": ["Decoradores"]}
+{"pregunta": "¿Qué hace yield?", "esperado": ["Generadores"]}
+{"pregunta": "¿Para qué sirve with?", "esperado": ["Context managers"]}
+{"pregunta": "Anotaciones de tipo y mypy", "esperado": ["Tipado estático"]}
+{"pregunta": "Validar un correo electrónico con regex", "esperado": ["Expresiones regulares"]}
+{"pregunta": "Descargar muchas páginas web a la vez", "esperado": ["Concurrencia", "Async"]}
+{"pregunta": "¿Cómo escribo tests automáticos?", "esperado": ["Testing"]}
+{"pregunta": "Usar print para depurar no es buena idea, ¿qué uso en su lugar?", "esperado": ["Logging", "Debugging"]}
+{"pregunta": "Crear un entorno virtual e instalar paquetes", "esperado": ["Gestión de paquetes y entornos"]}
+{"pregunta": "¿Qué framework uso para hacer una API?", "esperado": ["Desarrollo web", "HTTP y web"]}
+{"pregunta": "Hacer peticiones HTTP a una API REST", "esperado": ["HTTP y APIs", "HTTP y web"]}
+{"pregunta": "Analizar un CSV con pandas", "esperado": ["Ciencia de datos", "Data science"]}
+{"pregunta": "¿Qué es match case?", "esperado": ["Pattern matching"]}
+{"pregunta": "¿Por qué mi lista por defecto en una función acumula valores entre llamadas?", "esperado": ["Mutabilidad en parámetros por defecto"]}
+{"pregunta": "He copiado una lista y al cambiar la copia cambia la original", "esperado": ["Referencias vs copias"]}
+{"pregunta": "¿Por qué 0.1 + 0.2 no da 0.3?", "esperado": ["Float y precisión"]}
+{"pregunta": "Mi programa va lento, ¿cómo sé qué parte tarda más?", "esperado": ["Rendimiento y profiling"]}
+{"pregunta": "Ejercicios para practicar diccionarios", "esperado": ["Banco de ejercicios por tema y nivel › Diccionarios"]}
+{"pregunta": "¿Qué debería aprender después de lo básico?", "esperado": ["Hoja de ruta"]}
+{"pregunta": "Libros gratis para aprender Python en español", "esperado": ["Libros gratuitos", "En español"]}

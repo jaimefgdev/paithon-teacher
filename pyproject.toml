@@ -1,0 +1,45 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "paithon-teacher"
+version = "0.1.0"
+description = "PyMentor: tutor de Python en español con RAG (BM25 + embeddings, respuestas citadas)."
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "Jaime Fernández González" }]
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+web = ["fastapi>=0.115", "uvicorn>=0.30"]
+claude = ["anthropic>=0.40"]
+dev = ["pytest>=8", "httpx>=0.27", "ruff>=0.6", "mypy>=1.11", "fastapi>=0.115"]
+
+[project.scripts]
+paithon = "paithon.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/paithon"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "tests"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF"]
+ignore = ["RUF001", "RUF002", "RUF003", "SIM905"]  # texto en español con «», ›, —; listas de palabras como texto
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+files = ["src/paithon"]
+
+[[tool.mypy.overrides]]
+module = ["anthropic", "uvicorn"]
+ignore_missing_imports = true
