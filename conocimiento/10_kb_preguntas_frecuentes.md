@@ -26,9 +26,9 @@ DIFERENCIA ENTRE == E IS
 ```python
 a = [1, 2]
 b = [1, 2]
-a == b      # True: mismo contenido
-a is b      # False: dos listas distintas
-x is None   # la forma correcta de comparar con None (también True y False en casos concretos)
+a == b  # True: mismo contenido
+a is b  # False: dos listas distintas
+x is None  # la forma correcta de comparar con None (también True y False en casos concretos)
 ```
 
 `is` con números o textos puede dar resultados sorprendentes porque Python reutiliza algunos
@@ -38,23 +38,23 @@ APPEND, EXTEND, INSERT Y EL OPERADOR +
 
 ```python
 a = [1, 2]
-a.append([3, 4])    # [1, 2, [3, 4]] → añade UN elemento (aunque sea una lista)
+a.append([3, 4])  # [1, 2, [3, 4]] → añade UN elemento (aunque sea una lista)
 a = [1, 2]
-a.extend([3, 4])    # [1, 2, 3, 4] → añade cada elemento
-a.insert(0, 99)     # [99, 1, 2, 3, 4] → en una posición
-b = a + [5]         # lista NUEVA; a no cambia
-a += [5]            # modifica a (como extend)
+a.extend([3, 4])  # [1, 2, 3, 4] → añade cada elemento
+a.insert(0, 99)  # [99, 1, 2, 3, 4] → en una posición
+b = a + [5]  # lista NUEVA; a no cambia
+a += [5]  # modifica a (como extend)
 ```
 
 REMOVE, POP, DEL Y CLEAR
 
 ```python
 x = ["a", "b", "c", "b"]
-x.remove("b")       # quita la PRIMERA aparición del valor → ['a', 'c', 'b'] (ValueError si no está)
-x.pop()             # quita y DEVUELVE el último → 'b'
-x.pop(0)            # quita y devuelve el de la posición 0 → 'a'
-del x[0]            # borra por posición (o un rango: del x[1:3]); no devuelve nada
-x.clear()           # vacía la lista
+x.remove("b")  # quita la PRIMERA aparición del valor → ['a', 'c', 'b'] (ValueError si no está)
+x.pop()  # quita y DEVUELVE el último → 'b'
+x.pop(0)  # quita y devuelve el de la posición 0 → 'a'
+del x[0]  # borra por posición (o un rango: del x[1:3]); no devuelve nada
+x.clear()  # vacía la lista
 
 # Quitar TODAS las apariciones de un valor
 x = [v for v in x if v != "b"]
@@ -91,11 +91,13 @@ PRINT FRENTE A RETURN
 def doble_print(x):
     print(x * 2)
 
+
 def doble_return(x):
     return x * 2
 
-resultado = doble_print(5)      # muestra 10, pero resultado es None
-resultado = doble_return(5)     # no muestra nada, resultado es 10
+
+resultado = doble_print(5)  # muestra 10, pero resultado es None
+resultado = doble_return(5)  # no muestra nada, resultado es 10
 ```
 
 En el REPL parece lo mismo porque el intérprete muestra el valor devuelto; en un script, no.
@@ -118,12 +120,12 @@ ITERABLE, ITERADOR Y GENERADOR
   los valores bajo demanda, sin guardarlos todos en memoria.
 
 ```python
-numeros = [1, 2, 3]         # iterable: se puede recorrer muchas veces
+numeros = [1, 2, 3]  # iterable: se puede recorrer muchas veces
 it = iter(numeros)
-next(it), next(it)          # 1, 2
+next(it), next(it)  # 1, 2
 gen = (x * 2 for x in numeros)
-list(gen)                   # [2, 4, 6]
-list(gen)                   # [] → el generador ya se agotó
+list(gen)  # [2, 4, 6]
+list(gen)  # [] → el generador ya se agotó
 ```
 
 ARGUMENTOS Y PARÁMETROS
@@ -159,23 +161,25 @@ Cada módulo tiene la variable `__name__`. Si ejecutas el fichero directamente, 
 def sumar(a, b):
     return a + b
 
+
 if __name__ == "__main__":
-    print(sumar(2, 3))      # solo al hacer: python mi_modulo.py
+    print(sumar(2, 3))  # solo al hacer: python mi_modulo.py
 ```
 
 LOS USOS DEL GUION BAJO
 
 ```python
-for _ in range(3):          # variable que no se usa
+for _ in range(3):  # variable que no se usa
     ...
-nombre, _, edad = datos     # ignorar un valor al desempaquetar
-_interno = 1                # convención: «uso interno»
-__privado = 2               # en clases: cambio de nombre para evitar choques
-__init__                    # métodos especiales («dunder»: double underscore)
-1_000_000                   # separador de miles en números
-_                           # en el REPL: el último resultado
+nombre, _, edad = datos  # ignorar un valor al desempaquetar
+_interno = 1  # convención: «uso interno»
+__privado = 2  # en clases: cambio de nombre para evitar choques
+__init__  # métodos especiales («dunder»: double underscore)
+1_000_000  # separador de miles en números
+_  # en el REPL: el último resultado
 match x:
-    case _: ...             # en match: cualquier valor
+    case _:
+        ...  # en match: cualquier valor
 ```
 
 QUÉ SON *ARGS Y **KWARGS
@@ -185,8 +189,9 @@ nombre sobrantes en un diccionario. Los nombres son convención: lo que importa 
 
 ```python
 def info(*args, **kwargs):
-    print(args)     # (1, 2)
-    print(kwargs)   # {'a': 3}
+    print(args)  # (1, 2)
+    print(kwargs)  # {'a': 3}
+
 
 info(1, 2, a=3)
 ```
@@ -224,8 +229,8 @@ QUITAR DUPLICADOS MANTENIENDO EL ORDEN
 
 ```python
 datos = [3, 1, 3, 2, 1]
-list(dict.fromkeys(datos))      # [3, 1, 2] → conserva el orden
-list(set(datos))                # sin repetidos, pero sin orden garantizado
+list(dict.fromkeys(datos))  # [3, 1, 2] → conserva el orden
+list(set(datos))  # sin repetidos, pero sin orden garantizado
 
 # Con objetos no hashables (diccionarios), por un campo
 vistos, unicos = set(), []
@@ -239,8 +244,9 @@ APLANAR UNA LISTA DE LISTAS
 
 ```python
 anidada = [[1, 2], [3], [4, 5]]
-[x for sub in anidada for x in sub]         # [1, 2, 3, 4, 5]
+[x for sub in anidada for x in sub]  # [1, 2, 3, 4, 5]
 from itertools import chain
+
 list(chain.from_iterable(anidada))
 # Para anidamientos de profundidad variable: una función recursiva
 ```
@@ -249,31 +255,33 @@ DIVIDIR UNA LISTA EN TROZOS
 
 ```python
 def trozos(lista, n):
-    return [lista[i:i + n] for i in range(0, len(lista), n)]
+    return [lista[i : i + n] for i in range(0, len(lista), n)]
 
-trozos([1, 2, 3, 4, 5], 2)      # [[1, 2], [3, 4], [5]]
 
-from itertools import batched   # Python 3.12+
-list(batched([1, 2, 3, 4, 5], 2))   # [(1, 2), (3, 4), (5,)]
+trozos([1, 2, 3, 4, 5], 2)  # [[1, 2], [3, 4], [5]]
+
+from itertools import batched  # Python 3.12+
+
+list(batched([1, 2, 3, 4, 5], 2))  # [(1, 2), (3, 4), (5,)]
 ```
 
 ENCONTRAR LA POSICIÓN DE UN ELEMENTO
 
 ```python
 frutas = ["pera", "uva", "pera"]
-frutas.index("uva")                             # 1 (ValueError si no está)
-[i for i, f in enumerate(frutas) if f == "pera"]   # [0, 2] → todas las posiciones
-"kiwi" in frutas                                # comprobar antes de index
-frutas.count("pera")                            # 2
+frutas.index("uva")  # 1 (ValueError si no está)
+[i for i, f in enumerate(frutas) if f == "pera"]  # [0, 2] → todas las posiciones
+"kiwi" in frutas  # comprobar antes de index
+frutas.count("pera")  # 2
 ```
 
 INVERTIR UN DICCIONARIO Y BUSCAR LA CLAVE DE UN VALOR
 
 ```python
 precios = {"pan": 1.2, "leche": 0.9}
-invertido = {v: k for k, v in precios.items()}      # valor → clave (si los valores son únicos)
-claves = [k for k, v in precios.items() if v == 0.9]   # claves con ese valor
-max(precios, key=precios.get)                       # 'pan' → la clave del valor máximo
+invertido = {v: k for k, v in precios.items()}  # valor → clave (si los valores son únicos)
+claves = [k for k, v in precios.items() if v == 0.9]  # claves con ese valor
+max(precios, key=precios.get)  # 'pan' → la clave del valor máximo
 ```
 
 FUSIONAR Y ACTUALIZAR DICCIONARIOS
@@ -281,12 +289,13 @@ FUSIONAR Y ACTUALIZAR DICCIONARIOS
 ```python
 a = {"x": 1, "y": 2}
 b = {"y": 20, "z": 30}
-a | b                   # {'x': 1, 'y': 20, 'z': 30} (Python 3.9+; gana el de la derecha)
-{**a, **b}              # lo mismo en versiones anteriores
-a |= b                  # actualiza a (igual que a.update(b))
+a | b  # {'x': 1, 'y': 20, 'z': 30} (Python 3.9+; gana el de la derecha)
+{**a, **b}  # lo mismo en versiones anteriores
+a |= b  # actualiza a (igual que a.update(b))
 
 # Sumar valores de claves repetidas
 from collections import Counter
+
 Counter(a) + Counter(b)
 ```
 
@@ -294,7 +303,8 @@ ACCEDER A DATOS ANIDADOS SIN ERRORES
 
 ```python
 usuario = {"perfil": {"direccion": {"ciudad": "Madrid"}}}
-usuario.get("perfil", {}).get("direccion", {}).get("ciudad")   # 'Madrid' o None
+usuario.get("perfil", {}).get("direccion", {}).get("ciudad")  # 'Madrid' o None
+
 
 def obtener(datos, *claves, defecto=None):
     for clave in claves:
@@ -304,22 +314,24 @@ def obtener(datos, *claves, defecto=None):
             return defecto
     return datos
 
+
 obtener(usuario, "perfil", "direccion", "ciudad")
 ```
 
 CONVERTIR ENTRE LISTAS, TEXTOS Y DICCIONARIOS
 
 ```python
-" ".join(["hola", "mundo"])         # lista → texto
-"a,b,c".split(",")                  # texto → lista
-list("hola")                        # ['h', 'o', 'l', 'a']
-dict(zip(["a", "b"], [1, 2]))       # dos listas → dict {'a': 1, 'b': 2}
-list(d.items())                     # dict → lista de tuplas
-dict([("a", 1), ("b", 2)])          # lista de pares → dict
-list(map(int, "1 2 3".split()))     # [1, 2, 3]
-str([1, 2])                         # '[1, 2]'
+" ".join(["hola", "mundo"])  # lista → texto
+"a,b,c".split(",")  # texto → lista
+list("hola")  # ['h', 'o', 'l', 'a']
+dict(zip(["a", "b"], [1, 2]))  # dos listas → dict {'a': 1, 'b': 2}
+list(d.items())  # dict → lista de tuplas
+dict([("a", 1), ("b", 2)])  # lista de pares → dict
+list(map(int, "1 2 3".split()))  # [1, 2, 3]
+str([1, 2])  # '[1, 2]'
 import ast
-ast.literal_eval("[1, 2, 3]")       # texto con una lista de Python → lista (seguro; nunca eval)
+
+ast.literal_eval("[1, 2, 3]")  # texto con una lista de Python → lista (seguro; nunca eval)
 ```
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -330,11 +342,12 @@ CONTAR PALABRAS Y LETRAS
 
 ```python
 texto = "el gato y el perro"
-len(texto.split())                          # 5 palabras
+len(texto.split())  # 5 palabras
 from collections import Counter
-Counter(texto.split()).most_common(1)       # [('el', 2)]
-Counter(c for c in texto if c.isalpha())    # frecuencia de cada letra
-texto.count("el")                           # 2 (cuenta subcadenas, también dentro de palabras)
+
+Counter(texto.split()).most_common(1)  # [('el', 2)]
+Counter(c for c in texto if c.isalpha())  # frecuencia de cada letra
+texto.count("el")  # 2 (cuenta subcadenas, también dentro de palabras)
 ```
 
 COMPROBAR SI UN TEXTO ES UN NÚMERO
@@ -347,7 +360,8 @@ def es_numero(texto: str) -> bool:
     except ValueError:
         return False
 
-"42".isdigit()      # True, pero "-5" y "3.5" dan False → mejor intentar convertir
+
+"42".isdigit()  # True, pero "-5" y "3.5" dan False → mejor intentar convertir
 ```
 
 VALIDAR UN EMAIL, UN DNI O UN TELÉFONO
@@ -355,9 +369,11 @@ VALIDAR UN EMAIL, UN DNI O UN TELÉFONO
 ```python
 import re
 
+
 def email_valido(email: str) -> bool:
     # Comprobación razonable de formato; la única prueba real es enviar un correo
     return re.fullmatch(r"[^@\s]+@[^@\s]+\.[a-zA-Z]{2,}", email) is not None
+
 
 def dni_valido(dni: str) -> bool:
     letras = "TRWAGMYFPDXBNJZSQVHLCKE"
@@ -366,7 +382,8 @@ def dni_valido(dni: str) -> bool:
         return False
     return letras[int(dni[:8]) % 23] == dni[8]
 
-def telefono_es(telefono: str) -> bool:     # móviles y fijos españoles de 9 cifras
+
+def telefono_es(telefono: str) -> bool:  # móviles y fijos españoles de 9 cifras
     limpio = re.sub(r"[\s\-]", "", telefono).removeprefix("+34")
     return re.fullmatch(r"[6789]\d{8}", limpio) is not None
 ```
@@ -375,11 +392,12 @@ FORMATEAR DINERO Y PORCENTAJES EN ESPAÑOL
 
 ```python
 def euros(cantidad: float) -> str:
-    texto = f"{cantidad:,.2f}"                              # '1,234.50'
+    texto = f"{cantidad:,.2f}"  # '1,234.50'
     return texto.replace(",", "_").replace(".", ",").replace("_", ".") + " €"
 
-euros(1234.5)           # '1.234,50 €'
-f"{0.215:.1%}".replace(".", ",")    # '21,5%'
+
+euros(1234.5)  # '1.234,50 €'
+f"{0.215:.1%}".replace(".", ",")  # '21,5%'
 ```
 
 LEER Y ESCRIBIR UN FICHERO DE TEXTO SIN COMPLICACIONES
@@ -387,14 +405,14 @@ LEER Y ESCRIBIR UN FICHERO DE TEXTO SIN COMPLICACIONES
 ```python
 from pathlib import Path
 
-texto = Path("notas.txt").read_text(encoding="utf-8")          # todo de una vez
+texto = Path("notas.txt").read_text(encoding="utf-8")  # todo de una vez
 lineas = Path("notas.txt").read_text(encoding="utf-8").splitlines()
-Path("salida.txt").write_text("hola\n", encoding="utf-8")       # sobrescribe
+Path("salida.txt").write_text("hola\n", encoding="utf-8")  # sobrescribe
 
-with open("registro.txt", "a", encoding="utf-8") as f:          # añadir al final
+with open("registro.txt", "a", encoding="utf-8") as f:  # añadir al final
     f.write("nueva línea\n")
 
-if Path("config.json").exists():                                # comprobar si existe
+if Path("config.json").exists():  # comprobar si existe
     ...
 ```
 
@@ -403,7 +421,7 @@ RECORRER TODOS LOS FICHEROS DE UNA CARPETA
 ```python
 from pathlib import Path
 
-for ruta in Path("documentos").rglob("*.pdf"):      # incluye subcarpetas
+for ruta in Path("documentos").rglob("*.pdf"):  # incluye subcarpetas
     print(ruta.name, ruta.stat().st_size)
 
 # Renombrar en bloque: foto1.jpg → vacaciones_001.jpg
@@ -418,7 +436,7 @@ import time
 
 while True:
     comprobar_algo()
-    time.sleep(60)          # cada minuto (el programa debe seguir abierto)
+    time.sleep(60)  # cada minuto (el programa debe seguir abierto)
 ```
 
 Para tareas programadas de verdad: el Programador de tareas de Windows, `cron` en Linux/macOS,

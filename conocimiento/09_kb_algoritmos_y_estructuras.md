@@ -49,13 +49,14 @@ BÚSQUEDA Y ORDENACIÓN
 BÚSQUEDA LINEAL Y BÚSQUEDA BINARIA
 
 ```python
-def busqueda_lineal(lista, objetivo):          # O(n), vale para listas sin ordenar
+def busqueda_lineal(lista, objetivo):  # O(n), vale para listas sin ordenar
     for i, x in enumerate(lista):
         if x == objetivo:
             return i
     return -1
 
-def busqueda_binaria(lista, objetivo):         # O(log n), la lista DEBE estar ordenada
+
+def busqueda_binaria(lista, objetivo):  # O(log n), la lista DEBE estar ordenada
     izquierda, derecha = 0, len(lista) - 1
     while izquierda <= derecha:
         medio = (izquierda + derecha) // 2
@@ -67,8 +68,10 @@ def busqueda_binaria(lista, objetivo):         # O(log n), la lista DEBE estar o
             derecha = medio - 1
     return -1
 
+
 # En la práctica: el módulo bisect
 import bisect
+
 i = bisect.bisect_left(lista, objetivo)
 encontrado = i < len(lista) and lista[i] == objetivo
 ```
@@ -83,13 +86,14 @@ def burbuja(lista):
     n = len(datos)
     for i in range(n):
         intercambiado = False
-        for j in range(n - 1 - i):              # los últimos i ya están en su sitio
+        for j in range(n - 1 - i):  # los últimos i ya están en su sitio
             if datos[j] > datos[j + 1]:
                 datos[j], datos[j + 1] = datos[j + 1], datos[j]
                 intercambiado = True
-        if not intercambiado:                   # si no hubo cambios, ya está ordenada
+        if not intercambiado:  # si no hubo cambios, ya está ordenada
             break
     return datos
+
 
 def seleccion(lista):
     datos = lista[:]
@@ -98,12 +102,13 @@ def seleccion(lista):
         datos[i], datos[minimo] = datos[minimo], datos[i]
     return datos
 
+
 def insercion(lista):
     datos = lista[:]
     for i in range(1, len(datos)):
         actual = datos[i]
         j = i - 1
-        while j >= 0 and datos[j] > actual:     # desplaza los mayores a la derecha
+        while j >= 0 and datos[j] > actual:  # desplaza los mayores a la derecha
             datos[j + 1] = datos[j]
             j -= 1
         datos[j + 1] = actual
@@ -115,7 +120,7 @@ La inserción es rápida con listas casi ordenadas, y por eso Timsort la usa por
 MERGE SORT Y QUICKSORT
 
 ```python
-def merge_sort(lista):                          # O(n log n) siempre, estable
+def merge_sort(lista):  # O(n log n) siempre, estable
     if len(lista) <= 1:
         return lista
     medio = len(lista) // 2
@@ -123,12 +128,15 @@ def merge_sort(lista):                          # O(n log n) siempre, estable
     resultado, i, j = [], 0, 0
     while i < len(izq) and j < len(der):
         if izq[i] <= der[j]:
-            resultado.append(izq[i]); i += 1
+            resultado.append(izq[i])
+            i += 1
         else:
-            resultado.append(der[j]); j += 1
+            resultado.append(der[j])
+            j += 1
     return resultado + izq[i:] + der[j:]
 
-def quicksort(lista):                           # O(n log n) de media, O(n²) en el peor caso
+
+def quicksort(lista):  # O(n log n) de media, O(n²) en el peor caso
     if len(lista) <= 1:
         return lista
     pivote = lista[len(lista) // 2]
@@ -155,13 +163,15 @@ PENSAR DE FORMA RECURSIVA
 def potencia(base, exp):
     if exp == 0:
         return 1
-    mitad = potencia(base, exp // 2)            # divide y vencerás: O(log n)
+    mitad = potencia(base, exp // 2)  # divide y vencerás: O(log n)
     return mitad * mitad * (base if exp % 2 else 1)
+
 
 def es_palindromo(texto):
     if len(texto) <= 1:
         return True
     return texto[0] == texto[-1] and es_palindromo(texto[1:-1])
+
 
 def torres_hanoi(n, origen="A", destino="C", auxiliar="B"):
     if n == 0:
@@ -178,11 +188,15 @@ MEMOIZACIÓN Y FIBONACCI
 def fib_lento(n):
     return n if n < 2 else fib_lento(n - 1) + fib_lento(n - 2)
 
+
 # Con memoización: O(n), cada valor se calcula una vez
 from functools import cache
+
+
 @cache
 def fib(n):
     return n if n < 2 else fib(n - 1) + fib(n - 2)
+
 
 # Iterativo: O(n) y sin límite de recursión
 def fib_iterativo(n):
@@ -201,22 +215,25 @@ resultados en una tabla.
 def minimo_monedas(monedas, cantidad):
     """Menor número de monedas para pagar exacto, o -1 si no se puede."""
     INF = float("inf")
-    dp = [0] + [INF] * cantidad                 # dp[x] = monedas mínimas para x
+    dp = [0] + [INF] * cantidad  # dp[x] = monedas mínimas para x
     for x in range(1, cantidad + 1):
         for m in monedas:
             if m <= x:
                 dp[x] = min(dp[x], dp[x - m] + 1)
     return dp[cantidad] if dp[cantidad] != INF else -1
 
-minimo_monedas([1, 5, 10, 25], 63)              # 6 (25+25+10+1+1+1)
+
+minimo_monedas([1, 5, 10, 25], 63)  # 6 (25+25+10+1+1+1)
+
 
 def mochila(pesos, valores, capacidad):
     """Máximo valor sin superar la capacidad (cada objeto una vez)."""
     dp = [0] * (capacidad + 1)
     for peso, valor in zip(pesos, valores):
-        for c in range(capacidad, peso - 1, -1):   # al revés para no reutilizar el objeto
+        for c in range(capacidad, peso - 1, -1):  # al revés para no reutilizar el objeto
             dp[c] = max(dp[c], dp[c - peso] + valor)
     return dp[capacidad]
+
 
 def subsecuencia_comun_mas_larga(a, b):
     dp = [[0] * (len(b) + 1) for _ in range(len(a) + 1)]
@@ -234,16 +251,19 @@ VUELTA ATRÁS: PERMUTACIONES Y SUBCONJUNTOS
 ```python
 def permutaciones(elementos):
     resultado = []
+
     def explorar(actual, restantes):
         if not restantes:
             resultado.append(actual[:])
             return
         for i in range(len(restantes)):
             actual.append(restantes[i])
-            explorar(actual, restantes[:i] + restantes[i + 1:])
-            actual.pop()                        # deshacer (backtracking)
+            explorar(actual, restantes[:i] + restantes[i + 1 :])
+            actual.pop()  # deshacer (backtracking)
+
     explorar([], elementos)
     return resultado
+
 
 def subconjuntos(elementos):
     resultado = [[]]
@@ -251,7 +271,8 @@ def subconjuntos(elementos):
         resultado += [s + [x] for s in resultado]
     return resultado
 
-subconjuntos([1, 2, 3])     # 8 subconjuntos, del vacío a [1, 2, 3]
+
+subconjuntos([1, 2, 3])  # 8 subconjuntos, del vacío a [1, 2, 3]
 ```
 
 En código real, `itertools.permutations` y `itertools.combinations` hacen esto por ti.
@@ -265,15 +286,19 @@ PILAS Y COLAS
 ```python
 # Pila (LIFO: el último en entrar es el primero en salir): una lista
 pila = []
-pila.append(1); pila.append(2)
-pila.pop()          # 2
-pila[-1]            # ver la cima sin sacarla
+pila.append(1)
+pila.append(2)
+pila.pop()  # 2
+pila[-1]  # ver la cima sin sacarla
 
 # Cola (FIFO: el primero en entrar es el primero en salir): deque
 from collections import deque
+
 cola = deque()
-cola.append("a"); cola.append("b")
-cola.popleft()      # 'a'
+cola.append("a")
+cola.append("b")
+cola.popleft()  # 'a'
+
 
 # Paréntesis equilibrados con una pila
 def equilibrado(texto):
@@ -287,8 +312,9 @@ def equilibrado(texto):
                 return False
     return not pila
 
-equilibrado("{[()()]}")     # True
-equilibrado("([)]")         # False
+
+equilibrado("{[()()]}")  # True
+equilibrado("([)]")  # False
 ```
 
 LISTA ENLAZADA
@@ -299,11 +325,12 @@ class Nodo:
         self.valor = valor
         self.siguiente = siguiente
 
+
 class ListaEnlazada:
     def __init__(self):
         self.cabeza = None
 
-    def insertar_inicio(self, valor):           # O(1)
+    def insertar_inicio(self, valor):  # O(1)
         self.cabeza = Nodo(valor, self.cabeza)
 
     def __iter__(self):
@@ -331,6 +358,7 @@ class NodoArbol:
         self.izq = None
         self.der = None
 
+
 def insertar(raiz, valor):
     if raiz is None:
         return NodoArbol(valor)
@@ -340,19 +368,22 @@ def insertar(raiz, valor):
         raiz.der = insertar(raiz.der, valor)
     return raiz
 
-def en_orden(raiz):                 # izquierda, raíz, derecha → valores ordenados
+
+def en_orden(raiz):  # izquierda, raíz, derecha → valores ordenados
     if raiz:
         yield from en_orden(raiz.izq)
         yield raiz.valor
         yield from en_orden(raiz.der)
 
+
 def altura(raiz):
     return 0 if raiz is None else 1 + max(altura(raiz.izq), altura(raiz.der))
+
 
 raiz = None
 for v in [8, 3, 10, 1, 6]:
     raiz = insertar(raiz, v)
-list(en_orden(raiz))                # [1, 3, 6, 8, 10]
+list(en_orden(raiz))  # [1, 3, 6, 8, 10]
 ```
 
 Recorridos: preorden (raíz, izq, der), en orden (izq, raíz, der), postorden (izq, der, raíz) y
@@ -373,6 +404,7 @@ grafo = {
     "F": [],
 }
 
+
 def bfs(grafo, inicio, fin):
     """Camino más corto (en número de pasos) con búsqueda en anchura."""
     cola = deque([[inicio]])
@@ -388,6 +420,7 @@ def bfs(grafo, inicio, fin):
                 cola.append(camino + [vecino])
     return None
 
+
 def dfs(grafo, nodo, vistos=None):
     """Todos los nodos alcanzables, con búsqueda en profundidad."""
     if vistos is None:
@@ -398,7 +431,8 @@ def dfs(grafo, nodo, vistos=None):
             dfs(grafo, vecino, vistos)
     return vistos
 
-bfs(grafo, "A", "F")        # ['A', 'B', 'D', 'F']
+
+bfs(grafo, "A", "F")  # ['A', 'B', 'D', 'F']
 ```
 
 Para caminos con distancias o pesos distintos se usa el algoritmo de Dijkstra (con `heapq`), y
@@ -408,6 +442,7 @@ DIJKSTRA: CAMINO MÁS CORTO CON PESOS
 
 ```python
 import heapq
+
 
 def dijkstra(grafo, inicio):
     """grafo = {'A': [('B', 4), ('C', 1)], ...}  →  distancia mínima a cada nodo."""
@@ -434,7 +469,7 @@ DOS NÚMEROS QUE SUMAN UN OBJETIVO
 ```python
 def dos_suma(numeros, objetivo):
     """Índices de dos números que suman objetivo. O(n) con un diccionario."""
-    vistos = {}                                 # valor → índice
+    vistos = {}  # valor → índice
     for i, n in enumerate(numeros):
         complemento = objetivo - n
         if complemento in vistos:
@@ -442,7 +477,8 @@ def dos_suma(numeros, objetivo):
         vistos[n] = i
     return None
 
-dos_suma([2, 7, 11, 15], 9)     # (0, 1)
+
+dos_suma([2, 7, 11, 15], 9)  # (0, 1)
 ```
 
 La versión con dos bucles anidados es O(n²); el diccionario la convierte en O(n).
@@ -452,26 +488,32 @@ ANAGRAMAS, PALÍNDROMOS Y CONTAR PALABRAS
 ```python
 from collections import Counter
 
+
 def son_anagramas(a, b):
     limpiar = lambda s: s.replace(" ", "").lower()
     return Counter(limpiar(a)) == Counter(limpiar(b))
+
 
 def es_palindromo(texto):
     solo_letras = [c.lower() for c in texto if c.isalnum()]
     return solo_letras == solo_letras[::-1]
 
-es_palindromo("Anita lava la tina")     # True
+
+es_palindromo("Anita lava la tina")  # True
+
 
 def palabras_frecuentes(texto, n=3):
     palabras = texto.lower().split()
     return Counter(p.strip(".,;:¡!¿?") for p in palabras).most_common(n)
 
+
 # Agrupar palabras que son anagramas entre sí
 from collections import defaultdict
+
 grupos = defaultdict(list)
 for palabra in ["roma", "amor", "mora", "sol"]:
     grupos["".join(sorted(palabra))].append(palabra)
-list(grupos.values())       # [['roma', 'amor', 'mora'], ['sol']]
+list(grupos.values())  # [['roma', 'amor', 'mora'], ['sol']]
 ```
 
 NÚMEROS PRIMOS Y CRIBA DE ERATÓSTENES
@@ -482,21 +524,24 @@ def es_primo(n):
         return False
     if n % 2 == 0:
         return n == 2
-    for d in range(3, int(n ** 0.5) + 1, 2):    # basta probar hasta la raíz cuadrada
+    for d in range(3, int(n**0.5) + 1, 2):  # basta probar hasta la raíz cuadrada
         if n % d == 0:
             return False
     return True
+
 
 def criba(limite):
     """Todos los primos hasta limite. O(n log log n)."""
     es_primo = [True] * (limite + 1)
     es_primo[0:2] = [False, False]
-    for i in range(2, int(limite ** 0.5) + 1):
+    for i in range(2, int(limite**0.5) + 1):
         if es_primo[i]:
-            es_primo[i * i::i] = [False] * len(range(i * i, limite + 1, i))
+            es_primo[i * i :: i] = [False] * len(range(i * i, limite + 1, i))
     return [i for i, p in enumerate(es_primo) if p]
 
-criba(30)       # [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
+
+criba(30)  # [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
+
 
 def factorizar(n):
     factores, d = [], 2
@@ -509,7 +554,8 @@ def factorizar(n):
         factores.append(n)
     return factores
 
-factorizar(360)     # [2, 2, 2, 3, 3, 5]
+
+factorizar(360)  # [2, 2, 2, 3, 3, 5]
 ```
 
 FIZZBUZZ, MÁXIMO SIN MAX Y OTROS CLÁSICOS
@@ -525,32 +571,39 @@ for i in range(1, 101):
     else:
         print(i)
 
-def maximo(numeros):                    # sin usar max()
+
+def maximo(numeros):  # sin usar max()
     mayor = numeros[0]
     for n in numeros[1:]:
         if n > mayor:
             mayor = n
     return mayor
 
+
 def segundo_mayor(numeros):
     distintos = sorted(set(numeros), reverse=True)
     return distintos[1] if len(distintos) > 1 else None
 
+
 def invertir_palabras(frase):
     return " ".join(reversed(frase.split()))
+
 
 def contar_vocales(texto):
     return sum(1 for c in texto.lower() if c in "aeiouáéíóú")
 
+
 def es_bisiesto(año):
     return año % 4 == 0 and (año % 100 != 0 or año % 400 == 0)
 
-def mcd(a, b):                          # algoritmo de Euclides (o math.gcd)
+
+def mcd(a, b):  # algoritmo de Euclides (o math.gcd)
     while b:
         a, b = b, a % b
     return a
 
-def decimal_a_binario(n):               # sin usar bin()
+
+def decimal_a_binario(n):  # sin usar bin()
     if n == 0:
         return "0"
     digitos = []
@@ -576,6 +629,7 @@ def par_con_suma(ordenada, objetivo):
             j -= 1
     return None
 
+
 # Ventana deslizante: suma máxima de k elementos seguidos en O(n)
 def suma_maxima(numeros, k):
     ventana = sum(numeros[:k])
@@ -584,6 +638,7 @@ def suma_maxima(numeros, k):
         ventana += numeros[i] - numeros[i - k]  # entra uno, sale otro
         mejor = max(mejor, ventana)
     return mejor
+
 
 # Subcadena más larga sin caracteres repetidos
 def subcadena_sin_repetir(texto):
@@ -595,23 +650,24 @@ def subcadena_sin_repetir(texto):
         mejor = max(mejor, i - inicio + 1)
     return mejor
 
-subcadena_sin_repetir("abcabcbb")   # 3 ("abc")
+
+subcadena_sin_repetir("abcabcbb")  # 3 ("abc")
 ```
 
 MATRICES: TRANSPONER, ROTAR Y RECORRER
 
 ```python
-matriz = [[1, 2, 3],
-          [4, 5, 6]]
+matriz = [[1, 2, 3], [4, 5, 6]]
 
-transpuesta = [list(fila) for fila in zip(*matriz)]     # [[1, 4], [2, 5], [3, 6]]
-rotada_90 = [list(fila) for fila in zip(*matriz[::-1])] # giro en el sentido del reloj
+transpuesta = [list(fila) for fila in zip(*matriz)]  # [[1, 4], [2, 5], [3, 6]]
+rotada_90 = [list(fila) for fila in zip(*matriz[::-1])]  # giro en el sentido del reloj
 suma_total = sum(sum(fila) for fila in matriz)
 aplanada = [x for fila in matriz for x in fila]
 
 # Crear una matriz de ceros correctamente
 ceros = [[0] * 3 for _ in range(2)]
-mal = [[0] * 3] * 2             # MAL: las dos filas son la misma lista
+mal = [[0] * 3] * 2  # MAL: las dos filas son la misma lista
+
 
 # Vecinos de una celda (útil en juegos de tablero)
 def vecinos(m, f, c):

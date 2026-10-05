@@ -12,11 +12,11 @@ ARGPARSE: ARGUMENTOS DE UN SCRIPT
 import argparse
 
 parser = argparse.ArgumentParser(description="Redimensiona imágenes de una carpeta.")
-parser.add_argument("carpeta", help="carpeta con las imágenes")             # obligatorio
+parser.add_argument("carpeta", help="carpeta con las imágenes")  # obligatorio
 parser.add_argument("-a", "--ancho", type=int, default=800, help="ancho en píxeles")
 parser.add_argument("-v", "--verbose", action="store_true", help="más mensajes")
 parser.add_argument("--formato", choices=["jpg", "png", "webp"], default="jpg")
-parser.add_argument("--extensiones", nargs="+", default=[".jpg"])          # uno o más valores
+parser.add_argument("--extensiones", nargs="+", default=[".jpg"])  # uno o más valores
 args = parser.parse_args()
 
 print(args.carpeta, args.ancho, args.verbose)
@@ -35,16 +35,16 @@ SYS: ARGV, EXIT, STDIN Y PLATAFORMA
 ```python
 import sys
 
-sys.argv                # ['script.py', 'arg1', 'arg2'] → argumentos sin procesar
-sys.exit(0)             # terminar el programa (0 = bien; otro número = error)
-sys.exit("Falta el fichero")   # imprime el mensaje en stderr y sale con código 1
-sys.version             # versión de Python
+sys.argv  # ['script.py', 'arg1', 'arg2'] → argumentos sin procesar
+sys.exit(0)  # terminar el programa (0 = bien; otro número = error)
+sys.exit("Falta el fichero")  # imprime el mensaje en stderr y sale con código 1
+sys.version  # versión de Python
 sys.version_info >= (3, 10)
-sys.platform            # 'win32', 'linux', 'darwin' (macOS)
-sys.executable          # ruta del intérprete que se está usando (útil con entornos virtuales)
-sys.stderr.write("Error\n")    # o print("Error", file=sys.stderr)
+sys.platform  # 'win32', 'linux', 'darwin' (macOS)
+sys.executable  # ruta del intérprete que se está usando (útil con entornos virtuales)
+sys.stderr.write("Error\n")  # o print("Error", file=sys.stderr)
 
-for linea in sys.stdin:         # leer lo que llega por tubería: cat datos.txt | python script.py
+for linea in sys.stdin:  # leer lo que llega por tubería: cat datos.txt | python script.py
     procesar(linea.rstrip("\n"))
 ```
 
@@ -55,10 +55,10 @@ LIMPIAR LA PANTALLA, PAUSAR Y LEER CONTRASEÑAS
 ```python
 import os, time, getpass
 
-os.system("cls" if os.name == "nt" else "clear")   # limpiar la consola
-time.sleep(1.5)                                     # esperar 1,5 segundos
-input("Pulsa Intro para continuar...")              # pausar hasta que el usuario pulse Intro
-clave = getpass.getpass("Contraseña: ")             # no se ve lo que se escribe
+os.system("cls" if os.name == "nt" else "clear")  # limpiar la consola
+time.sleep(1.5)  # esperar 1,5 segundos
+input("Pulsa Intro para continuar...")  # pausar hasta que el usuario pulse Intro
+clave = getpass.getpass("Contraseña: ")  # no se ve lo que se escribe
 ```
 
 Para colores y tablas en la terminal: la librería `rich` (`from rich import print`).
@@ -74,14 +74,14 @@ Una fecha «naive» no tiene zona horaria; una «aware» sí. Mezclarlas da
 
 ```python
 from datetime import datetime, timezone
-from zoneinfo import ZoneInfo           # Python 3.9+ (en Windows: pip install tzdata)
+from zoneinfo import ZoneInfo  # Python 3.9+ (en Windows: pip install tzdata)
 
 ahora_utc = datetime.now(timezone.utc)
 madrid = datetime.now(ZoneInfo("Europe/Madrid"))
 canarias = madrid.astimezone(ZoneInfo("Atlantic/Canary"))
 
 reunion = datetime(2026, 3, 29, 10, 0, tzinfo=ZoneInfo("Europe/Madrid"))  # tiene en cuenta el cambio de hora
-reunion.utcoffset()                     # 2:00:00 (horario de verano)
+reunion.utcoffset()  # 2:00:00 (horario de verano)
 
 # datetime.utcnow() está obsoleto desde 3.12: usa datetime.now(timezone.utc)
 ```
@@ -93,12 +93,13 @@ ISO 8601, TIMESTAMPS Y PARSEO
 ```python
 from datetime import datetime, date
 
-datetime.now().isoformat()              # '2026-10-05T14:30:00.123456'
+datetime.now().isoformat()  # '2026-10-05T14:30:00.123456'
 datetime.fromisoformat("2026-10-05T14:30:00+02:00")
 date.fromisoformat("2026-10-05")
 
 import time
-time.time()                             # segundos desde 1970 (timestamp Unix)
+
+time.time()  # segundos desde 1970 (timestamp Unix)
 datetime.fromtimestamp(1700000000, tz=timezone.utc)
 datetime.now().timestamp()
 
@@ -112,7 +113,7 @@ español es más fiable una lista propia:
 
 ```python
 DIAS = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"]
-DIAS[date.today().weekday()]            # weekday(): lunes = 0
+DIAS[date.today().weekday()]  # weekday(): lunes = 0
 ```
 
 OPERACIONES HABITUALES CON FECHAS
@@ -127,17 +128,19 @@ nacimiento = date(1995, 7, 20)
 # Edad exacta
 edad = hoy.year - nacimiento.year - ((hoy.month, hoy.day) < (nacimiento.month, nacimiento.day))
 
-(date(2026, 12, 25) - hoy).days         # días hasta Navidad
-hoy + timedelta(days=30)                # dentro de 30 días
-hoy.isoweekday()                        # lunes = 1 ... domingo = 7
-hoy.isocalendar().week                  # número de semana ISO
-calendar.isleap(2028)                   # True: año bisiesto
-calendar.monthrange(2026, 2)            # (6, 28): día de la semana del día 1 y días del mes
-print(calendar.month(2026, 10))         # calendario del mes en texto
+(date(2026, 12, 25) - hoy).days  # días hasta Navidad
+hoy + timedelta(days=30)  # dentro de 30 días
+hoy.isoweekday()  # lunes = 1 ... domingo = 7
+hoy.isocalendar().week  # número de semana ISO
+calendar.isleap(2028)  # True: año bisiesto
+calendar.monthrange(2026, 2)  # (6, 28): día de la semana del día 1 y días del mes
+print(calendar.month(2026, 10))  # calendario del mes en texto
 
 # Sumar meses: timedelta no tiene meses → dateutil (pip install python-dateutil)
 from dateutil.relativedelta import relativedelta
+
 hoy + relativedelta(months=1)
+
 
 # Días laborables entre dos fechas (sin festivos)
 def laborables(desde: date, hasta: date) -> int:
@@ -150,12 +153,12 @@ MEDIR CUÁNTO TARDA UN CÓDIGO
 ```python
 import time
 
-inicio = time.perf_counter()        # el reloj más preciso para medir duraciones
+inicio = time.perf_counter()  # el reloj más preciso para medir duraciones
 hacer_algo()
 print(f"Tardó {time.perf_counter() - inicio:.3f} s")
 
-time.monotonic()                    # nunca retrocede (para timeouts)
-time.time()                         # hora real (puede saltar si se ajusta el reloj)
+time.monotonic()  # nunca retrocede (para timeouts)
+time.time()  # hora real (puede saltar si se ajusta el reloj)
 ```
 
 Para comparar fragmentos pequeños, `timeit` repite el código muchas veces. Y para saber qué
@@ -181,7 +184,7 @@ from pathlib import Path
 
 datos = {"nombre": "José", "edad": 30, "aficiones": ["leer", "correr"]}
 
-texto = json.dumps(datos, ensure_ascii=False, indent=2)   # sin ensure_ascii la é sale como é
+texto = json.dumps(datos, ensure_ascii=False, indent=2)  # sin ensure_ascii la é sale como é
 Path("datos.json").write_text(texto, encoding="utf-8")
 cargado = json.loads(Path("datos.json").read_text(encoding="utf-8"))
 
@@ -192,15 +195,19 @@ with open("datos.json", encoding="utf-8") as f:
 
 # Tipos que JSON no admite directamente: fechas, Decimal, sets, objetos propios
 from datetime import datetime
+
+
 def convertir(obj):
     if isinstance(obj, datetime):
         return obj.isoformat()
     if isinstance(obj, set):
         return sorted(obj)
     raise TypeError(f"No se puede convertir {type(obj).__name__}")
+
+
 json.dumps({"cuando": datetime.now()}, default=convertir)
 
-json.dumps(datos, sort_keys=True, separators=(",", ":"))   # compacto y ordenado
+json.dumps(datos, sort_keys=True, separators=(",", ":"))  # compacto y ordenado
 ```
 
 Equivalencias: dict ↔ objeto, list ↔ array, str ↔ string, int/float ↔ número,
@@ -239,8 +246,8 @@ SQLITE3: BASE DE DATOS EN UN FICHERO
 ```python
 import sqlite3
 
-con = sqlite3.connect("tienda.db")      # crea el fichero si no existe
-con.row_factory = sqlite3.Row           # filas accesibles por nombre de columna
+con = sqlite3.connect("tienda.db")  # crea el fichero si no existe
+con.row_factory = sqlite3.Row  # filas accesibles por nombre de columna
 
 con.execute("""
     CREATE TABLE IF NOT EXISTS productos (
@@ -251,17 +258,16 @@ con.execute("""
 """)
 
 # Parámetros con ? : NUNCA construyas el SQL con f-strings (inyección SQL)
-with con:                               # confirma (commit) al salir, o deshace si hay error
+with con:  # confirma (commit) al salir, o deshace si hay error
     con.execute("INSERT INTO productos (nombre, precio) VALUES (?, ?)", ("Taza", 6.5))
-    con.executemany("INSERT INTO productos (nombre, precio) VALUES (?, ?)",
-                    [("Plato", 4.0), ("Vaso", 2.5)])
+    con.executemany("INSERT INTO productos (nombre, precio) VALUES (?, ?)", [("Plato", 4.0), ("Vaso", 2.5)])
 
 for fila in con.execute("SELECT * FROM productos WHERE precio < ?", (5,)):
     print(fila["nombre"], fila["precio"])
 
 uno = con.execute("SELECT * FROM productos WHERE id = ?", (1,)).fetchone()
 todos = con.execute("SELECT nombre FROM productos").fetchall()
-con.close()                             # el with de arriba confirma, pero no cierra
+con.close()  # el with de arriba confirma, pero no cierra
 ```
 
 Ojo con `(5,)`: un solo parámetro necesita la coma para ser una tupla. SQLite viene incluido en
@@ -273,7 +279,7 @@ PICKLE Y SHELVE
 import pickle
 
 with open("estado.pkl", "wb") as f:
-    pickle.dump(objeto, f)              # guarda casi cualquier objeto de Python
+    pickle.dump(objeto, f)  # guarda casi cualquier objeto de Python
 with open("estado.pkl", "rb") as f:
     objeto = pickle.load(f)
 ```
@@ -285,23 +291,27 @@ basado en pickle (`with shelve.open("datos") as db: db["clave"] = valor`).
 CONFIGURACIÓN: TOML, INI Y VARIABLES DE ENTORNO
 
 ```python
-import tomllib                          # Python 3.11+, solo lectura
-with open("config.toml", "rb") as f:    # se abre en binario
+import tomllib  # Python 3.11+, solo lectura
+
+with open("config.toml", "rb") as f:  # se abre en binario
     config = tomllib.load(f)
 
-import configparser                     # ficheros .ini
+import configparser  # ficheros .ini
+
 cp = configparser.ConfigParser()
 cp.read("config.ini", encoding="utf-8")
 cp["basedatos"]["host"]
 cp.getint("basedatos", "puerto")
 
 import os
-os.environ.get("API_KEY")               # None si no existe
-os.environ["API_KEY"]                   # KeyError si no existe
+
+os.environ.get("API_KEY")  # None si no existe
+os.environ["API_KEY"]  # KeyError si no existe
 
 # Fichero .env (pip install python-dotenv)
 from dotenv import load_dotenv
-load_dotenv()                           # carga las variables de .env en os.environ
+
+load_dotenv()  # carga las variables de .env en os.environ
 ```
 
 Las contraseñas y claves van en variables de entorno o en un `.env` incluido en `.gitignore`,
@@ -317,27 +327,27 @@ PATHLIB EN DETALLE
 from pathlib import Path
 
 p = Path("informes") / "2026" / "octubre.pdf"
-p.name          # 'octubre.pdf'
-p.stem          # 'octubre'
-p.suffix        # '.pdf'
-p.parent        # Path('informes/2026')
+p.name  # 'octubre.pdf'
+p.stem  # 'octubre'
+p.suffix  # '.pdf'
+p.parent  # Path('informes/2026')
 p.with_suffix(".txt")
 p.with_name("noviembre.pdf")
 p.exists(), p.is_file(), p.is_dir()
-p.stat().st_size                # tamaño en bytes
-p.resolve()                     # ruta absoluta
+p.stat().st_size  # tamaño en bytes
+p.resolve()  # ruta absoluta
 
 carpeta = Path("fotos")
-list(carpeta.glob("*.jpg"))             # en esa carpeta
-list(carpeta.rglob("*.jpg"))            # también en subcarpetas
+list(carpeta.glob("*.jpg"))  # en esa carpeta
+list(carpeta.rglob("*.jpg"))  # también en subcarpetas
 [f for f in carpeta.iterdir() if f.is_file()]
 
 p.parent.mkdir(parents=True, exist_ok=True)
 p.write_text("hola", encoding="utf-8")
 p.read_text(encoding="utf-8")
 p.rename("nuevo.txt")
-p.unlink(missing_ok=True)       # borrar fichero
-Path("vacia").rmdir()           # borrar carpeta vacía
+p.unlink(missing_ok=True)  # borrar fichero
+Path("vacia").rmdir()  # borrar carpeta vacía
 
 # Ruta relativa al propio script (no a la carpeta desde la que se ejecuta)
 BASE = Path(__file__).resolve().parent
@@ -349,14 +359,14 @@ SHUTIL: COPIAR, MOVER Y BORRAR CARPETAS
 ```python
 import shutil
 
-shutil.copy("a.txt", "copia/")              # copia el fichero
-shutil.copy2("a.txt", "b.txt")              # copia también la fecha de modificación
+shutil.copy("a.txt", "copia/")  # copia el fichero
+shutil.copy2("a.txt", "b.txt")  # copia también la fecha de modificación
 shutil.copytree("proyecto", "copia_proyecto")
 shutil.move("a.txt", "archivo/a.txt")
-shutil.rmtree("carpeta")                    # borra la carpeta y TODO su contenido, sin papelera
-shutil.make_archive("copia", "zip", "proyecto")   # crea copia.zip
-shutil.disk_usage("/")                      # espacio total, usado y libre
-shutil.which("git")                         # ruta del programa o None
+shutil.rmtree("carpeta")  # borra la carpeta y TODO su contenido, sin papelera
+shutil.make_archive("copia", "zip", "proyecto")  # crea copia.zip
+shutil.disk_usage("/")  # espacio total, usado y libre
+shutil.which("git")  # ruta del programa o None
 ```
 
 FICHEROS TEMPORALES Y ZIP
@@ -364,7 +374,7 @@ FICHEROS TEMPORALES Y ZIP
 ```python
 import tempfile, zipfile
 
-with tempfile.TemporaryDirectory() as tmp:      # se borra al salir del with
+with tempfile.TemporaryDirectory() as tmp:  # se borra al salir del with
     ruta = Path(tmp) / "prueba.txt"
 
 with tempfile.NamedTemporaryFile("w", suffix=".csv", delete=False) as f:
@@ -376,7 +386,7 @@ with zipfile.ZipFile("fotos.zip", "w", zipfile.ZIP_DEFLATED) as z:
 
 with zipfile.ZipFile("fotos.zip") as z:
     z.namelist()
-    z.extractall("destino")     # cuidado con zips de origen desconocido (rutas con ..)
+    z.extractall("destino")  # cuidado con zips de origen desconocido (rutas con ..)
 ```
 
 LEER FICHEROS GRANDES Y BINARIOS
@@ -394,6 +404,7 @@ with open("enorme.log", encoding="utf-8") as f:
 
 # Binario por bloques (por ejemplo, para calcular un hash)
 import hashlib
+
 h = hashlib.sha256()
 with open("video.mp4", "rb") as f:
     while bloque := f.read(1024 * 1024):
@@ -402,6 +413,7 @@ print(h.hexdigest())
 
 # Las últimas líneas de un fichero
 from collections import deque
+
 with open("app.log", encoding="utf-8") as f:
     ultimas = deque(f, maxlen=10)
 ```
@@ -415,9 +427,9 @@ HASHLIB: HUELLAS DE DATOS
 ```python
 import hashlib
 
-hashlib.sha256("hola".encode()).hexdigest()     # siempre 64 caracteres hexadecimales
-hashlib.md5(datos).hexdigest()                  # MD5 y SHA-1: solo para comprobar errores, no seguridad
-hashlib.file_digest(open("f.zip", "rb"), "sha256").hexdigest()   # Python 3.11+
+hashlib.sha256("hola".encode()).hexdigest()  # siempre 64 caracteres hexadecimales
+hashlib.md5(datos).hexdigest()  # MD5 y SHA-1: solo para comprobar errores, no seguridad
+hashlib.file_digest(open("f.zip", "rb"), "sha256").hexdigest()  # Python 3.11+
 ```
 
 Un hash es de un solo sentido: no se puede «descifrar». Sirve para comprobar que un fichero no ha
@@ -431,14 +443,16 @@ con diccionarios. Usa un algoritmo lento y con sal:
 ```python
 import hashlib, os, hmac
 
+
 def crear_hash(contraseña: str) -> tuple[bytes, bytes]:
     sal = os.urandom(16)
     h = hashlib.scrypt(contraseña.encode(), salt=sal, n=2**14, r=8, p=1)
     return sal, h
 
+
 def comprobar(contraseña: str, sal: bytes, h: bytes) -> bool:
     nuevo = hashlib.scrypt(contraseña.encode(), salt=sal, n=2**14, r=8, p=1)
-    return hmac.compare_digest(nuevo, h)        # comparación en tiempo constante
+    return hmac.compare_digest(nuevo, h)  # comparación en tiempo constante
 ```
 
 En aplicaciones reales lo habitual es una librería: `argon2-cffi` o `bcrypt` (o `passlib`).
@@ -452,13 +466,13 @@ import hmac, hashlib, base64, uuid
 firma = hmac.new(b"clave_secreta", b"mensaje", hashlib.sha256).hexdigest()
 
 # Base64: representar bytes como texto (NO es cifrado)
-codificado = base64.b64encode(b"hola").decode()   # 'aG9sYQ=='
-base64.b64decode(codificado)                       # b'hola'
+codificado = base64.b64encode(b"hola").decode()  # 'aG9sYQ=='
+base64.b64decode(codificado)  # b'hola'
 base64.urlsafe_b64encode(datos)
 
-uuid.uuid4()            # identificador aleatorio único: UUID('3f2b...')
+uuid.uuid4()  # identificador aleatorio único: UUID('3f2b...')
 str(uuid.uuid4())
-uuid.uuid7()            # Python 3.14+: ordenado por tiempo (bueno como clave de base de datos)
+uuid.uuid7()  # Python 3.14+: ordenado por tiempo (bueno como clave de base de datos)
 ```
 
 CIFRAR DATOS
@@ -466,12 +480,12 @@ CIFRAR DATOS
 La biblioteca estándar no trae cifrado simétrico. Se usa la librería `cryptography`:
 
 ```python
-from cryptography.fernet import Fernet     # pip install cryptography
+from cryptography.fernet import Fernet  # pip install cryptography
 
-clave = Fernet.generate_key()               # guárdala en lugar seguro
+clave = Fernet.generate_key()  # guárdala en lugar seguro
 f = Fernet(clave)
 token = f.encrypt(b"datos secretos")
-f.decrypt(token)                            # b'datos secretos'
+f.decrypt(token)  # b'datos secretos'
 ```
 
 No inventes tus propios algoritmos de cifrado: usa librerías revisadas.
@@ -490,15 +504,18 @@ import json
 with urlopen("https://api.github.com/repos/python/cpython", timeout=10) as r:
     datos = json.load(r)
 
-peticion = Request("https://httpbin.org/post",
-                   data=json.dumps({"a": 1}).encode(),
-                   headers={"Content-Type": "application/json"}, method="POST")
+peticion = Request(
+    "https://httpbin.org/post",
+    data=json.dumps({"a": 1}).encode(),
+    headers={"Content-Type": "application/json"},
+    method="POST",
+)
 with urlopen(peticion) as r:
     print(r.status)
 
 urlencode({"q": "café con leche", "page": 2})  # 'q=caf%C3%A9+con+leche&page=2'
-urlparse("https://web.es/ruta?x=1").netloc       # 'web.es'
-quote("año 2026")                                 # 'a%C3%B1o%202026'
+urlparse("https://web.es/ruta?x=1").netloc  # 'web.es'
+quote("año 2026")  # 'a%C3%B1o%202026'
 ```
 
 Para algo más que lo básico, `requests` o `httpx` son mucho más cómodos.
@@ -512,13 +529,15 @@ python -m http.server 8000      # sirve los ficheros de la carpeta actual en htt
 ```python
 import socket
 
+
 # Comprobar si un puerto está abierto
 def puerto_abierto(host: str, puerto: int) -> bool:
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.settimeout(1)
         return s.connect_ex((host, puerto)) == 0
 
-socket.gethostbyname("python.org")      # resolver un nombre a IP
+
+socket.gethostbyname("python.org")  # resolver un nombre a IP
 ```
 
 Solo escanea equipos propios o con permiso.
@@ -555,30 +574,33 @@ COPY: COPIA SUPERFICIAL Y PROFUNDA
 import copy
 
 original = {"nombre": "Ana", "notas": [7, 8]}
-superficial = copy.copy(original)       # copia el dict, pero comparte la lista de dentro
-profunda = copy.deepcopy(original)      # copia también todo lo anidado
+superficial = copy.copy(original)  # copia el dict, pero comparte la lista de dentro
+profunda = copy.deepcopy(original)  # copia también todo lo anidado
 
-superficial["notas"].append(10)         # ¡también cambia original["notas"]!
-profunda["notas"].append(10)            # no afecta a original
+superficial["notas"].append(10)  # ¡también cambia original["notas"]!
+profunda["notas"].append(10)  # no afecta a original
 
 # Copias superficiales rápidas
-lista[:]            # o list(lista) o lista.copy()
-dict(original)      # o original.copy()
+lista[:]  # o list(lista) o lista.copy()
+dict(original)  # o original.copy()
 ```
 
 PPRINT, DIFFLIB Y STRING
 
 ```python
 from pprint import pprint
-pprint(datos_anidados, width=60)        # imprime estructuras grandes de forma legible
+
+pprint(datos_anidados, width=60)  # imprime estructuras grandes de forma legible
 
 import difflib
-difflib.get_close_matches("pyton", ["python", "java", "ruby"])   # ['python'] → sugerencias
-difflib.SequenceMatcher(None, "casa", "cosa").ratio()            # 0.75 → parecido entre textos
+
+difflib.get_close_matches("pyton", ["python", "java", "ruby"])  # ['python'] → sugerencias
+difflib.SequenceMatcher(None, "casa", "cosa").ratio()  # 0.75 → parecido entre textos
 for linea in difflib.unified_diff(viejo.splitlines(), nuevo.splitlines(), lineterm=""):
-    print(linea)                        # diferencias como en git
+    print(linea)  # diferencias como en git
 
 import string
+
 string.ascii_lowercase, string.ascii_uppercase, string.digits, string.punctuation
 ```
 
@@ -588,7 +610,7 @@ ENUMERATE, ZIP ESTRICTO E ITER CON CENTINELA
 for i, (a, b) in enumerate(zip(nombres, edades), start=1):
     print(i, a, b)
 
-list(zip([1, 2, 3], "ab", strict=True))   # Python 3.10+: ValueError si las longitudes no coinciden
+list(zip([1, 2, 3], "ab", strict=True))  # Python 3.10+: ValueError si las longitudes no coinciden
 
 # iter con centinela: llamar a una función hasta que devuelva un valor concreto
 with open("datos.bin", "rb") as f:
@@ -605,13 +627,15 @@ UNITTEST
 ```python
 import unittest
 
+
 def dividir(a, b):
     if b == 0:
         raise ValueError("División entre cero")
     return a / b
 
+
 class TestDividir(unittest.TestCase):
-    def setUp(self):                    # antes de cada test
+    def setUp(self):  # antes de cada test
         self.datos = [1, 2, 3]
 
     def test_normal(self):
@@ -623,6 +647,7 @@ class TestDividir(unittest.TestCase):
     def test_cero(self):
         with self.assertRaises(ValueError):
             dividir(1, 0)
+
 
 if __name__ == "__main__":
     unittest.main()
@@ -648,9 +673,11 @@ def cuadrado(n):
     """
     return n * n
 
+
 if __name__ == "__main__":
     import doctest
-    doctest.testmod()       # comprueba que los ejemplos del docstring dan ese resultado
+
+    doctest.testmod()  # comprueba que los ejemplos del docstring dan ese resultado
 ```
 
 ```bash
@@ -663,9 +690,12 @@ MOCK CON UNITTEST.MOCK
 ```python
 from unittest.mock import patch, MagicMock
 
+
 def obtener_usuario(id):
     import requests
+
     return requests.get(f"https://api.ejemplo.es/usuarios/{id}").json()
+
 
 @patch("requests.get")
 def test_obtener_usuario(mock_get):
@@ -797,6 +827,7 @@ TKINTER: VENTANAS SIN INSTALAR NADA
 import tkinter as tk
 from tkinter import ttk, messagebox
 
+
 def saludar():
     nombre = entrada.get().strip()
     if not nombre:
@@ -804,17 +835,18 @@ def saludar():
         return
     etiqueta.config(text=f"Hola, {nombre}")
 
+
 ventana = tk.Tk()
 ventana.title("Saludo")
 ventana.geometry("300x150")
 
 entrada = ttk.Entry(ventana)
 entrada.pack(pady=10)
-ttk.Button(ventana, text="Saludar", command=saludar).pack()   # command sin paréntesis
+ttk.Button(ventana, text="Saludar", command=saludar).pack()  # command sin paréntesis
 etiqueta = ttk.Label(ventana, text="")
 etiqueta.pack(pady=10)
 
-ventana.mainloop()          # bucle de eventos: sin esto la ventana se cierra al momento
+ventana.mainloop()  # bucle de eventos: sin esto la ventana se cierra al momento
 ```
 
 - `command=saludar` pasa la función; `command=saludar()` la ejecutaría al crear el botón.
@@ -828,7 +860,7 @@ ventana.mainloop()          # bucle de eventos: sin esto la ventana se cierra al
 PYGAME: ESTRUCTURA DE UN JUEGO
 
 ```python
-import pygame                       # pip install pygame
+import pygame  # pip install pygame
 
 pygame.init()
 pantalla = pygame.display.set_mode((800, 600))
@@ -836,19 +868,21 @@ reloj = pygame.time.Clock()
 x, y = 400, 300
 
 ejecutando = True
-while ejecutando:                   # bucle del juego: eventos → lógica → dibujo
+while ejecutando:  # bucle del juego: eventos → lógica → dibujo
     for evento in pygame.event.get():
         if evento.type == pygame.QUIT:
             ejecutando = False
 
     teclas = pygame.key.get_pressed()
-    if teclas[pygame.K_LEFT]:  x -= 5
-    if teclas[pygame.K_RIGHT]: x += 5
+    if teclas[pygame.K_LEFT]:
+        x -= 5
+    if teclas[pygame.K_RIGHT]:
+        x += 5
 
     pantalla.fill((30, 30, 30))
     pygame.draw.circle(pantalla, (255, 200, 0), (x, y), 20)
-    pygame.display.flip()           # mostrar el fotograma
-    reloj.tick(60)                  # 60 fotogramas por segundo
+    pygame.display.flip()  # mostrar el fotograma
+    reloj.tick(60)  # 60 fotogramas por segundo
 
 pygame.quit()
 ```
