@@ -7,7 +7,7 @@ import io
 import sys
 
 from . import __version__
-from .llm import Mensaje, desde_entorno
+from .llm import Mensaje, ModeloNoDisponible, desde_entorno
 from .montaje import crear_buscador
 from .tutor import Tutor
 
@@ -29,7 +29,18 @@ def _preguntar(args: argparse.Namespace) -> int:
     historial: list[Mensaje] = []
     pregunta = args.pregunta or _leer()
     while pregunta:
-        r = tutor.preguntar(pregunta, historial)
+        try:
+            r = tutor.preguntar(pregunta, historial)
+        except ModeloNoDisponible:
+            print(
+                f"\nEl modelo ({llm.nombre}) no responde ahora mismo: está saturado o no hay conexión. "
+                "Prueba de nuevo en unos minutos.",
+                file=sys.stderr,
+            )
+            if args.pregunta:
+                return 1
+            pregunta = _leer()
+            continue
         print(f"\n{r.texto}\n")
         for n in r.citadas:
             print(f"  [{n}] {r.fuentes[n - 1].fragmento.ruta}")

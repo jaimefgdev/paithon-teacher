@@ -13,6 +13,10 @@ from typing import Protocol
 from .red import post_json
 
 
+class ModeloNoDisponible(Exception):
+    """El modelo no ha respondido (saturado, sin cuota o sin conexión) después de los reintentos."""
+
+
 @dataclass(frozen=True)
 class Mensaje:
     rol: str  # "user" o "assistant"
@@ -34,12 +38,17 @@ class Claude:
         self.nombre = modelo
 
     def responder(self, sistema: str, mensajes: Sequence[Mensaje]) -> str:
-        r = self.cliente.messages.create(
-            model=self.modelo,
-            max_tokens=self.max_tokens,
-            system=sistema,
-            messages=[{"role": m.rol, "content": m.texto} for m in mensajes],
-        )
+        import anthropic
+
+        try:
+            r = self.cliente.messages.create(
+                model=self.modelo,
+                max_tokens=self.max_tokens,
+                system=sistema,
+                messages=[{"role": m.rol, "content": m.texto} for m in mensajes],
+            )
+        except anthropic.APIError as e:  # el SDK ya reintenta los errores pasajeros
+            raise ModeloNoDisponible(str(e)) from e
         return "".join(b.text for b in r.content if b.type == "text")
 
 
@@ -57,7 +66,10 @@ class Gemini:
                 {"role": "model" if m.rol == "assistant" else "user", "parts": [{"text": m.texto}]} for m in mensajes
             ],
         }
-        datos = post_json(self.URL.format(modelo=self.modelo), cuerpo, self.clave_api)
+        try:
+            datos = post_json(self.URL.format(modelo=self.modelo), cuerpo, self.clave_api)
+        except OSError as e:  # HTTPError, URLError y timeouts, cuando ya no quedan reintentos
+            raise ModeloNoDisponible(str(e)) from e
         partes = datos["candidates"][0]["content"]["parts"]
         return "".join(p.get("text", "") for p in partes)
 

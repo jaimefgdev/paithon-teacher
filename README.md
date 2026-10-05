@@ -1,7 +1,7 @@
 # paithon-teacher
 
 **PyMentor**, un tutor de Python en español que responde con RAG (*retrieval-augmented generation*) sobre unos
-apuntes propios (4 documentos, unos 120 000 caracteres) y **cita el apartado** en el que se apoya cada respuesta.
+apuntes propios (9 documentos, unos 260 000 caracteres) y **cita el apartado** en el que se apoya cada respuesta.
 
 Nació como un Gem de Gemini. Esta versión es el mismo tutor convertido en una aplicación: recuperación
 híbrida hecha a mano, evaluación medible, API, interfaz web y tests.
@@ -27,19 +27,20 @@ pregunta ──► BM25 (léxico) ──┐
   indexación tarda en torno a minuto y medio.
 - **Citas verificables.** El modelo recibe los fragmentos numerados y debe citar `[n]`; la aplicación comprueba
   qué números existen y enseña el texto de cada fuente.
-- **Evaluación.** `evals/preguntas.jsonl` tiene 38 preguntas de alumno con el apartado que debería recuperarse.
+- **Evaluación.** `evals/preguntas.jsonl` tiene 78 preguntas de alumno con el apartado que debería recuperarse.
   `paithon evaluar` mide recall@k y MRR, y un test de CI impide que un cambio hunda la recuperación.
 - **Sin dependencias en el núcleo.** Troceo, BM25, fusión y clientes HTTP usan solo la biblioteca estándar.
   FastAPI y el SDK de Anthropic son opcionales.
 
 ## Resultados de recuperación
 
-38 preguntas de alumno; acierto = el apartado esperado aparece entre los 5 fragmentos recuperados.
+78 preguntas de alumno; acierto = el apartado esperado aparece entre los 5 fragmentos recuperados. Las 40
+últimas se escribieron al ampliar los apuntes y antes de medir, para no ajustar el texto a las preguntas.
 
 | Modo | recall@5 | MRR |
 |---|---|---|
-| Solo BM25 | 82 % | 0,65 |
-| Híbrido (BM25 + `gemini-embedding-001`, RRF) | **95 %** | **0,80** |
+| Solo BM25 | 88 % | 0,69 |
+| Híbrido (BM25 + `gemini-embedding-001`, RRF) | **95 %** | **0,79** |
 
 Los embeddings rescatan las preguntas dichas con otras palabras («repetir algo mientras el usuario no
 acierte» → bucle `while`); BM25, las que nombran algo exacto (`isinstance`, `0.1 + 0.2`).

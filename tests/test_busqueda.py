@@ -41,3 +41,12 @@ def test_semantica_da_resultados_sin_coincidencia_lexica(fragmentos):
     b = Buscador(fragmentos, EmbedderFalso())
     assert b.bm25.buscar("zzz") == []
     assert all(r.origen == "semantica" for r in b.buscar("zzz", 3))
+
+
+def test_si_falla_la_api_de_embeddings_sigue_con_bm25(fragmentos):
+    class EmbedderCaido(EmbedderFalso):
+        def consulta(self, texto: str) -> list[float]:
+            raise OSError("HTTP Error 503: Service Unavailable")
+
+    resultados = Buscador(fragmentos, EmbedderCaido()).buscar("¿Qué es una tupla?", 5)
+    assert resultados and all(r.origen == "bm25" for r in resultados)

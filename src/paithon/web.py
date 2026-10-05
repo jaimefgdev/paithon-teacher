@@ -11,7 +11,7 @@ from pydantic import BaseModel, Field
 
 from . import __version__
 from .buscador import Buscador
-from .llm import LLM, Mensaje, desde_entorno
+from .llm import LLM, Mensaje, ModeloNoDisponible, desde_entorno
 from .montaje import crear_buscador
 from .tutor import Tutor
 
@@ -69,7 +69,12 @@ def preguntar(p: Pregunta) -> dict[str, object]:
     modelo = llm()
     if modelo is None:
         raise HTTPException(503, "El servidor no tiene configurada ANTHROPIC_API_KEY ni GEMINI_API_KEY.")
-    r = Tutor(buscador(), modelo).preguntar(p.pregunta, [Mensaje(t.rol, t.texto) for t in p.historial])
+    try:
+        r = Tutor(buscador(), modelo).preguntar(p.pregunta, [Mensaje(t.rol, t.texto) for t in p.historial])
+    except ModeloNoDisponible as e:
+        raise HTTPException(
+            503, "El modelo no responde ahora mismo (está saturado o no hay conexión). Prueba de nuevo en unos minutos."
+        ) from e
     return {
         "respuesta": r.texto,
         "fuentes": [

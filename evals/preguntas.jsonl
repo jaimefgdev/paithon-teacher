@@ -1,10 +1,10 @@
 {"pregunta": "¿Cómo compruebo si una variable es un número entero?", "esperado": ["isinstance"]}
 {"pregunta": "¿Cómo se deben nombrar las variables en Python?", "esperado": ["Convenciones de nombres"]}
-{"pregunta": "Convertir un texto a número", "esperado": ["Conversión de tipos"]}
+{"pregunta": "Convertir un texto a número", "esperado": ["Conversión de tipos", "Comprobar si un texto es un número"]}
 {"pregunta": "¿Qué diferencia hay entre is y ==?", "esperado": ["identidad y pertenencia", "Comparar strings con =="]}
 {"pregunta": "¿Cómo meto el valor de una variable dentro de un texto?", "esperado": ["F-strings"]}
 {"pregunta": "Quitar los espacios del principio y del final de una cadena", "esperado": ["Métodos de string"]}
-{"pregunta": "¿Cómo pido un dato al usuario por teclado?", "esperado": ["Entrada y salida"]}
+{"pregunta": "¿Cómo pido un dato al usuario por teclado?", "esperado": ["Entrada y salida", "Pedir datos al usuario"]}
 {"pregunta": "Repetir algo mientras el usuario no acierte la contraseña", "esperado": ["Bucle while"]}
 {"pregunta": "¿Cómo recorro una lista con su índice?", "esperado": ["Bucle for", "Listas"]}
 {"pregunta": "Añadir y quitar elementos de una lista", "esperado": ["Listas"]}
@@ -13,14 +13,14 @@
 {"pregunta": "Quitar duplicados de una lista", "esperado": ["Conjuntos", "Listas"]}
 {"pregunta": "¿Qué son *args y **kwargs?", "esperado": ["Funciones"]}
 {"pregunta": "Crear una lista con los cuadrados de los números del 1 al 10 en una línea", "esperado": ["Comprehensions"]}
-{"pregunta": "¿Cómo capturo un error para que el programa no se cierre?", "esperado": ["Manejo de errores"]}
+{"pregunta": "¿Cómo capturo un error para que el programa no se cierre?", "esperado": ["Manejo de errores", "Try, except, else y finally"]}
 {"pregunta": "Leer un fichero de texto línea a línea", "esperado": ["Ficheros", "Open sin encoding"]}
-{"pregunta": "¿Qué es una clase y cómo funciona __init__?", "esperado": ["Programación orientada a objetos"]}
+{"pregunta": "¿Qué es una clase y cómo funciona __init__?", "esperado": ["Programación orientada a objetos", "Clases y objetos desde cero"]}
 {"pregunta": "Medir cuánto tarda en ejecutarse una función con un decorador", "esperado": ["Decoradores"]}
 {"pregunta": "¿Qué hace yield?", "esperado": ["Generadores"]}
 {"pregunta": "¿Para qué sirve with?", "esperado": ["Context managers"]}
 {"pregunta": "Anotaciones de tipo y mypy", "esperado": ["Tipado estático"]}
-{"pregunta": "Validar un correo electrónico con regex", "esperado": ["Expresiones regulares"]}
+{"pregunta": "Validar un correo electrónico con regex", "esperado": ["Expresiones regulares", "Validar un email"]}
 {"pregunta": "Descargar muchas páginas web a la vez", "esperado": ["Concurrencia", "Async"]}
 {"pregunta": "¿Cómo escribo tests automáticos?", "esperado": ["Testing"]}
 {"pregunta": "Usar print para depurar no es buena idea, ¿qué uso en su lugar?", "esperado": ["Logging", "Debugging"]}
@@ -32,7 +32,47 @@
 {"pregunta": "¿Por qué mi lista por defecto en una función acumula valores entre llamadas?", "esperado": ["Mutabilidad en parámetros por defecto"]}
 {"pregunta": "He copiado una lista y al cambiar la copia cambia la original", "esperado": ["Referencias vs copias"]}
 {"pregunta": "¿Por qué 0.1 + 0.2 no da 0.3?", "esperado": ["Float y precisión"]}
-{"pregunta": "Mi programa va lento, ¿cómo sé qué parte tarda más?", "esperado": ["Rendimiento y profiling"]}
+{"pregunta": "Mi programa va lento, ¿cómo sé qué parte tarda más?", "esperado": ["Rendimiento y profiling", "Medir cuánto tarda un código"]}
 {"pregunta": "Ejercicios para practicar diccionarios", "esperado": ["Banco de ejercicios por tema y nivel › Diccionarios"]}
-{"pregunta": "¿Qué debería aprender después de lo básico?", "esperado": ["Hoja de ruta"]}
+{"pregunta": "¿Qué debería aprender después de lo básico?", "esperado": ["Hoja de ruta", "Qué estudiar según el objetivo"]}
 {"pregunta": "Libros gratis para aprender Python en español", "esperado": ["Libros gratuitos", "En español"]}
+{"pregunta": "¿Por qué round(2.5) me da 2 y no 3?", "esperado": ["Round() y el redondeo del banquero"]}
+{"pregunta": "¿Qué tipo uso para guardar precios sin errores de decimales?", "esperado": ["Decimal y Fraction"]}
+{"pregunta": "Generar un número aleatorio entre 1 y 10", "esperado": ["Números aleatorios: random"]}
+{"pregunta": "¿Cómo creo una contraseña aleatoria segura?", "esperado": ["Secrets: aleatoriedad segura"]}
+{"pregunta": "¿Cómo quito las tildes de una palabra?", "esperado": ["Quitar tildes de un texto"]}
+{"pregunta": "Mostrar un número con separador de miles y dos decimales", "esperado": ["Formato de números con f-strings", "Formatear dinero"]}
+{"pregunta": "Me sale UnicodeDecodeError al abrir un csv", "esperado": ["Unicodedecodeerror y encodings"]}
+{"pregunta": "¿Hay switch en Python?", "esperado": ["Match case"]}
+{"pregunta": "¿Qué hace el operador := ?", "esperado": ["Operador morsa"]}
+{"pregunta": "Ordenar una lista de diccionarios por la edad", "esperado": ["Sort frente a sorted y ordenar con key"]}
+{"pregunta": "¿Qué significa la barra / en los parámetros de una función?", "esperado": ["Parámetros solo posicionales y solo con nombre"]}
+{"pregunta": "Al cambiar una lista dentro de una función también cambia fuera, ¿por qué?", "esperado": ["Mutables e inmutables", "Variables como etiquetas"]}
+{"pregunta": "TypeError: can only concatenate str (not \"int\") to str", "esperado": ["TypeError: los más comunes"]}
+{"pregunta": "IndentationError: expected an indented block", "esperado": ["Syntaxerror e indentationerror"]}
+{"pregunta": "ModuleNotFoundError aunque ya instalé la librería con pip", "esperado": ["Attributeerror y modulenotfounderror", "Problemas frecuentes con pip"]}
+{"pregunta": "¿Qué es self en una clase?", "esperado": ["Qué es self y qué hace __init__"]}
+{"pregunta": "¿Cuándo uso @classmethod y cuándo @staticmethod?", "esperado": ["Métodos de instancia, de clase y estáticos"]}
+{"pregunta": "Diferencia entre __str__ y __repr__", "esperado": ["Str y repr", "__str__ frente a __repr__"]}
+{"pregunta": "¿Cómo hago que se puedan sumar dos objetos de mi clase con +?", "esperado": ["Sobrecarga de operadores"]}
+{"pregunta": "¿Es mejor heredar o meter un objeto dentro de otro?", "esperado": ["Composición frente a herencia"]}
+{"pregunta": "Agrupar elementos consecutivos con itertools", "esperado": ["Itertools: agrupar, trocear y encadenar"]}
+{"pregunta": "¿Uso hilos o procesos para un cálculo pesado?", "esperado": ["El GIL y la elección entre hilos, procesos y asyncio"]}
+{"pregunta": "Error attempted relative import with no known parent package", "esperado": ["Importaciones relativas y absolutas"]}
+{"pregunta": "¿Cómo le paso argumentos a mi script desde la terminal?", "esperado": ["Argparse: argumentos de un script", "Sys: argv"]}
+{"pregunta": "Convertir una hora de Madrid a hora de Canarias", "esperado": ["Zonas horarias con zoneinfo"]}
+{"pregunta": "¿Cómo calculo la edad de alguien a partir de su fecha de nacimiento?", "esperado": ["Operaciones habituales con fechas"]}
+{"pregunta": "Guardar datos en una base de datos sin instalar nada", "esperado": ["Sqlite3: base de datos en un fichero"]}
+{"pregunta": "¿Cómo guardo las contraseñas de los usuarios en mi aplicación?", "esperado": ["Guardar contraseñas correctamente"]}
+{"pregunta": "Copiar una carpeta entera con todo lo que tiene dentro", "esperado": ["Shutil: copiar, mover y borrar carpetas"]}
+{"pregunta": "Hacer una ventana con un botón en Python", "esperado": ["Tkinter: ventanas sin instalar nada"]}
+{"pregunta": "Me sale externally-managed-environment al instalar con pip", "esperado": ["Problemas frecuentes con pip"]}
+{"pregunta": "¿Cómo publico mi librería para que otros la instalen con pip?", "esperado": ["Publicar un paquete en PyPI"]}
+{"pregunta": "¿Qué es la notación O grande?", "esperado": ["Notación big O"]}
+{"pregunta": "Implementar una búsqueda binaria", "esperado": ["Búsqueda lineal y búsqueda binaria"]}
+{"pregunta": "Comprobar si los paréntesis de una expresión están bien cerrados", "esperado": ["Pilas y colas"]}
+{"pregunta": "Encontrar el camino más corto en un grafo", "esperado": ["Grafos: recorrido en anchura", "Dijkstra"]}
+{"pregunta": "Saber si un número es primo", "esperado": ["Números primos y criba de eratóstenes"]}
+{"pregunta": "¿Cuál es la diferencia entre append y extend?", "esperado": ["Append, extend, insert y el operador +"]}
+{"pregunta": "Quitar duplicados de una lista sin perder el orden", "esperado": ["Quitar duplicados manteniendo el orden"]}
+{"pregunta": "Convertir mi script en un .exe", "esperado": ["Convertir un script en un ejecutable"]}

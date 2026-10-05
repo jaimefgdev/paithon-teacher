@@ -6,11 +6,16 @@ El mismo tutor sin servidor: un Gem de Gemini con instrucciones y archivos de co
 
 1. En gemini.google.com, abre **Gems › pAIthon Teacher › Editar** (o crea uno nuevo).
 2. **Instrucciones:** pega el contenido de [`instrucciones.md`](instrucciones.md) (sustituye todo el texto).
-3. **Conocimiento:** sube estos cuatro archivos de [`../conocimiento`](../conocimiento):
+3. **Conocimiento:** sube estos nueve archivos de [`../conocimiento`](../conocimiento) (un Gem admite hasta 10):
    - `02_kb_fundamentos_python.md`
    - `03_kb_intermedio_avanzado.md`
    - `04_kb_ecosistema_python.md`
    - `05_kb_ejercicios_recursos.md`
+   - `06_kb_fundamentos_ampliados.md`
+   - `07_kb_poo_y_avanzado_ampliado.md`
+   - `08_kb_stdlib_y_herramientas.md`
+   - `09_kb_algoritmos_y_estructuras.md`
+   - `10_kb_preguntas_frecuentes.md`
 4. Guarda.
 
 ## Diferencias con la versión anterior

@@ -39,3 +39,17 @@ def test_valida_entrada(cliente):
 def test_sin_modelo(cliente, monkeypatch):
     monkeypatch.setattr(web, "llm", lambda: None)
     assert cliente.post("/api/preguntar", json={"pregunta": "hola"}).status_code == 503
+
+
+def test_modelo_saturado_da_un_aviso_claro(cliente, monkeypatch):
+    from paithon.llm import ModeloNoDisponible
+
+    class LLMSaturado:
+        nombre = "saturado"
+
+        def responder(self, sistema, mensajes):
+            raise ModeloNoDisponible("HTTP Error 503")
+
+    monkeypatch.setattr(web, "llm", lambda: LLMSaturado())
+    r = cliente.post("/api/preguntar", json={"pregunta": "hola"})
+    assert r.status_code == 503 and "no responde" in r.json()["detail"]

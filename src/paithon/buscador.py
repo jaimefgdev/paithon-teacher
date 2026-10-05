@@ -46,7 +46,10 @@ class Buscador:
     def _semantica(self, consulta: str, k: int) -> list[int]:
         if not self.embedder or self.vectores is None:
             return []
-        q = self.embedder.consulta(consulta)
+        try:
+            q = self.embedder.consulta(consulta)
+        except OSError:  # la API de embeddings no responde: se sigue solo con BM25
+            return []
         puntos = [coseno(q, v) for v in self.vectores]
         return sorted(range(len(puntos)), key=lambda i: puntos[i], reverse=True)[:k]
 
