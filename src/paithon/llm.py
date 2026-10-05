@@ -55,8 +55,9 @@ class Claude:
 class Gemini:
     URL = "https://generativelanguage.googleapis.com/v1beta/models/{modelo}:generateContent"
 
-    def __init__(self, clave_api: str, modelo: str = "gemini-flash-latest") -> None:
+    def __init__(self, clave_api: str, modelo: str = "gemini-flash-latest", respaldo: Sequence[str] = ()) -> None:
         self.clave_api, self.modelo = clave_api, modelo
+        self.respaldo = [m for m in respaldo if m != modelo]  # se prueban en orden si el principal no responde
         self.nombre = modelo
 
     def responder(self, sistema: str, mensajes: Sequence[Mensaje]) -> str:
@@ -66,10 +67,16 @@ class Gemini:
                 {"role": "model" if m.rol == "assistant" else "user", "parts": [{"text": m.texto}]} for m in mensajes
             ],
         }
-        try:
-            datos = post_json(self.URL.format(modelo=self.modelo), cuerpo, self.clave_api)
-        except OSError as e:  # HTTPError, URLError y timeouts, cuando ya no quedan reintentos
-            raise ModeloNoDisponible(str(e)) from e
+        error: OSError | None = None
+        for modelo in [self.modelo, *self.respaldo]:
+            try:
+                # Pocos reintentos: el alumno está esperando; si no responde, se pasa al modelo de respaldo.
+                datos = post_json(self.URL.format(modelo=modelo), cuerpo, self.clave_api, reintentos=1)
+                break
+            except OSError as e:  # HTTPError (cuota, saturación), URLError y timeouts
+                error = e
+        else:
+            raise ModeloNoDisponible(str(error)) from error
         partes = datos["candidates"][0]["content"]["parts"]
         return "".join(p.get("text", "") for p in partes)
 
@@ -79,5 +86,8 @@ def desde_entorno() -> LLM | None:
     if clave := os.environ.get("ANTHROPIC_API_KEY"):
         return Claude(clave, os.environ.get("PAITHON_MODELO", "claude-sonnet-5-5"))
     if clave := os.environ.get("GEMINI_API_KEY"):
-        return Gemini(clave, os.environ.get("PAITHON_MODELO", "gemini-flash-latest"))
+        # Cada modelo tiene su propia cuota gratuita: si el principal la agota, responde el ligero.
+        return Gemini(
+            clave, os.environ.get("PAITHON_MODELO", "gemini-flash-latest"), respaldo=["gemini-flash-lite-latest"]
+        )
     return None

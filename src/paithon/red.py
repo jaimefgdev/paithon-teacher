@@ -10,6 +10,7 @@ from typing import Any
 
 REINTENTOS = 4
 REINTENTABLES = {429, 500, 503}  # cuota por minuto agotada, error interno, modelo saturado
+MAX_ESPERA = 60  # si la API pide esperar más (cuota diaria agotada), no se espera: se avisa
 
 
 def espera_pedida(cuerpo_error: bytes) -> float | None:
@@ -24,18 +25,23 @@ def espera_pedida(cuerpo_error: bytes) -> float | None:
     return None
 
 
-def post_json(url: str, cuerpo: dict[str, Any], clave_api: str, timeout: float = 120) -> Any:
+def post_json(
+    url: str, cuerpo: dict[str, Any], clave_api: str, timeout: float = 120, reintentos: int = REINTENTOS
+) -> Any:
     peticion = urllib.request.Request(
         url,
         data=json.dumps(cuerpo).encode("utf-8"),
         headers={"Content-Type": "application/json", "x-goog-api-key": clave_api},
     )
-    for intento in range(REINTENTOS + 1):
+    for intento in range(reintentos + 1):
         try:
             with urllib.request.urlopen(peticion, timeout=timeout) as r:
                 return json.loads(r.read())
         except urllib.error.HTTPError as e:
-            if e.code not in REINTENTABLES or intento == REINTENTOS:
+            if e.code not in REINTENTABLES or intento == reintentos:
                 raise
-            time.sleep(espera_pedida(e.read()) or 5 * 2**intento)
+            espera = espera_pedida(e.read()) or 5 * 2**intento
+            if espera > MAX_ESPERA:
+                raise
+            time.sleep(espera)
     raise AssertionError("inalcanzable")

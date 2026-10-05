@@ -10,6 +10,7 @@ from __future__ import annotations
 import hashlib
 import math
 import sqlite3
+import threading
 from array import array
 from collections.abc import Sequence
 from pathlib import Path
@@ -39,9 +40,13 @@ def coseno(a: Sequence[float], b: Sequence[float]) -> float:
 
 
 class Cache:
+    """Caché de vectores en SQLite. La web atiende cada petición en un hilo distinto: una sola conexión
+    compartida (check_same_thread=False) protegida con un cerrojo."""
+
     def __init__(self, ruta: Path) -> None:
         ruta.parent.mkdir(parents=True, exist_ok=True)
-        self.db = sqlite3.connect(ruta)
+        self.db = sqlite3.connect(ruta, check_same_thread=False)
+        self.cerrojo = threading.Lock()
         self.db.execute("create table if not exists vectores (clave text primary key, vector blob not null)")
 
     @staticmethod
@@ -49,12 +54,14 @@ class Cache:
         return hashlib.sha256("\x1f".join(partes).encode("utf-8")).hexdigest()
 
     def leer(self, clave: str) -> list[float] | None:
-        fila = self.db.execute("select vector from vectores where clave=?", (clave,)).fetchone()
+        with self.cerrojo:
+            fila = self.db.execute("select vector from vectores where clave=?", (clave,)).fetchone()
         return list(array("f", fila[0])) if fila else None
 
     def guardar(self, clave: str, vector: Sequence[float]) -> None:
-        self.db.execute("insert or replace into vectores values (?, ?)", (clave, array("f", vector).tobytes()))
-        self.db.commit()
+        with self.cerrojo:
+            self.db.execute("insert or replace into vectores values (?, ?)", (clave, array("f", vector).tobytes()))
+            self.db.commit()
 
 
 class GeminiEmbedder:

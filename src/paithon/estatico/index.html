@@ -26,6 +26,9 @@
   .msg { padding: 12px 14px; border-radius: 10px; background: var(--papel); border: 1px solid var(--linea); }
   .msg.user { background: var(--acento-suave); border-color: transparent; align-self: flex-end; max-width: 85%; }
   .msg p { margin: 0 0 8px; } .msg p:last-child { margin-bottom: 0; }
+  .msg h3, .msg h4, .msg h5 { margin: 12px 0 6px; font-size: 15px; } .msg h3:first-child { margin-top: 0; }
+  .msg ul, .msg ol { margin: 0 0 8px; padding-left: 22px; } .msg li { margin: 2px 0; }
+  .msg hr { border: 0; border-top: 1px solid var(--linea); margin: 12px 0; }
   pre { background: var(--codigo); padding: 10px 12px; border-radius: 6px; overflow-x: auto; font-size: 13px; }
   code { font-family: ui-monospace, "Cascadia Code", Consolas, monospace; }
   p code, li code { background: var(--codigo); padding: 1px 4px; border-radius: 4px; font-size: 13px; }
@@ -69,16 +72,48 @@ fetch("/api/estado").then(r => r.json()).then(e => {
 
 const escapar = s => s.replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
 
+function enLinea(texto, id) {
+  // Dentro de una línea: código, negrita, cursiva y citas [n] (el texto ya viene escapado).
+  return texto
+    .replace(/`([^`]+)`/g, "<code>$1</code>")
+    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+    .replace(/(^|[^*\w])\*([^*\s][^*]*)\*(?!\*)/g, "$1<em>$2</em>")
+    .replace(/\[(\d+)\]/g, `<sup><a href="#f${id}-$1">[$1]</a></sup>`);
+}
+
+function bloques(trozo, id) {
+  // Markdown por líneas: títulos (#), separadores (---), listas (- y 1.) y párrafos.
+  const html = [];
+  let lista = null, parrafo = [];
+  const cerrarParrafo = () => {
+    if (parrafo.length) html.push("<p>" + parrafo.map(l => enLinea(l, id)).join("<br>") + "</p>");
+    parrafo = [];
+  };
+  const cerrarLista = () => { if (lista) { html.push(`</${lista}>`); lista = null; } };
+  for (const linea of escapar(trozo).split("\n")) {
+    const l = linea.trim();
+    let m;
+    if (!l) { cerrarParrafo(); cerrarLista(); }
+    else if ((m = l.match(/^(#{1,6})\s+(.*)$/))) {
+      cerrarParrafo(); cerrarLista();
+      const n = Math.min(m[1].length + 2, 6);
+      html.push(`<h${n}>${enLinea(m[2], id)}</h${n}>`);
+    } else if (/^(-{3,}|\*{3,}|_{3,})$/.test(l)) { cerrarParrafo(); cerrarLista(); html.push("<hr>"); }
+    else if ((m = l.match(/^[-*+]\s+(.*)$/)) || (m = l.match(/^\d+[.)]\s+(.*)$/))) {
+      cerrarParrafo();
+      const tipo = /^\d/.test(l) ? "ol" : "ul";
+      if (lista !== tipo) { cerrarLista(); html.push(`<${tipo}>`); lista = tipo; }
+      html.push(`<li>${enLinea(m[1], id)}</li>`);
+    } else { cerrarLista(); parrafo.push(l); }
+  }
+  cerrarParrafo(); cerrarLista();
+  return html.join("");
+}
+
 function formatear(texto, id) {
-  // Markdown mínimo: bloques de código, código en línea, negrita y citas [n].
-  return texto.split(/```[\w-]*\n?/).map((trozo, i) => {
-    if (i % 2) return `<pre><code>${escapar(trozo.replace(/\n$/, ""))}</code></pre>`;
-    return escapar(trozo).split(/\n{2,}/).filter(p => p.trim()).map(p => "<p>" + p
-      .replace(/`([^`]+)`/g, "<code>$1</code>")
-      .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
-      .replace(/\[(\d+)\]/g, `<sup><a href="#f${id}-$1">[$1]</a></sup>`)
-      .replace(/\n/g, "<br>") + "</p>").join("");
-  }).join("");
+  // Bloques de código entre ``` tal cual; el resto, con bloques().
+  return texto.split(/```[\w-]*\n?/).map((trozo, i) =>
+    i % 2 ? `<pre><code>${escapar(trozo.replace(/\n$/, ""))}</code></pre>` : bloques(trozo, id)).join("");
 }
 
 function añadir(rol, html) {
@@ -102,8 +137,8 @@ form.addEventListener("submit", async ev => {
   try {
     const r = await fetch("/api/preguntar", {method: "POST", headers: {"Content-Type": "application/json"},
                                              body: JSON.stringify({pregunta, historial})});
-    const datos = await r.json();
-    if (!r.ok) throw new Error(datos.detail ?? r.statusText);
+    const datos = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error(datos.detail ?? `error del servidor (${r.status}). Prueba de nuevo.`);
     const id = ++turno;
     const fuentes = datos.fuentes.map(f => `<li id="f${id}-${f.n}" class="${f.citada ? "citada" : ""}">
       <details><summary>[${f.n}] ${escapar(f.ruta)}${f.citada ? " · citada" : ""}</summary>

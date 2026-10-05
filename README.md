@@ -76,7 +76,7 @@ docker run -p 8000:8000 -e GEMINI_API_KEY paithon
 |---|---|
 | `GEMINI_API_KEY` | Embeddings y generación con Gemini |
 | `ANTHROPIC_API_KEY` | Generación con Claude (tiene prioridad) |
-| `PAITHON_MODELO` | Modelo de generación (por defecto `claude-sonnet-5-5` o `gemini-flash-latest`) |
+| `PAITHON_MODELO` | Modelo de generación (por defecto `claude-sonnet-5-5` o `gemini-flash-latest`; con Gemini, si el modelo no responde o agota su cuota, se usa `gemini-flash-lite-latest`) |
 | `PAITHON_CONOCIMIENTO` | Carpeta con los `.md` de la base de conocimiento |
 | `PAITHON_CACHE` | Ruta de la caché de embeddings |
 
