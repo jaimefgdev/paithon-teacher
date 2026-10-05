@@ -44,7 +44,7 @@
 {"pregunta": "¿Qué hace la estrella `*` como argumento de una función y cómo se usa en Python?", "esperado": ["Qué son *args", "Parámetros solo posicionales", "Desempaquetado"], "fuente": "https://es.stackoverflow.com/q/399534"}
 {"pregunta": "¿Por qué en Python 3 round() redondea 3.5 a 4 pero 2.5 a 2?", "esperado": ["Round() y el redondeo"], "fuente": "https://es.stackoverflow.com/q/317012"}
 {"pregunta": "¿Que exactamente son los métodos en python?. ¿Un método es un atributo?", "esperado": ["Función frente a método"], "fuente": "https://es.stackoverflow.com/q/351244"}
-{"pregunta": "¿Cómo verificar que un archivo exista en Python?", "esperado": ["Leer y escribir un fichero de texto", "Pathlib en detalle"], "fuente": "https://es.stackoverflow.com/q/512"}
+{"pregunta": "¿Cómo verificar que un archivo exista en Python?", "esperado": ["Leer y escribir un fichero de texto", "Pathlib en detalle", "Fundamentos de Python › Ficheros"], "fuente": "https://es.stackoverflow.com/q/512"}
 {"pregunta": "Duda con clases. ¿Para que sirve __init__?", "esperado": ["Qué es self y qué hace __init__"], "fuente": "https://es.stackoverflow.com/q/79502"}
 {"pregunta": "¿Cómo puedo recorrer una lista en orden inverso?", "esperado": ["For y while: patrones", "Sort y sorted, reverse y reversed"], "fuente": "https://es.stackoverflow.com/q/146070"}
 {"pregunta": "¿Existe algo como typeof en Python?", "esperado": ["type() y isinstance()"], "fuente": "https://es.stackoverflow.com/q/15622"}

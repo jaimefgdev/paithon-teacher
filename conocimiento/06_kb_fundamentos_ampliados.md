@@ -42,6 +42,34 @@ edición multilínea y acepta `exit` sin paréntesis.
 Editores recomendados: VS Code con la extensión de Python (gratuito), PyCharm (Community es
 gratuito), Thonny (pensado para principiantes, con depurador muy visual).
 
+EJECUTAR UN SCRIPT DIRECTAMENTE: EL SHEBANG
+
+La primera línea `#!...` (shebang) le dice a Linux y macOS con qué programa ejecutar el fichero
+cuando lo lanzas directamente (`./script.py`) en vez de con `python script.py`.
+
+```bash
+#!/usr/bin/env python3
+# ↑ busca python3 en el PATH (recomendado: funciona con entornos virtuales y distintas instalaciones)
+# #!/usr/bin/python3 usaría siempre ese intérprete concreto, aunque tengas otro activado
+
+chmod +x script.py      # darle permiso de ejecución una vez
+./script.py
+```
+
+En Windows el shebang no hace nada por sí solo, pero el lanzador `py` lo lee para elegir la
+versión de Python (`#!/usr/bin/env python3.13`).
+
+REGLAS PARA LOS NOMBRES DE VARIABLES
+
+- Pueden tener letras, números y guiones bajos, pero no pueden empezar por un número:
+  `nombre2` vale, `2nombre` da `SyntaxError` (Python no podría distinguirlo de un número).
+- Distinguen mayúsculas y minúsculas: `edad`, `Edad` y `EDAD` son tres variables distintas.
+- No pueden ser palabras reservadas: `if`, `for`, `class`, `def`, `return`, `import`, `True`,
+  `None`, `lambda`... (`import keyword; keyword.kwlist` las muestra todas).
+- Se permiten letras con tilde y la ñ (`año = 2026`), aunque en código compartido se suele evitar.
+- Evita usar nombres de funciones incorporadas (`list`, `str`, `sum`, `input`, `id`): funciona,
+  pero las tapas y después fallan con `TypeError: 'list' object is not callable`.
+
 SINTAXIS BÁSICA: SANGRÍA, COMENTARIOS Y LÍNEAS LARGAS
 
 Python usa la sangría (indentación) para delimitar bloques, en lugar de llaves. Lo estándar son
@@ -270,17 +298,36 @@ TEXTOS AMPLIADO
 SECUENCIAS DE ESCAPE Y RAW STRINGS
 
 ```python
-"Línea 1\nLínea 2"  # \n salto de línea
-
-"Columna\tColumna"  # \t tabulador
-'Comillas: "hola"'  # \" comilla doble
-"It's"  # \' comilla simple (o usa "It's")
-"Barra: \\"  # \\ una barra invertida
-"\u00f1"  # 'ñ' (carácter Unicode por su código)
+# fmt: off
+"Línea 1\nLínea 2"      # \n salto de línea
+"Columna\tColumna"      # \t tabulador
+"Comillas: \"hola\""    # \" comilla doble dentro de comillas dobles
+'It\'s'                 # \' comilla simple (o usa "It's")
+"Barra: \\"             # \\ una barra invertida
+"\u00f1"                # 'ñ' (carácter Unicode por su código)
 
 # Raw string: las barras invertidas no se interpretan
-r"C:\Users\ana\nuevo"  # útil para rutas de Windows y expresiones regulares
+r"C:\Users\ana\nuevo"   # útil para rutas de Windows y expresiones regulares
 # (una raw string no puede terminar en una sola barra invertida)
+# fmt: on
+```
+
+DOS TEXTOS SEGUIDOS SE UNEN SOLOS
+
+Dos literales de texto escritos uno detrás de otro, sin nada entre ellos, Python los une al compilar
+(concatenación implícita). Es útil para partir un texto largo en varias líneas dentro de paréntesis,
+pero también es una fuente de errores: si olvidas una coma en una lista de textos, dos elementos se
+juntan en uno sin dar ningún error.
+
+```python
+mensaje = ("Este es un texto muy largo "
+           "que sigue en la línea siguiente")    # un solo str
+
+colores = ["rojo", "verde" "azul"]   # falta una coma: ['rojo', 'verdeazul'] (2 elementos, no 3)
+
+nombre = "Ana"
+saludo = "Hola, " nombre             # SyntaxError: solo funciona con literales, no con variables
+saludo = "Hola, " + nombre           # con variables hay que usar + o una f-string
 ```
 
 MÉTODOS DE STRING PARA COMPROBAR Y BUSCAR
@@ -864,6 +911,34 @@ reduce(lambda acc, x: acc * x, numeros, 1)  # 120 (producto)
 # Normalmente es más legible una comprehension
 [x * 2 for x in numeros]
 [x for x in numeros if x % 2 == 0]
+```
+
+CALLBACKS: PASAR UNA FUNCIÓN COMO ARGUMENTO
+
+En Python las funciones son objetos: se pueden guardar en variables y pasar a otras funciones. Un
+«callback» es una función que le pasas a otra para que esta la llame cuando toque (al terminar una
+tarea, al pulsar un botón, para decidir cómo ordenar...). Se pasa sin paréntesis: con paréntesis
+la ejecutarías tú en ese momento y pasarías su resultado.
+
+```python
+def saludar(nombre):
+    return f"Hola, {nombre}"
+
+
+def procesar(nombres, accion):  # accion es el callback
+    return [accion(n) for n in nombres]
+
+
+procesar(["Ana", "Luis"], saludar)  # ['Hola, Ana', 'Hola, Luis']
+procesar(["Ana"], str.upper)  # ['ANA']
+
+sorted(palabras, key=len)  # key es un callback: sorted llama a len con cada palabra
+boton = Button(text="OK", command=guardar)  # tkinter llama a guardar al pulsar
+
+
+def descargar(url, al_terminar):
+    datos = ...  # descarga
+    al_terminar(datos)  # avisa llamando al callback
 ```
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

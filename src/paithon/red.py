@@ -40,8 +40,8 @@ def post_json(
         except urllib.error.HTTPError as e:
             if e.code not in REINTENTABLES or intento == reintentos:
                 raise
-            espera = espera_pedida(e.read()) or 5 * 2**intento
-            if espera > MAX_ESPERA:
-                raise
-            time.sleep(espera)
+            pedida = espera_pedida(e.read())
+            if pedida is not None and pedida > MAX_ESPERA:
+                raise  # p. ej. cuota diaria agotada: no tiene sentido esperar horas
+            time.sleep(pedida if pedida is not None else min(5 * 2**intento, MAX_ESPERA))
     raise AssertionError("inalcanzable")

@@ -21,6 +21,12 @@ pregunta ──► BM25 (léxico) ──┐
   recorte de sufijos) que respeta identificadores de Python (`__init__`, `f-string`, y no descarta `with`, `is` o
   `for`, que en otro contexto serían palabras vacías). Los embeddings (`gemini-embedding-001`) cubren las preguntas
   dichas con otras palabras. Las dos listas se combinan con *Reciprocal Rank Fusion*.
+- **Preguntas de ejemplo por apartado (doc2query).** `paithon generar-preguntas` pide a Gemini, una vez, ocho
+  preguntas de alumno que responde cada fragmento («¿hay typeof en Python?», «¿qué es :=?») y las guarda en
+  `conocimiento/preguntas_generadas.json` con la huella del fragmento (si un apartado cambia, solo se regeneran
+  las suyas). Se indexan con BM25 y cada una con su propio vector: una pregunta corta se parece más a otra
+  pregunta corta que a un apartado largo. El generador nunca ve las preguntas de evaluación.
+- **Operadores como palabras.** `:=`, `**`, `//`, `>>` o `&` se conservan al buscar.
 - **Funciona sin claves.** Sin `GEMINI_API_KEY` la búsqueda es solo BM25; los embeddings se guardan en una caché
   SQLite, así que la base se vectoriza una vez. Las llamadas a la API reintentan solas ante cuota agotada (429) o
   saturación (503), esperando lo que pide la propia API: con el nivel gratuito (100 textos/minuto) la primera

@@ -64,6 +64,33 @@ def _evaluar(args: argparse.Namespace) -> int:
     return 0 if resumen.recall >= args.minimo else 1
 
 
+def _generar_preguntas(args: argparse.Namespace) -> int:
+    import os
+
+    from . import preguntas
+    from .montaje import carpeta_conocimiento, ruta_preguntas
+    from .red import post_json
+    from .trocear import trocear_carpeta
+
+    clave = os.environ.get("GEMINI_API_KEY")
+    if not clave:
+        print("Falta GEMINI_API_KEY en el entorno.", file=sys.stderr)
+        return 2
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{args.modelo}:generateContent"
+
+    def pedir(instrucciones: str, texto: str) -> str:
+        cuerpo = {
+            "systemInstruction": {"parts": [{"text": instrucciones}]},
+            "contents": [{"role": "user", "parts": [{"text": texto}]}],
+            "generationConfig": {"responseMimeType": "application/json", "temperature": 0.7},
+        }
+        datos = post_json(url, cuerpo, clave)
+        return "".join(p.get("text", "") for p in datos["candidates"][0]["content"]["parts"])
+
+    preguntas.generar(trocear_carpeta(carpeta_conocimiento()), ruta_preguntas(), pedir)
+    return 0
+
+
 def _web(args: argparse.Namespace) -> int:
     import uvicorn
 
@@ -87,6 +114,8 @@ def main(argv: list[str] | None = None) -> int:
     e.add_argument("--preguntas", default=None, help="fichero JSONL (por defecto evals/preguntas.jsonl)")
     e.add_argument("--minimo", type=float, default=0.0, help="recall mínimo; por debajo, sale con error")
     e.add_argument("--detalle", action="store_true", help="lista las preguntas falladas")
+    g = sub.add_parser("generar-preguntas", help="genera las preguntas de ejemplo de cada fragmento (una vez)")
+    g.add_argument("--modelo", default="gemini-flash-lite-latest")
     w = sub.add_parser("web", help="arranca la interfaz web de chat")
     w.add_argument("--host", default="127.0.0.1")
     w.add_argument("--puerto", type=int, default=8000)
@@ -95,7 +124,13 @@ def main(argv: list[str] | None = None) -> int:
         s.add_argument("--solo-bm25", action="store_true", help="no usar embeddings aunque haya clave")
 
     args = p.parse_args(argv)
-    ordenes = {"buscar": _buscar, "preguntar": _preguntar, "evaluar": _evaluar, "web": _web}
+    ordenes = {
+        "buscar": _buscar,
+        "preguntar": _preguntar,
+        "evaluar": _evaluar,
+        "generar-preguntas": _generar_preguntas,
+        "web": _web,
+    }
     return ordenes[args.orden](args)
 
 

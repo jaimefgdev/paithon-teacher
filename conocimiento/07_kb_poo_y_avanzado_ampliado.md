@@ -696,6 +696,22 @@ def _(x: list):
 
 `@wraps(func)` dentro de un decorador conserva el nombre y el docstring de la función original.
 
+`lambda` frente a `partial`: las dos crean una función nueva, pero `partial(f, x)` fija ya el valor
+de x (se evalúa al crear el partial), mientras que `lambda: f(x)` busca x cada vez que se llama, así
+que si x cambia después, la lambda usa el valor nuevo. Además, un partial conserva la función
+original (`p.func`, `p.args`) y se puede guardar con pickle; una lambda no.
+
+```python
+from functools import partial
+
+x = 10
+con_partial = partial(print, x)
+con_lambda = lambda: print(x)
+x = 20
+con_partial()  # 10 → el valor que tenía x al crear el partial
+con_lambda()  # 20 → el valor de x en el momento de la llamada
+```
+
 COLLECTIONS: DEQUE, ORDEREDDICT, CHAINMAP Y NAMEDTUPLE
 
 ```python

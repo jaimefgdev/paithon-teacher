@@ -85,7 +85,8 @@ class GeminiEmbedder:
                 for t in textos
             ]
         }
-        datos = post_json(URL.format(modelo=self.modelo), cuerpo, self.clave_api, timeout=60)
+        # Indexar miles de textos choca con el límite por minuto: aquí se reintenta con paciencia.
+        datos = post_json(URL.format(modelo=self.modelo), cuerpo, self.clave_api, timeout=60, reintentos=10)
         return [normalizar(e["values"]) for e in datos["embeddings"]]
 
     def _con_cache(self, textos: Sequence[str], tarea: str) -> list[list[float]]:
@@ -104,3 +105,7 @@ class GeminiEmbedder:
 
     def consulta(self, texto: str) -> list[float]:
         return self._con_cache([texto], "RETRIEVAL_QUERY")[0]
+
+    def consultas(self, textos: Sequence[str]) -> list[list[float]]:
+        """Varios textos embebidos como consulta (las preguntas de ejemplo de cada fragmento)."""
+        return self._con_cache(textos, "RETRIEVAL_QUERY")

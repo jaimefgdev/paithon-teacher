@@ -17,7 +17,9 @@ PALABRAS_VACIAS = set(
     porque puede que quien se sea ser si sin sobre solo son su sus tambien tan te tiene todo todos tu tus un una unas
     uno unos usar uso y ya yo the of to it on how what""".split()
 )  # sin «is», «in», «for», «with» ni «and»: en Python son palabras clave y hay que poder buscarlas
-TOKEN = re.compile(r"\d+\.\d+|[a-z0-9_]+(?:-[a-z0-9_]+)*")  # «0.1» es un número, no dos
+# Operadores de Python como palabras propias: «¿qué significa := ?» tiene que poder encontrar el operador morsa.
+OPERADORES = r":=|\*\*|//|->|>>|<<|==|!=|<=|>=|\+=|-=|\*=|/=|&|\||\^|~|@|%"
+TOKEN = re.compile(r"\d+\.\d+|[a-z0-9_]+(?:-[a-z0-9_]+)*|" + OPERADORES)  # «0.1» es un número, no dos
 SUFIJOS = (
     "amientos",
     "imientos",
@@ -60,4 +62,8 @@ def raiz(palabra: str) -> str:
 
 def tokens(texto: str) -> list[str]:
     limpio = sin_acentos(texto.lower())
-    return [raiz(t) for t in TOKEN.findall(limpio) if t not in PALABRAS_VACIAS and (len(t) > 1 or t.isdigit())]
+    return [
+        raiz(t)
+        for t in TOKEN.findall(limpio)
+        if t not in PALABRAS_VACIAS and (len(t) > 1 or t.isdigit() or not t.isalnum())
+    ]

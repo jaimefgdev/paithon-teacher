@@ -8,7 +8,7 @@ el buscador funciona solo con BM25.
 
 from __future__ import annotations
 
-from collections.abc import Sequence
+from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
 
 from .bm25 import BM25
@@ -26,18 +26,35 @@ class Resultado:
     origen: str  # "bm25", "semantica" o "ambas"
 
 
-def texto_indexable(f: Fragmento) -> str:
-    """La ruta pesa: «Strings en profundidad › Métodos de string» describe muy bien el fragmento."""
-    return f"{f.ruta}\n{f.ruta}\n{f.texto}"
+def texto_indexable(f: Fragmento, preguntas: Sequence[str] = ()) -> str:
+    """La ruta pesa: «Strings en profundidad › Métodos de string» describe muy bien el fragmento. Las preguntas de
+    ejemplo (preguntas.py) añaden cómo lo preguntaría un alumno."""
+    return "\n".join([f.ruta, f.ruta, *preguntas, f.texto])
 
 
 class Buscador:
-    def __init__(self, fragmentos: Sequence[Fragmento], embedder: Embedder | None = None) -> None:
+    def __init__(
+        self,
+        fragmentos: Sequence[Fragmento],
+        embedder: Embedder | None = None,
+        preguntas: Mapping[str, Sequence[str]] | None = None,
+    ) -> None:
         self.fragmentos = list(fragmentos)
-        textos = [texto_indexable(f) for f in self.fragmentos]
+        preguntas = preguntas or {}
+        textos = [texto_indexable(f, preguntas.get(f.id, ())) for f in self.fragmentos]
         self.bm25 = BM25(textos)
         self.embedder = embedder
         self.vectores = embedder.documentos(textos) if embedder else None
+        # Cada pregunta de ejemplo con su propio vector: una pregunta corta del alumno se parece mucho más a otra
+        # pregunta corta que a un apartado largo. Se embebe como consulta (mismo tipo de texto que la del alumno).
+        self.dueños: list[int] = []
+        self.vectores_preguntas: list[list[float]] = []
+        if embedder:
+            pares = [(i, q) for i, f in enumerate(self.fragmentos) for q in preguntas.get(f.id, ())]
+            if pares:
+                embeber = getattr(embedder, "consultas", embedder.documentos)
+                self.dueños = [i for i, _ in pares]
+                self.vectores_preguntas = embeber([q for _, q in pares])
 
     @property
     def modo(self) -> str:
@@ -51,6 +68,8 @@ class Buscador:
         except OSError:  # la API de embeddings no responde: se sigue solo con BM25
             return []
         puntos = [coseno(q, v) for v in self.vectores]
+        for i, v in zip(self.dueños, self.vectores_preguntas, strict=True):
+            puntos[i] = max(puntos[i], coseno(q, v))
         return sorted(range(len(puntos)), key=lambda i: puntos[i], reverse=True)[:k]
 
     def buscar(self, consulta: str, k: int = 5) -> list[Resultado]:

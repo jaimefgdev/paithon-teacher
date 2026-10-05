@@ -147,6 +147,17 @@ PYTHON 2 FRENTE A PYTHON 3
 Python 2 dejó de mantenerse en 2020. Si ves `print "hola"` sin paréntesis, `raw_input()`,
 `xrange()` o `unicode()`, es código de Python 2. Aprende y usa siempre Python 3.
 
+Diferencias que aparecen al leer código antiguo:
+
+- `raw_input()` de Python 2 es el `input()` de Python 3; el `input()` de Python 2 evaluaba lo
+  escrito como código (peligroso).
+- `xrange()` de Python 2 es el `range()` de Python 3; el `range()` de Python 2 creaba una lista
+  entera en memoria.
+- `5 / 2` daba 2 en Python 2 (división entera entre enteros); en Python 3 da 2.5.
+- En Python 2 los textos eran bytes por defecto: un fichero con tildes o eñes necesitaba la línea
+  `# -*- coding: utf-8 -*-` al principio, o daba `SyntaxError: Non-ASCII character 'Ã'... but
+  no encoding declared`. En Python 3 el código es UTF-8 por defecto y esa línea ya no hace falta.
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 CONCEPTOS QUE APARECEN EN TODAS PARTES
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

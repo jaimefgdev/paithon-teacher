@@ -1,0 +1,3146 @@
+{
+ "0079b8a0417dc001": [
+  "crear ventana con tkinter",
+  "por qué mi ventana de tkinter se cierra al momento",
+  "command=saludar con o sin paréntesis",
+  "diferencia entre pack y grid en tkinter",
+  "se congela la interfaz al pulsar un botón tkinter",
+  "alternativas modernas a tkinter",
+  "cómo mostrar un aviso con messagebox",
+  "crear una entrada de texto y un botón"
+ ],
+ "020f197987a55da2": [
+  "qué es el shebang",
+  "para qué sirve la primera línea #! en un script",
+  "cómo ejecutar un script directamente sin escribir python delante",
+  "cómo usar un shebang compatible con entornos virtuales",
+  "el shebang funciona en Windows",
+  "cómo dar permisos de ejecución a un fichero python en linux",
+  "diferencia entre #!/usr/bin/python3 y #!/usr/bin/env python3",
+  "cómo elige la versión de python el lanzador py en windows"
+ ],
+ "03766188cff7cae8": [
+  "¿Qué es el operador morsa?",
+  "para qué sirve :=",
+  "asignar y devolver valor en una expresión",
+  "usar morsa en un while",
+  "evitar calcular len dos veces con :=",
+  "operador := en comprehensions",
+  "buscar con regex usando la morsa",
+  "¿Cuándo no se debe abusar de la morsa?"
+ ],
+ "044908cb3174faf4": [
+  "shutil.copy2",
+  "cómo copio una carpeta entera con todo su contenido en python",
+  "borrar una carpeta con shutil",
+  "cómo crear un zip de una carpeta entera",
+  "saber espacio libre en disco python",
+  "cómo comprobar si un programa como git está instalado y dónde",
+  "copiar un archivo manteniendo la fecha de modificación",
+  "función para mover ficheros"
+ ],
+ "04b6f14cd202395b": [
+  "cómo cuenta python las referencias a un objeto",
+  "sys.getrefcount(obj)",
+  "para qué sirve weakref en python",
+  "cómo buscar fugas de memoria con tracemalloc",
+  "forzar la recogida de basura con gc",
+  "qué hace del variable en python",
+  "cómo funcionan las referencias débiles en cachés",
+  "por qué mi lista ocupa tantos bytes en memoria"
+ ],
+ "0508c7dfd5dfd277": [
+  "funciones principales del módulo re",
+  "diferencia entre re.search y re.match",
+  "cómo compilar expresiones regulares con re.compile",
+  "qué significa el prefijo r en los strings de python",
+  "metacaracteres en expresiones regulares",
+  "buscar todos los emails en un texto con regex",
+  "cómo dividir un texto usando una expresión regular con re.split",
+  "sustituir texto usando re.sub"
+ ],
+ "05ac617c0042bb4d": [
+  "Cuándo usar global dentro de una función",
+  "Por qué sale UnboundLocalError al modificar una variable",
+  "Cómo modificar una variable de una función externa con nonlocal",
+  "Crear un contador con estado interno",
+  "¿Hace falta global para leer una variable?",
+  "Buenas prácticas sobre el uso de variables globales",
+  "Cómo funciona una función dentro de otra función",
+  "Ejemplo de uso de nonlocal en Python"
+ ],
+ "05b958f87259b671": [
+  "cómo saber el tipo de una variable",
+  "función type python",
+  "comprobar si una variable es entera",
+  "para qué sirve isinstance",
+  "cómo comprobar varios tipos a la vez",
+  "type(x)",
+  "me sale un objeto <class 'int'> cómo lo compro",
+  "validar tipo de dato en python"
+ ],
+ "0762bd09b0dc571e": [
+  "recorrer todos los ficheros de una carpeta",
+  "rglob",
+  "buscar archivos pdf en subcarpetas",
+  "renombrar archivos en bucle",
+  "pathlib glob",
+  "cómo saber el tamaño de un fichero",
+  "enumerate en pathlib",
+  "renombrar fotos en bloque"
+ ],
+ "07b57d9c2c0ae5e7": [
+  "qué hace return en un generador",
+  "cómo parar un generador con return",
+  "return con valor en yield",
+  "por qué me da StopIteration con un string",
+  "el return en generadores lanza StopIteration",
+  "cómo termina la iteración de un generador",
+  "qué pasa si pongo un yield después de return",
+  "return sin valor en función generadora"
+ ],
+ "08a42aba2ccd44db": [
+  "¿Cómo se hace un POST en FastAPI?",
+  "Inyección de dependencias en FastAPI",
+  "Dónde están las docs automáticas de FastAPI",
+  "Ejecutar servidor de FastAPI con uvicorn",
+  "Crear una ruta POST con Flask",
+  "¿Cómo devuelvo JSON en Flask?",
+  "Abortar una petición en Flask con código de error",
+  "Microframework Flask básico"
+ ],
+ "0b16801aa3ed86fa": [
+  "cómo crear un generador con yield",
+  "diferencia entre iterador y generador",
+  "cómo usar yield from",
+  "generadores infinitos en python",
+  "herramientas del módulo itertools",
+  "crear un iterador personalizado con __iter__ y __next__",
+  "generar cuadrados sin gastar memoria con generator expression",
+  "¿Cómo agrupar elementos con itertools.groupby?"
+ ],
+ "0b9dca9494e60399": [
+  "cómo usar sqlite3 en python",
+  "acceder a columnas por nombre en sqlite",
+  "evitar inyección sql en python",
+  "crear tabla con autoincrement en sqlite",
+  "por qué la tupla necesita coma en una consulta sql",
+  "con.executemany ejemplo",
+  "fetchone vs fetchall sqlite",
+  "con.commit automatico con with"
+ ],
+ "0dd9d8cf25619bca": [
+  "¿Qué es self en los métodos de Python?",
+  "¿Para qué sirve __init__?",
+  "me sale un error TypeError: area() takes 0 positional arguments but 1 was given, qué pasa",
+  "¿El método __init__ devuelve algún valor?",
+  "¿Es __init__ un constructor real?",
+  "Cómo se le pasa el objeto actual a un método",
+  "Error típico al olvidar self en la definición",
+  "Explícame cómo funciona self y __init__ con un rectángulo"
+ ],
+ "0e3b9bb8abc65cdd": [
+  "¿Cómo se relanza una excepción en Python?",
+  "¿Para qué sirve raise en un except?",
+  "cómo encadenar una excepción con from",
+  "¿Cómo ocultar la causa original de un error?",
+  "¿Qué hace raise sin argumentos?",
+  "¿Cómo conservar la traza original al atrapar un error?",
+  "crear un error personalizado con from e",
+  "¿Para qué sirve raise ConfigError(...) from None?"
+ ],
+ "0e7e24b9a2a9e510": [
+  "diferencia entre == e is en python",
+  "cuándo usar is None",
+  "por qué a == b da True pero a is b da False",
+  "comparar valor frente a identidad en memoria",
+  "a is b",
+  "por qué no debo usar is con números grandes o strings",
+  "cuándo da sorpresas el operador is",
+  "cómo comprobar si una variable es nula"
+ ],
+ "0f13d57fe0efb159": [
+  "versiones semánticas python",
+  "qué significa mayor menor parche",
+  "cuándo cambia la versión mayor en una librería",
+  "cómo acotar versiones en requirements o toml",
+  "diferencia entre actualización menor y parche",
+  "qué pasa si actualizo una dependencia con cambios mayores",
+  "qué significa requests>=2.31,<3",
+  "arreglar bugs sin romper compatibilidad qué versión subo"
+ ],
+ "103f4a19cbacda7b": [
+  "cómo añadir un elemento al final de una lista en python",
+  "método append",
+  "cómo sacar el último elemento de una lista",
+  "puedo usar numeros[::-1] para dar la vuelta a una lista",
+  "cómo ordenar una lista de tuplas por el segundo elemento",
+  "me sale un error al intentar acceder a matriz[1][2], cómo funcionan las listas 2D",
+  "cómo desempaquetar una lista guardando el resto en otra variable con asterisco",
+  "cómo comprobar si el número 3 está dentro de una lista"
+ ],
+ "120f925a9a3558c8": [
+  "¿Qué hace asyncio.run?",
+  "Cómo usar asyncio.timeout en Python",
+  "Diferencia entre async def y await",
+  "¿Cómo se programa una tarea con asyncio?",
+  "Cómo usar ThreadPoolExecutor",
+  "me da TimeoutError en asyncio cómo lo arreglo",
+  "cómo ejecuto corrutinas concurrentemente",
+  "ejemplo de concurrent.futures en python"
+ ],
+ "1455f2d79c79dbd2": [
+  "Diferencia entre sort y sorted",
+  "Por qué mi lista ordenada se ha vuelto None",
+  "Cómo ordenar un diccionario por sus valores",
+  "ordenar una lista de diccionarios por un campo",
+  "¿La ordenación de Python es estable?",
+  "Cómo usar key= con una función lambda",
+  "Obtener el elemento máximo de una lista con criterio",
+  "para qué sirve itemgetter en las listas"
+ ],
+ "15ac2684882c0aef": [
+  "Cómo hacer una petición GET con urllib",
+  "cómo hago una petición POST sin instalar librerías externas",
+  "urlencode en python",
+  "para qué sirve quote en urlparse",
+  "hacer peticiones http usando solo la biblioteca estándar",
+  "me sale timeout en urlopen, cómo le pongo límite",
+  "cómo convertir una URL en un objeto analizable",
+  "alternativas a requests en python"
+ ],
+ "15eeff235a5a4d94": [
+  "Cómo hacer un bucle while en Python",
+  "Crear un bucle infinito y romperlo con break",
+  "¿Para qué sirve el else en un bucle while?",
+  "Controlar intentos de contraseña con while",
+  "Bucle while con condición de parada",
+  "¿Cómo funciona el bloque else al terminar un while?",
+  "Interrumpir un bucle con break",
+  "Ejemplo práctico de while con contador"
+ ],
+ "16177f08c2b376ee": [
+  "¿Cómo se crean excepciones personalizadas en Python?",
+  "¿De qué clase deben heredar los errores propios?",
+  "¿Por qué no se debe heredar de BaseException?",
+  "cómo pasar atributos personalizados a una excepción",
+  "¿Cómo crear una jerarquía de errores propios?",
+  "imprimir el mensaje de una excepción con saldo insuficiente",
+  "¿Qué clase base agrupa todos los errores de la aplicación?",
+  "cómo capturar cualquier error propio heredado"
+ ],
+ "16404ceba5fb3599": [
+  "hmac.new",
+  "cómo firmar un mensaje o webhook",
+  "base64 es cifrado",
+  "cómo codificar a base64 en python",
+  "uuid.uuid4()",
+  "diferencia entre uuid4 y uuid7",
+  "generar un identificador único aleatorio",
+  "base64.b64encode"
+ ],
+ "16c4620d2b88f64d": [
+  "Cómo validar datos con Pydantic v2",
+  "Validar emails y campos opcionales en Pydantic",
+  "Crear validadores personalizados con @field_validator",
+  "Convertir modelo de Pydantic a diccionario",
+  "Cargar configuración desde un archivo .env con Pydantic",
+  "Parsear JSON a modelo con Pydantic",
+  "Validar longitud de strings con Field en Pydantic",
+  "Cómo se usa BaseSettings en Pydantic"
+ ],
+ "1797977c668806f9": [
+  "cómo hacer el fizzbuzz en python",
+  "encontrar el número mayor sin usar la función max",
+  "cómo hallar el segundo número más grande de una lista",
+  "invertir las palabras de una frase",
+  "contar vocales en un texto en python",
+  "cómo saber si un año es bisiesto",
+  "algoritmo de euclides para el máximo común divisor",
+  "pasar de decimal a binario sin usar bin"
+ ],
+ "17a0d415d8b4845a": [
+  "cómo visualizar la ejecución de código paso a paso",
+  "herramienta para ver el código visualmente",
+  "crear capturas bonitas de código python",
+  "pythontutor para principiantes",
+  "cómo hacer screenshots de código",
+  "visualizador de código en python",
+  "carbon now sh para código",
+  "ver cómo se ejecuta mi código línea a línea visualmente"
+ ],
+ "17d8ce93c6dd35f1": [
+  "frecuencia de palabras diccionario",
+  "invertir un diccionario agrupando claves",
+  "agenda de contactos con JSON",
+  "cache LRU manual en Python",
+  "¿cómo cuento cuántas veces se repite cada palabra?",
+  "ejercicio para dar la vuelta a un diccionario",
+  "problema avanzado de diccionarios",
+  "cómo implementar un sistema tipo Least Recently Used"
+ ],
+ "18001aba4cfbf573": [
+  "comunidades de python",
+  "dónde resolver dudas de python en internet",
+  "reddit de python",
+  "canal de discord oficial de python",
+  "foro de python en españa",
+  "¿Dónde pregunto si tengo un error de código?",
+  "comunidad python es",
+  "buscar novedades de python en twitter"
+ ],
+ "19628d0331f3e044": [
+  "Qué tipo de dato usar para dinero en Python",
+  "por qué crear Decimal desde un float da problemas",
+  "Cómo usar fracciones exactas en Python",
+  "Cuándo debo usar float frente a Decimal",
+  "cómo cambiar la precisión de los cálculos con Decimal",
+  "Para qué sirve el módulo fractions",
+  "cómo calcular el iva exacto con Decimal",
+  "qué pasa si inicializo Decimal con un número decimal flotante"
+ ],
+ "1bbca11f7f4f52e7": [
+  "qué es un callback en python",
+  "cómo pasar una función como argumento a otra",
+  "por qué paso la función sin paréntesis al usar un callback",
+  "cómo usar key=len al ordenar una lista",
+  "cómo pasar un callback que avise al terminar una descarga",
+  "cómo hacer que tkinter llame a una función al pulsar un botón",
+  "puedo guardar funciones en variables",
+  "cómo aplicar str.upper a una lista de nombres con una función"
+ ],
+ "1c131333c5ee6b60": [
+  "¿Qué es el GIL y cómo afecta a mis programas?",
+  "¿Cuándo debo usar hilos y cuándo procesos en Python?",
+  "Mi programa de cálculo intensivo va lento, ¿qué uso?",
+  "¿Cómo funciona `asyncio` frente a los hilos tradicionales?",
+  "¿Qué versiones de Python soportan el modo sin GIL?",
+  "¿Por qué los hilos no sirven para acelerar cálculos de CPU en CPython normal?",
+  "¿Cuándo es mejor usar `ThreadPoolExecutor`?",
+  "¿Qué limitaciones tiene la versión free-threaded de Python?"
+ ],
+ "1cc20a800bf177fe": [
+  "Cómo indicar que un método devuelve la propia clase",
+  "Cómo declarar una constante para que avise si se reasigna",
+  "Diferencia entre variable de clase y de instancia en tipos",
+  "Para qué sirve NewType",
+  "Cómo añadir metadatos a un tipo con Annotated",
+  "Cómo se usa Self en los retornos de métodos",
+  "qué hace Final en el tipado",
+  "cómo creo un tipo nuevo que no se mezcle con int"
+ ],
+ "1e2e7b8fa1faff76": [
+  "cómo se escribe una función lambda",
+  "qué es el scope LEGB en python",
+  "cómo modificar una variable global desde dentro de una función usando global",
+  "cómo crear un closure o función anidada que recuerde valores",
+  "cómo pasar una función como argumento de otra",
+  "cómo ordenar una lista en orden descendente usando una función lambda en el parámetro key",
+  "por qué mi variable local no afecta a la global con el mismo nombre",
+  "qué significa que las funciones son objetos de primera clase"
+ ],
+ "1eff21e1fc88e929": [
+  "tipos de datos básicos en python",
+  "cómo se declaran números enteros",
+  "¿Qué es el tipo float en Python?",
+  "crear texto multilínea",
+  "cuál es el equivalente a null en python",
+  "cómo se escribe verdadero y falso",
+  "ejemplo de tipo booleano",
+  "tipos básicos python"
+ ],
+ "1f3b5db1f40ed3a5": [
+  "¿Por qué se acumulan los elementos en una lista por defecto?",
+  "Mutabilidad en parámetros por defecto",
+  "me sale que la lista acumula datos de llamadas anteriores",
+  "cómo hago una función con una lista vacía de argumento",
+  "def añadir(item, lista=[])",
+  "¿Es malo usar listas como argumentos por defecto?",
+  "Usar None en parámetros por defecto",
+  "¿Por qué se reutiliza la lista en los argumentos?"
+ ],
+ "1f6c4a7d92ebefb9": [
+  "Cómo sobrecargar funciones según el tipo de argumento",
+  "Cómo tipar un decorador sin perder la firma original",
+  "Qué es TypeIs y para qué sirve",
+  "Usar @overload en Python",
+  "Cómo crear un TypeIs para estrechar tipos",
+  "cómo hago para que un decorador conserve los tipos de la función",
+  "para qué sirve ParamSpec",
+  "Ejemplo de función con @overload"
+ ],
+ "1fe49e8e1eb7f1d2": [
+  "Para qué sirve Counter de collections",
+  "Cómo usar defaultdict para agrupar elementos",
+  "Cómo funciona una cola deque con maxlen",
+  "Para qué sirve functools.partial",
+  "Cómo usar functools.lru_cache para memoización",
+  "cómo cuento las letras de una palabra con python",
+  "qué hace functools.total_ordering",
+  "ejemplo de defaultdict en python"
+ ],
+ "2143b90cb7c225b3": [
+  "Cómo hacer una división entera en Python",
+  "por qué -7 // 2 da -4",
+  "Cómo saber si un número es par",
+  "Cómo sacar el último dígito con el operador %",
+  "Qué devuelve la división normal con /",
+  "cómo calcular cociente y resto a la vez",
+  "Cómo quitar el último dígito de un número",
+  "el resto tiene el signo del divisor con el operador %"
+ ],
+ "21c6ab8515ee4f55": [
+  "dónde leer noticias oficiales de python",
+  "podcasts recomendados sobre python",
+  "donde proponen los cambios para python",
+  "newsletters semanales de python",
+  "comunidad de python en reddit",
+  "repositorios populares de python en github",
+  "sitios web para estar al día en python",
+  "donde ver las peps de python"
+ ],
+ "223d75e5f353d684": [
+  "estructura básica de un juego con pygame",
+  "cómo detectar movimiento de teclas en pygame",
+  "bucle principal de pygame",
+  "reloj.tick(60) para qué sirve",
+  "cómo detectar colisiones en pygame",
+  "instalar pygame con pip",
+  "dibujar un círculo en la pantalla de pygame",
+  "cómo cerrar la ventana de pygame correctamente"
+ ],
+ "24b054acf50c5165": [
+  "cómo leer un json",
+  "guardar diccionario en json",
+  "leer csv con python",
+  "cómo listar archivos con pathlib",
+  "crear directorio nuevo",
+  "escribir un archivo csv",
+  "método dump de json",
+  "cómo recorro ficheros con glob"
+ ],
+ "25705858f0421e0b": [
+  "cómo hacer una list comprehension con condición if",
+  "cómo crear un diccionario usando dict comprehension",
+  "para qué sirve una generator expression para ahorrar memoria",
+  "cómo poner un if else ternario dentro de una list comprehension",
+  "cómo invertir las claves y valores de un diccionario con comprehensions",
+  "cómo eliminar duplicados creando un set comprehension",
+  "ejemplo de list comprehension anidada para matrices",
+  "cómo pasar de un bucle for tradicional a list comprehension"
+ ],
+ "26ff33fea57eacca": [
+  "¿Cómo funciona la función input en Python?",
+  "input siempre devuelve un string",
+  "Cambiar el separador en la función print",
+  "Imprimir sin salto de línea al final",
+  "¿Cómo imprimir varios elementos separados por guiones?",
+  "Convertir la entrada del usuario a número entero",
+  "Formatear la salida por consola",
+  "Evitar el salto de línea automático en print"
+ ],
+ "27d5c918e337f21c": [
+  "algoritmo de dijkstra en python",
+  "camino más corto con pesos",
+  "usar heapq para dijkstra",
+  "cómo calcular distancias mínimas en un grafo",
+  "función dijkstra con cola de prioridad",
+  "import heapq",
+  "grafo con pesos en python",
+  "heappush y heappop"
+ ],
+ "297859bdf76a0f33": [
+  "diferencia entre str y bytes",
+  "¿Cómo paso un texto a bytes con utf-8?",
+  "decodificar bytes a texto",
+  "¿Por qué len() da diferente en str y bytes?",
+  "crear bytes desde una lista de números",
+  "¿Qué es un bytearray?",
+  "ignorar errores al codificar en ascii",
+  "¿Cómo funciona .encode() y .decode()?"
+ ],
+ "298b77f762b98d90": [
+  "try except else finally",
+  "cómo capturar ZeroDivisionError",
+  "me sale ZeroDivisionError qué hago",
+  "cómo lanzo una excepción personalizada en Python",
+  "para qué sirve raise",
+  "excepciones en Python",
+  "cuándo se ejecuta el bloque finally",
+  "cuál es la clase base de las excepciones"
+ ],
+ "2a6da669eeb7d1b9": [
+  "Cómo indicar que una función puede devolver None",
+  "Diferencia entre Any y object en el tipado",
+  "Qué hace la función cast en Python",
+  "Evitar AttributeError con NoneType en tipos",
+  "Cómo uso str | None en funciones",
+  "para qué sirve el tipado Any",
+  "me da error si no trato el None antes de usar metodos",
+  "Cómo forzar que el comprobador crea que algo es un int"
+ ],
+ "2bc5e523d99eabb2": [
+  "Iteración con modificación de lista",
+  "¿Puedo borrar elementos mientras recorro una lista?",
+  "comportamiento impredecible al borrar en bucle",
+  "cómo eliminar elementos de una lista mientras la recorro",
+  "Usar list comprehension para filtrar",
+  "for n in numeros[:]",
+  "¿Por qué falla el bucle si elimino elementos?",
+  "Modificar listas durante la iteración"
+ ],
+ "2be454ef09d94547": [
+  "¿Qué es Exceptiongroup en Python?",
+  "¿Cómo funciona except*?",
+  "cómo añadir contexto a una excepción sin cambiarla",
+  "¿Qué hace el método add_note?",
+  "¿Desde qué versión de Python existen los grupos de excepciones?",
+  "cómo capturar múltiples errores como ValueError en un grupo",
+  "¿Qué librerías lanzan excepciones juntas?",
+  "cómo relanzar un error con una nota añadida"
+ ],
+ "2bef5ecdfde91750": [
+  "crear CLI con typer",
+  "cómo hago una interfaz de comandos con type hints",
+  "ejemplo de argparse en python",
+  "diferencia entre typer y argparse",
+  "script con subcomandos usando typer",
+  "añadir argumentos y opciones con argparse",
+  "pip install typer rich",
+  "crear comandos de terminal en python"
+ ],
+ "2c3d37b43400add6": [
+  "Cómo limitar el tamaño máximo de una cola",
+  "¿Qué es una `deque` con maxlen?",
+  "Cómo buscar en varios diccionarios a la vez sin copiarlos",
+  "¿Para qué sirve `ChainMap`?",
+  "Cómo contar elementos repetidos fácilmente en Python",
+  "¿Qué diferencia hay entre `namedtuple` y dataclasses?",
+  "Cómo rotar los elementos de una lista o cola",
+  "¿Cómo usar `Counter` para ver los elementos más comunes?"
+ ],
+ "2ce99d3a45c8a13c": [
+  "convertir lista en texto python",
+  "cómo paso un string a lista con split",
+  "pasar de diccionario a lista de tuplas",
+  "cómo unir dos listas en un diccionario con zip",
+  "ast.literal_eval",
+  "me sale un texto con una lista y quiero convertirlo a lista real",
+  "cómo uso list y dict para castear cosas",
+  "pasar texto a lista de enteros con map"
+ ],
+ "2dafba7af8f0ea5f": [
+  "Cómo encontrar la posición de un elemento en una lista",
+  "encontrar índice de un elemento python",
+  "método index en listas",
+  "cómo saber en qué posición está un elemento",
+  "encontrar todas las posiciones de un valor repetido",
+  "contar cuántas veces aparece un elemento con count",
+  "comprobar si un elemento está en la lista con in",
+  "ValueError al buscar en lista con index"
+ ],
+ "2ef851cfadf631b1": [
+  "pyproject.toml para publicar",
+  "cómo crear un comando de terminal en python",
+  "subir paquete a testpypi",
+  "herramientas para empaquetar python build twine",
+  "qué es trusted publishing en github actions",
+  "puedo modificar una versión ya publicada en pypi",
+  "cómo usar uv build y uv publish",
+  "configurar hatchling en pyproject.toml"
+ ],
+ "2f639079a2a92047": [
+  "proyectos completos para principiantes en Python",
+  "generador de contraseñas y juego de ahorcado",
+  "proyecto gestor de tareas con JSON",
+  "bot de Telegram básico con SQLite",
+  "API REST completa con FastAPI",
+  "herramienta CLI para gestión de ficheros",
+  "pipeline de análisis de datos con Python",
+  "¿Qué proyecto puedo hacer para practicar nivel intermedio?"
+ ],
+ "2febf007705066fb": [
+  "formatear dinero en español python",
+  "poner puntos y comas en euros",
+  "mostrar porcentajes con coma",
+  "f-string formato decimales",
+  "cómo formatear floats con formato europeo",
+  "euros",
+  "reemplazar puntos por comas en floats",
+  "dar formato a porcentajes"
+ ],
+ "309c6fd5835f843d": [
+  "Cómo convertir un número a binario",
+  "Cómo pasar de hexadecimal a entero",
+  "Para qué sirven los operadores de bits",
+  "cómo multiplicar por dos usando desplazamiento de bits",
+  "cómo contar los bits activos de un número",
+  "Qué hace el operador ^ en Python",
+  "cómo escribir literales en octal y hexadecimal",
+  "cómo usar f-strings para formatear en binario"
+ ],
+ "322567163822cc3e": [
+  "Cómo desempaquetar listas",
+  "¿Qué hace el operador * en una asignación?",
+  "Cómo unir dos diccionarios en Python",
+  "me sale un error al hacer x = lista.sort()",
+  "cómo paso una lista como argumentos a una función",
+  "Intercambiar dos variables en una línea",
+  "¿Qué significa el asterisco doble en **datos?",
+  "Asignación múltiple y anidada en Python"
+ ],
+ "32e2ff80fe95e3a9": [
+  "¿Qué es una variable en Python?",
+  "¿Copiar una variable duplica el objeto?",
+  "cómo hago para que dos nombres apunten al mismo objeto",
+  "¿Por qué los int no cambian al reasignarlos?",
+  "a is b",
+  "¿Qué hace id(a) == id(b)?",
+  "las variables son cajas que contienen valores",
+  "¿Por qué modificar una lista a través de otra variable afecta a la original?"
+ ],
+ "334e6066756deba9": [
+  "cómo hacer logs en python",
+  "loguru o logging",
+  "logs estructurados en json para producción",
+  "opentelemetry python",
+  "trazas y métricas python",
+  "mejor librería de logging",
+  "structlog python",
+  "ver logs de la aplicación"
+ ],
+ "34c7efdf9406b883": [
+  "crear clases en python",
+  "qué es un atributo de clase",
+  "cómo hacer un property",
+  "método init",
+  "cómo proteger atributos",
+  "atributos privados con doble guion bajo",
+  "validar con setter",
+  "cómo funciona self"
+ ],
+ "34f29fef7b434c62": [
+  "cómo leer argumentos de la línea de comandos con argparse",
+  "parser.add_argument",
+  "crear un script de python que acepte parámetros",
+  "cómo hacer subcomandos tipo git en python",
+  "argumento obligatorio en argparse",
+  "parser.add_subparsers()",
+  "cómo poner opciones opcionales con guión",
+  "generar ayuda automática para un script de consola"
+ ],
+ "35710f83db2f7b4c": [
+  "Cómo hacer combinaciones y permutaciones en Python",
+  "Para qué sirve product de itertools",
+  "Diferencia entre permutations y combinations",
+  "Cómo calcular el producto cartesiano de listas",
+  "Combinaciones con repetición en itertools",
+  "cómo hago permutaciones con python",
+  "qué función de itertools genera tuplas sin importar el orden",
+  "Ejemplo de list(combinations(...))"
+ ],
+ "357fe11453848478": [
+  "Cómo meter variables dentro de un texto",
+  "Qué pasa si olvido la f en una f-string",
+  "Hacer operaciones dentro de las llaves de un string",
+  "f\"Hola, {nombre}\"",
+  "Formatear decimales en un texto con f-strings",
+  "Cómo llamar a un método dentro de una f-string",
+  "Ventaja de las f-strings frente a concatenar con +",
+  "Imprimir el símbolo de las llaves sin que sea una variable"
+ ],
+ "3674054dd087c8ba": [
+  "qué novedades trae Python 3.11",
+  "cómo leer archivos TOML en la librería estándar",
+  "manejo robusto de tareas paralelas en asyncio",
+  "qué es ExceptionGroup",
+  "cómo funciona el TaskGroup",
+  "cuánto más rápido es Python 3.11 frente a 3.10",
+  "tipo Self en typing",
+  "traceback mejorado Python 3.11"
+ ],
+ "371155e6139d731d": [
+  "cuál es el mejor framework de testing en python",
+  "cómo medir la cobertura de código",
+  "generar datos falsos para pruebas",
+  "mockear llamadas http en python",
+  "probar código asíncrono con pytest",
+  "hypothesis testing",
+  "librería estándar para tests en python",
+  "cómo hacer factories para objetos de prueba"
+ ],
+ "37a9ea55d7a42194": [
+  "¿Qué diferencia hay entre un método de instancia, uno de clase y uno estático?",
+  "Cómo se usa el decorador @classmethod",
+  "¿Para qué sirve @staticmethod y cuándo debo usarlo?",
+  "cómo paso la clase como argumento usando cls",
+  "cuándo debo elegir un método estático en lugar de una función normal",
+  "Ejemplo de constructor alternativo con classmethod",
+  "¿Qué recibe un método de instancia como primer argumento?",
+  "Un método estático recibe el objeto o la clase?"
+ ],
+ "3998854ef890e658": [
+  "cómo saber si dos palabras son anagramas en python",
+  "función para comprobar si un texto es un palíndromo",
+  "encontrar las palabras más frecuentes en un texto",
+  "agrupar palabras que son anagramas con defaultdict",
+  "es_palindromo(\"Anita lava la tina\")",
+  "como limpio los espacios y mayusculas para anagramas",
+  "contar frecuencia de palabras quitando puntuación",
+  "cómo agrupar anagramas en un diccionario"
+ ],
+ "39a91ec6e73f6f54": [
+  "¿Qué es polars y por qué es más rápido que pandas?",
+  "¿Cómo leo un CSV grande de forma eficiente en memoria?",
+  "¿Qué significa que polars sea lazy por defecto?",
+  "¿Cómo filtro filas en polars usando pl.col?",
+  "¿Cómo se hacen agrupaciones en polars?",
+  "¿Cuándo se ejecuta realmente una consulta lazy en polars?",
+  "Diferencias de rendimiento entre pandas y polars",
+  "¿Cómo instalo polars en mi entorno?"
+ ],
+ "3b062f7250724b71": [
+  "Cómo descargar varias páginas web en paralelo con hilos",
+  "¿Cómo usar `ThreadPoolExecutor` en Python?",
+  "Procesar tareas con hilos según van terminando",
+  "¿Cómo hacer cálculos pesados usando varios núcleos de la CPU?",
+  "Por qué me da error usar ProcessPoolExecutor en Windows",
+  "Cómo usar `ProcessPoolExecutor` para procesar datos en paralelo",
+  "¿Qué hace `as_completed` en concurrent.futures?",
+  "Ejemplo de uso de `pool.map` para descargas"
+ ],
+ "3b73a2888e721cb6": [
+  "cómo instalar python en windows",
+  "python no está en el path windows",
+  "cómo instalar python en macos",
+  "comprobar versión de python",
+  "instalar python con homebrew",
+  "me sale la tienda de microsoft al escribir python",
+  "cómo saber qué versión de python tengo instalada",
+  "instalar python en linux"
+ ],
+ "3b8d6cf2d6a5d4c9": [
+  "libreria http sincrono mas usada",
+  "cual es la diferencia entre fastapi y flask",
+  "servidor asgi rapido python",
+  "librerias para hacer web sockets",
+  "que framework usar para api rest moderna",
+  "servidor wsgi para produccion",
+  "alternativa a requests con async",
+  "librerias web en python"
+ ],
+ "3bcd48a081ee8643": [
+  "Cómo fusionar y actualizar diccionarios",
+  "unir dos diccionarios con el operador |",
+  "cómo sumo dos diccionarios",
+  "unir diccionarios con **",
+  "actualizar un diccionario con otro usando |=",
+  "sumar valores de claves repetidas en diccionarios",
+  "cómo se combinan diccionarios en python",
+  "fusionar diccionarios Counter"
+ ],
+ "3be17e79f045ca18": [
+  "UnicodeDecodeError: 'utf-8' codec can't decode byte",
+  "¿Cómo abrir un archivo que no está en utf-8?",
+  "leer ficheros con encoding latin-1",
+  "archivos guardados por excel con BOM",
+  "¿Cómo ignorar errores de codificación al abrir un archivo?",
+  "me da error al leer un archivo de windows",
+  "¿Cuál es la regla de oro con str y bytes?",
+  "abrir csv con encoding utf-8-sig"
+ ],
+ "3c85a73198727cbe": [
+  "cómo abrir el REPL de python",
+  "ejecutar un script de python",
+  "cómo salir del REPL",
+  "para qué sirve python -m",
+  "mejores editores para python",
+  "cómo usar help en python",
+  "ejecutar script y quedarse en modo interactivo",
+  "qué hace el guion bajo en el REPL de python"
+ ],
+ "3de03594ae1cb1bc": [
+  "qué es pep 8",
+  "cuantas lineas en blanco entre funciones pep 8",
+  "qué es una pep en python",
+  "cómo formatear código automáticamente",
+  "cuántos espacios de sangría pide python",
+  "qué es el zen de python",
+  "cómo nombrar clases y funciones según pep 8",
+  "como ver el zen de python"
+ ],
+ "3e08e39a01713279": [
+  "Diferencia entre parámetro y argumento",
+  "qué son los parámetros de una función",
+  "cómo paso argumentos con nombre",
+  "diferencia entre argumento posicional y con nombre",
+  "¿Qué pongo en la definición y qué al llamar?",
+  "me confundo entre parámetros y argumentos",
+  "dame un ejemplo de argumento posicional",
+  "qué es un argumento en python"
+ ],
+ "3e4c2d0062a90554": [
+  "canales de python en español",
+  "tutoriales de python de brais moure",
+  "mejores canales de youtube para aprender python en español",
+  "píldoras informáticas python",
+  "dónde ver roadmaps de programación en español",
+  "aprender python con hola mundo",
+  "canales de youtube en castellano sobre python",
+  "videos de mouredev"
+ ],
+ "4012e4cd8adbb0d4": [
+  "¿Cuál es la diferencia entre un atributo de clase y uno de instancia?",
+  "¿Por qué es un error usar una lista mutable como atributo de clase?",
+  "Cómo compartir datos entre todas las instancias de una clase",
+  "dónde se busca un atributo cuando hago a.empresa",
+  "cómo declarar una variable compartida por todos los objetos",
+  "¿Cómo creo un atributo que sea propio de cada objeto y no se comparta?",
+  "Ejemplo correcto de lista en un carrito de compras",
+  "Modificar un atributo de clase desde el objeto"
+ ],
+ "434453220cf26693": [
+  "cómo hacer código asíncrono en python",
+  "leer archivos de forma asíncrona",
+  "anyio o asyncio",
+  "trio vs asyncio",
+  "manejar hilos y procesos en python",
+  "concurrent.futures python",
+  "programación asíncrona base",
+  "aiofiles python"
+ ],
+ "434f8b15dd599a49": [
+  "lista enlazada en python",
+  "crear un nodo para lista",
+  "cómo invertir una lista enlazada",
+  "insertar al inicio en O(1)",
+  "clase Nodo y ListaEnlazada",
+  "por qué no hace falta usar listas enlazadas en python",
+  "método yield en una lista enlazada",
+  "recorrer una estructura enlazada"
+ ],
+ "43e89d2395f2cf62": [
+  "Cómo ignorar warnings en Python",
+  "warnings.warn(\"Usa funcion_nueva()\", DeprecationWarning, stacklevel=2)",
+  "cómo silenciar un warning de deprecación",
+  "python -W error script.py",
+  "avisos sin detener el programa python",
+  "me sale un aviso de deprecación y quiero quitarlo",
+  "cómo convertir los avisos en errores",
+  "para qué sirve filterwarnings"
+ ],
+ "4464109896e4bd42": [
+  "contar palabras en un texto python",
+  "cuántas palabras hay en un string",
+  "cómo saber la palabra que más se repite",
+  "Counter",
+  "contar frecuencia de cada letra",
+  "count",
+  "cómo uso count para buscar subcadenas",
+  "contar letras de una frase"
+ ],
+ "45117571dab4cfd9": [
+  "cómo cifrar datos en python con la biblioteca estándar",
+  "la librería cryptography",
+  "Fernet.generate_key()",
+  "cómo cifrar y descifrar texto simétricamente",
+  "pip install cryptography",
+  "puedo usar la librería estándar para cifrar",
+  "f.encrypt",
+  "por qué no debo inventar mis propios algoritmos de cifrado"
+ ],
+ "45a7da91b3b2ef3d": [
+  "qué es el duck typing en python",
+  "cómo funciona el tipado de pato",
+  "para qué sirve collections.abc",
+  "comprobar si un objeto es iterable",
+  "qué es typing.Protocol",
+  "interfaces estándar en python",
+  "cómo validar que un objeto tiene un método",
+  "duck typing y protocolos"
+ ],
+ "46895defa0ebd81b": [
+  "Lambda en bucle",
+  "¿Por qué todas las lambdas devuelven el mismo resultado?",
+  "capturar el valor actual en lambda",
+  "funciones lambda dentro de list comprehensions",
+  "lambda x, i=i: x * i",
+  "me salen mal los resultados en un bucle de lambdas",
+  "Por qué i vale 4 al ejecutar las lambdas",
+  "Problemas con lambdas y bucles"
+ ],
+ "46f71ffdccbdcb97": [
+  "AttributeError: 'list' object has no attribute 'add'",
+  "AttributeError: module 'x' has no attribute 'y'",
+  "ModuleNotFoundError: No module named 'requests'",
+  "por qué dice que la lista no tiene el método add",
+  "creé un archivo random.py y ahora no funciona random",
+  "cómo instalar un módulo que me falta con pip",
+  "attributeerror 'nonetype' object has no attribute",
+  "no se encuentra el módulo requests que hago"
+ ],
+ "485bc3d7bc5d9fca": [
+  "estadísticas de lista sin funciones",
+  "eliminar duplicados sin set",
+  "rotar una lista k posiciones",
+  "cómo aplanar una lista anidada en Python",
+  "implementar una pila en Python",
+  "¿cómo hago una clase Pila con push y pop?",
+  "ejercicio para quitar repetidos manteniendo el orden",
+  "necesito practicar con listas y estructuras de datos"
+ ],
+ "48be4995cc1f1f9a": [
+  "Cómo leer un traceback",
+  "por dónde se empieza a leer un error en python",
+  "ZeroDivisionError: division by zero",
+  "qué significa el traceback",
+  "me sale un error largo abajo del todo qué miro",
+  "qué significan los palitos ^^^^ en los errores de python",
+  "cómo saber en qué línea exacta falló mi script",
+  "el traceback se lee de arriba a abajo o al revés"
+ ],
+ "495752470109782d": [
+  "Cómo agrupar elementos consecutivos con itertools",
+  "Para qué sirve batched en Python",
+  "Cómo aplanar una lista de listas con chain",
+  "Cómo obtener pares consecutivos con pairwise",
+  "Cómo hacer sumas acumuladas en Python",
+  "por qué groupby no me agrupa bien si no ordeno antes",
+  "cómo troceo un iterador sin crearlo entero con islice",
+  "Cómo usar zip_longest para rellenar valores faltantes"
+ ],
+ "49da5919fed9acae": [
+  "¿Cómo hacer peticiones HTTP con requests?",
+  "Reintentar peticiones automáticamente con requests",
+  "Enviar cabeceras y parámetros con requests",
+  "Cómo descargar un archivo por streaming con requests",
+  "Lanzar excepción si la respuesta HTTP falla en requests",
+  "Cliente HTTP asíncrono con httpx",
+  "Cómo usar httpx de forma síncrona",
+  "Petición POST con requests y JSON"
+ ],
+ "4a0649fb98dccfae": [
+  "Cómo pasar datos de forma segura entre varios hilos",
+  "¿Para qué sirve `queue.Queue`?",
+  "Cómo evitar condiciones de carrera cuando dos hilos modifican la misma variable",
+  "¿Cómo se usa un `threading.Lock`?",
+  "Cómo esperar a que terminen todas las tareas de una cola en hilos",
+  "Me están pisando los datos entre hilos al sumar un contador, ¿cómo lo arreglo?",
+  "Cómo crear un pool básico de trabajadores con hilos y colas",
+  "¿Qué hace el método `cola.join()`?"
+ ],
+ "4a47a1ce99094ea3": [
+  "¿Qué son los archivos .ipynb?",
+  "Cómo abrir un jupyter notebook sin instalar nada",
+  "me sale un error raro en el notebook, qué hago",
+  "Comando para instalar Jupyter Lab",
+  "¿Para qué sirven las celdas en Jupyter?",
+  "¿Se pueden ejecutar las celdas de un notebook en cualquier orden?",
+  "Herramientas para aprender análisis de datos con Python",
+  "cómo arranco jupyter lab"
+ ],
+ "4bd9f3e536a10fd2": [
+  "técnica de dos punteros en python",
+  "problema de la ventana deslizante",
+  "encontrar subcadena más larga sin repetir caracteres",
+  "par_con_suma(ordenada, objetivo)",
+  "suma máxima de k elementos seguidos",
+  "como busco una pareja que sume un objetivo en una lista",
+  "subcadena_sin_repetir(\"abcabcbb\")",
+  "algoritmo para ventana deslizante en O(n)"
+ ],
+ "4d04bd85e208f016": [
+  "Cómo dividir una lista en trozos",
+  "partir una lista en partes iguales python",
+  "itertools batched ejemplo",
+  "cómo agrupar una lista en trozos",
+  "trocear lista python",
+  "cómo hago para separar una lista en sublistas",
+  "batched python 3.12",
+  "dividir lista en bloques"
+ ],
+ "4ee8dcf37612234c": [
+  "Cómo formatear fechas con strftime en Python",
+  "Cómo hacer operaciones aritméticas con fechas usando timedelta",
+  "Cómo construir rutas portables con Pathlib",
+  "Diferencia entre Path y os.path",
+  "Cómo leer una variable de entorno con os.environ",
+  "cómo obtengo el directorio actual con pathlib",
+  "cómo sumo una semana a la fecha actual",
+  "cómo parsear un string a fecha con strptime"
+ ],
+ "53733b57723307d4": [
+  "¿Cómo veo las primeras filas de un DataFrame?",
+  "¿Cómo consulto los valores nulos por columna en pandas?",
+  "¿Cuál es la diferencia entre .loc y .iloc?",
+  "¿Cómo agrupo datos por una columna y calculo la media?",
+  "¿Cómo hago un JOIN entre dos DataFrames?",
+  "¿Cómo renombro una columna en pandas?",
+  "¿Cómo filtro un DataFrame con la función query?",
+  "¿Cómo guardo un DataFrame en formato excel?"
+ ],
+ "556b909d47e142d2": [
+  "Cómo quitar duplicados de una lista manteniendo el orden",
+  "borrar repetidos lista python",
+  "dict.fromkeys para duplicados",
+  "Quitar duplicados de una lista con diccionarios",
+  "cómo elimino duplicados sin perder el orden",
+  "Eliminar duplicados en objetos no hashables",
+  "quitar duplicados manteniendo orden con set",
+  "cómo hago para sacar elementos repetidos de una lista"
+ ],
+ "558d280c9dabe52f": [
+  "qué pasa si pongo dos textos seguidos sin operador",
+  "cómo unir un texto largo partido en varias líneas con paréntesis",
+  "por qué mi lista de colores se ha unido en dos elementos por culpa de una coma",
+  "puedo concatenar un texto y una variable escribiéndolos juntos sin el más",
+  "me da SyntaxError al juntar un texto y una variable",
+  "cómo concatenar variables de texto correctamente",
+  "concatenación implícita en python",
+  "por qué falla saludo = \"Hola, \" nombre"
+ ],
+ "562b590a881706dc": [
+  "SyntaxError: invalid syntax",
+  "SyntaxError: '(' was never closed",
+  "IndentationError: expected an indented block",
+  "TabError: inconsistent use of tabs and spaces",
+  "por qué me sale error de sintaxis si puse el if",
+  "me sale unexpected indent qué hago",
+  "cómo arreglar el error de mezclar espacios y tabuladores",
+  "olvidé poner los dos puntos en el def y me da error"
+ ],
+ "5676bd86ccc8bd60": [
+  "Cómo aplanar una lista de listas",
+  "juntar lista de listas en una sola",
+  "aplanar listas con itertools.chain",
+  "cómo hago para unir varias listas anidadas",
+  "itertools.chain.from_iterable ejemplo",
+  "aplanar listas python",
+  "unir lista anidada en una lista plana",
+  "cómo aplanar listas con profundidad variable"
+ ],
+ "57ccc72d2e3a29b7": [
+  "¿Qué es hashable en Python?",
+  "¿Puedo usar una lista como clave de un diccionario?",
+  "me sale unhashable type al usar una tupla",
+  "¿Qué tipos pueden ser elementos de un set?",
+  "¿Sirve un frozenset como clave de diccionario?",
+  "¿Por qué da error usar list en un dict?",
+  "¿Qué función calcula el hash en Python?",
+  "requisitos para las claves de un diccionario"
+ ],
+ "583a94489ee58dba": [
+  "librería para rutas modernas",
+  "cómo generar códigos QR en Python",
+  "biblioteca para leer archivos Excel en Python",
+  "qué librería usar para generar PDFs",
+  "librería para fechas con mejor API que datetime",
+  "cómo conectar por SSH desde Python",
+  "librería para hacer fechas legibles por humanos",
+  "cómo manipular imágenes en Python"
+ ],
+ "586d7573533c17e0": [
+  "diferencia entre fecha naive y aware en python",
+  "TypeError: can't compare offset-naive and offset-aware datetimes",
+  "cómo usar zonas horarias con zoneinfo",
+  "ZoneInfo(\"Europe/Madrid\")",
+  "obtener la hora actual en UTC",
+  "cómo convertir una hora a otra zona con astimezone",
+  "datetime.now(timezone.utc)",
+  "por qué datetime.utcnow() está obsoleto"
+ ],
+ "58d641af02cbbac3": [
+  "Qué es una función recursiva",
+  "Por qué toda recursión necesita un caso base",
+  "Cómo aplanar una lista anidada con recursividad",
+  "Cuál es el límite de llamadas recursivas en Python",
+  "Cómo evitar repetir cálculos en funciones recursivas",
+  "Función recursiva para calcular el factorial",
+  "Sumar los dígitos de un número de forma recursiva",
+  "Cuándo debo usar un bucle en vez de recursión"
+ ],
+ "5c0574bfce677c92": [
+  "librería rápida para json en python",
+  "serializar objetos en python",
+  "cuándo usar pickle",
+  "formato binario compacto python",
+  "orjson vs json",
+  "protocol buffers en python",
+  "guardar objetos python en archivo",
+  "msgpack python"
+ ],
+ "5c1c82675b9e0362": [
+  "cómo hacer importaciones relativas en python",
+  "attempted relative import with no known parent package",
+  "para qué sirve el archivo __init__.py",
+  "from .utilidades.texto import limpiar",
+  "Cómo usar __all__ en un paquete",
+  "Error al ejecutar un script con import relativo",
+  "diferencia entre import absoluto y relativo",
+  "cómo se ejecuta un paquete desde la terminal con -m"
+ ],
+ "5c5ecb04f81c7232": [
+  "métodos estáticos",
+  "staticmethod",
+  "herencia en python",
+  "cómo llamar al padre con super",
+  "herencia múltiple",
+  "sobrescribir métodos",
+  "mixin con clases",
+  "cómo funciona staticmethod"
+ ],
+ "5dfeb86897de8c18": [
+  "hoja de ruta python",
+  "roadmap de python",
+  "¿Qué se estudia en las primeras semanas de Python?",
+  "cuánto tiempo lleva aprender POO en Python",
+  "roadmap completo de python",
+  "¿En qué semana se ven los decoradores en Python?",
+  "temario para aprender python desde cero hasta avanzado",
+  "orden para aprender los temas de python"
+ ],
+ "5e1b3890d3bd0d38": [
+  "crear entorno virtual python",
+  "cómo activar .venv en windows",
+  "source .venv/bin/activate para qué es",
+  "guardar dependencias en requirements.txt",
+  "la ejecución de scripts está deshabilitada powershell",
+  "cómo seleccionar el intérprete en vs code",
+  "puedo subir la carpeta .venv a git",
+  "para qué sirve uv venv"
+ ],
+ "5f8c6fd984577058": [
+  "Diferencia entre sort y sorted",
+  "¿Cómo invertir una lista en python?",
+  "¿Qué devuelve lista.sort()?",
+  "diferencia entre reverse() y reversed()",
+  "cómo ordenar sin modificar la lista original",
+  "para qué sirve x[::-1]",
+  "mi lista ordenada me devuelve None",
+  "diferencia entre método de ordenación y función"
+ ],
+ "63bbf48c838930d2": [
+  "libros gratis para aprender python",
+  "¿Qué libro me recomiendas para Python avanzado?",
+  "recomiéndame un libro de python",
+  "¿Dónde puedo leer Fluent Python?",
+  "libros de pago de python que valgan la pena",
+  "quiero aprender bases conceptuales de python",
+  "libros de python en internet",
+  "¿Qué libro sobre Clean Code hay para Python?"
+ ],
+ "63c9232cb1ecf2e7": [
+  "Cómo usar map en Python",
+  "Para qué sirve filter",
+  "Cómo multiplicar elementos de una lista con reduce",
+  "Quitar valores falsy de una lista",
+  "Alternativa más legible a map y filter",
+  "Cómo transformar elementos de un iterable con una función",
+  "Usar reduce de la librería functools",
+  "Filtrar elementos pares de una lista"
+ ],
+ "64da10c3b2ee02d3": [
+  "¿Para qué sirve assert en Python?",
+  "¿Qué excepción lanza assert cuando la condición es falsa?",
+  "¿Se deben usar assert para validar datos de usuario?",
+  "¿Qué pasa con los assert si ejecuto con python -O?",
+  "cómo comprobar suposiciones internas en una función",
+  "¿Cómo usar assert con un mensaje personalizado?",
+  "uso de assert en los tests de pytest",
+  "assert numeros"
+ ],
+ "64e50ee62f885fe0": [
+  "Referencias vs copias en listas",
+  "¿Cómo copiar una lista en Python?",
+  "modifico una lista y se cambia la otra",
+  "¿Qué hace a.copy()?",
+  "Copia profunda para estructuras anidadas",
+  "¿Cuándo usar copy.deepcopy?",
+  "b = a[:] para qué sirve",
+  "Por qué al hacer b = a se modifican ambas"
+ ],
+ "650313f4c85d1b07": [
+  "¿Qué es una clase y qué es un objeto en Python?",
+  "cómo creo un objeto a partir de una clase",
+  "¿Cómo puedo saber la clase de un objeto?",
+  "método para comprobar si una variable es instancia de una clase",
+  "¿En Python todo es un objeto?",
+  "Para qué sirve crear tus propias clases",
+  "cómo se define una clase básica en Python",
+  "Diferencia entre clase y objeto"
+ ],
+ "6742e6693437a653": [
+  "diferencia entre copia superficial y profunda",
+  "copy vs deepcopy en python",
+  "por qué al modificar una copia se cambia el original",
+  "cómo hacer una copia de un diccionario sin que afecte al anidado",
+  "copias superficiales rápidas en python",
+  "para qué sirve el módulo copy",
+  "copiar listas con slicing",
+  "deepcopy en estructuras anidadas"
+ ],
+ "6765953a2ffc24f5": [
+  "ejecutar código cada cierto tiempo",
+  "time.sleep",
+  "bucle infinito con pausa",
+  "cómo programar tareas en python",
+  "schedule",
+  "ejecutar algo cada minuto",
+  "alternativas a sleep para tareas programadas",
+  "cron en linux para python"
+ ],
+ "676ce232843958f2": [
+  "hitos para saber python",
+  "cómo sé si ya soy nivel intermedio en python",
+  "¿Qué nivel debo tener en Codewars para saber Python?",
+  "requisitos para saber si ya controlo python",
+  "cómo comprobar mi nivel de python",
+  "¿Es obligatorio usar git para aprender python?",
+  "qué proyectos tener en github siendo principiante",
+  "saber si puedo hacer un code review"
+ ],
+ "67d14f200fd966a7": [
+  "qué significa if __name__ == \"__main__\"",
+  "para qué sirve el guion bajo en __name__",
+  "cómo evitar que un módulo se ejecute al importarlo",
+  "por qué mi script se ejecuta solo al importarlo",
+  "cómo saber si ejecuto el fichero directamente",
+  "ejemplo de uso de __main__",
+  "para qué sirve el bloque principal en python",
+  "cómo funciona __name__ en python"
+ ],
+ "67e3861a8cff292d": [
+  "implementar bubble sort y selection sort",
+  "búsqueda binaria iterativa y recursiva",
+  "árbol binario de búsqueda en Python",
+  "grafo con BFS y DFS",
+  "cómo hacer el recorrido inorden en un BST",
+  "ejercicio para encontrar el camino más corto en un grafo",
+  "comparar algoritmos de ordenación",
+  "algoritmos y estructuras de datos avanzados"
+ ],
+ "685f503e664f8eec": [
+  "¿Cómo se hace la encapsulación en Python si no hay atributos privados?",
+  "Para qué sirve el decorador @property",
+  "¿Qué diferencia hay entre usar un guion bajo y dos guiones bajos en los nombres?",
+  "me sale un AttributeError al intentar modificar una propiedad de solo lectura",
+  "¿Cómo puedo validar un valor al asignarlo a un atributo?",
+  "Cuándo debo usar getters y setters en Python",
+  "cómo funciona @property en una clase",
+  "¿Qué hace exactamente el name mangling con doble guion bajo?"
+ ],
+ "68e1a813aa6ff2b4": [
+  "cómo medir el tiempo de ejecución con timeit",
+  "optimizar consumo de memoria con slots",
+  "cuándo usar lru_cache",
+  "cómo hacer profiling con cProfile",
+  "trucos para que python vaya más rápido",
+  "diferencia de rendimiento entre set y lista",
+  "cómo perfilar el uso de memoria en funciones",
+  "usar deque en vez de lista"
+ ],
+ "69c4cd1397881d46": [
+  "calculadora con funciones y menú",
+  "decorador para medir tiempo de ejecución",
+  "memoización manual de Fibonacci",
+  "pipeline funcional en Python",
+  "cómo hacer un decorador de tiempo",
+  "ejercicio de scope y funciones",
+  "¿cómo paso funciones como argumentos en cadena?",
+  "reto de funciones avanzadas"
+ ],
+ "6ac79d7ace0b1990": [
+  "Cómo poner sangría en Python",
+  "por qué me sale TabError al tabular",
+  "¿Cuántos espacios usa la sangría estándar?",
+  "Cómo escribir varias sentencias en una misma línea",
+  "Para qué sirven las líneas # fmt: off y # fmt: on",
+  "Cómo partir una línea muy larga",
+  "Un string entre triples comillas al principio sirve como comentario",
+  "cómo hago para que el formateador no toque mi código"
+ ],
+ "6cc09e44ccf149c2": [
+  "para qué sirven los slots en python",
+  "cómo ahorrar memoria en clases de python",
+  "AttributeError al añadir atributo en clase con slots",
+  "qué es __slots__",
+  "optimizar uso de memoria con clases",
+  "crear clases sin __dict__",
+  "slots en dataclasses",
+  "cuándo usar __slots__"
+ ],
+ "6e09b14da73908e3": [
+  "Diferencia entre print y return",
+  "mi función devuelve None",
+  "¿Por qué sale en pantalla pero la variable es None?",
+  "cuándo usar return en una función",
+  "diferencia entre mostrar y devolver un valor",
+  "en el REPL print y return parecen iguales",
+  "cómo guardar el resultado de una función",
+  "para qué sirve terminar una función con return"
+ ],
+ "6e38e677c5f65048": [
+  "Cómo hacer tests con pytest",
+  "¿Cómo probar excepciones con pytest?",
+  "Para qué sirven los fixtures en pytest",
+  "Cómo usar @pytest.mark.parametrize",
+  "test_suma_dos_enteros",
+  "cómo creo una cuenta bancaria de prueba con pytest",
+  "me sale error al dividir por cero en el test",
+  "cómo reutilizar código de setup en pytest"
+ ],
+ "6e4673e2446d4e24": [
+  "Qué es Python",
+  "quién creó python y cuándo",
+  "¿Para qué sirve Python?",
+  "características principales de python",
+  "¿Se puede usar Python para inteligencia artificial?",
+  "me sirve python para desarrollo web backend",
+  "cuántos paquetes tiene PyPI",
+  "lenguaje de programación interpretado y de alto nivel"
+ ],
+ "6e98ae5e68b659a4": [
+  "¿Para qué sirve el GIL en Python?",
+  "Cómo usar threading en Python",
+  "¿Cómo evitar race conditions con threading?",
+  "Ejemplo de multiprocessing en Python",
+  "¿Cómo hacer peticiones asíncronas con asyncio?",
+  "quiero descargar cosas en paralelo pero me sale lento",
+  "cómo uso hilos en python con threading.Thread",
+  "para qué sirve asyncio.gather"
+ ],
+ "6f57c05d4bb90797": [
+  "cómo saber si un código es de python 2",
+  "qué pasa si veo print sin paréntesis",
+  "cuál es el equivalente de raw_input en python 3",
+  "qué diferencia hay entre xrange de python 2 y range de python 3",
+  "por qué 5 / 2 da 2 en un código antiguo",
+  "para qué servía -*- coding: utf-8 -*- al principio del fichero",
+  "por qué sale el error Non-ASCII character",
+  "el input de python 2 evalúa el código"
+ ],
+ "6fb78e3ee8d7bb2c": [
+  "Cómo usar funciones en lugar de operadores como suma o multiplicación",
+  "¿Para qué sirve el módulo operator?",
+  "Cómo ordenar una lista de tuplas por un índice específico usando operator",
+  "¿Qué hace `operator.itemgetter`?",
+  "Cómo llamar a un método de forma dinámica en un map",
+  "¿Cómo usar `reduce` con el operador de multiplicación?",
+  "Ordenar objetos por un atributo sin usar lambdas",
+  "¿Qué hace `operator.methodcaller`?"
+ ],
+ "701a307a5e40cc70": [
+  "Diferencia entre append y extend",
+  "cómo añadir una lista dentro de otra",
+  "para qué sirve a += [5]",
+  "¿Qué hace el operador + en las listas?",
+  "insertar elemento en una posición concreta",
+  "¿Por qué append mete corchetes y extend no?",
+  "me sale la lista anidada al meter otra lista",
+  "diferencia entre a = a + [5] y a += [5]"
+ ],
+ "715051367793a1be": [
+  "cómo definir una función con parámetros por defecto",
+  "cómo pasar un número indefinido de argumentos posicionales con *args",
+  "cómo capturar argumentos con nombre ilimitados en una función con **kwargs",
+  "cómo hacer que una función devuelva varios valores",
+  "el return múltiple devuelve una tupla",
+  "cómo desempaquetar una lista al llamar a print con *",
+  "para qué sirve el docstring en una función",
+  "cómo paso una configuración de diccionario usando ** al llamar a una función"
+ ],
+ "7206672d1bd31a9b": [
+  "cómo poner type hints en funciones",
+  "qué es Optional en tipado de python",
+  "cómo usar Union para varios tipos",
+  "definir un diccionario tipado con TypedDict",
+  "duck typing con Protocol en python",
+  "verificar tipos con mypy o pyright",
+  "cómo tipar una función que recibe otra función como parámetro con Callable",
+  "tipos genéricos con TypeVar"
+ ],
+ "722ef15e8b522edb": [
+  "Diferencia entre is y == en Python",
+  "¿Cómo comprobar si una variable es None?",
+  "Verificar si un elemento está dentro de una lista",
+  "Operador is not en Python",
+  "¿Por qué a == b da True pero a is b da False?",
+  "Buscar clave en un diccionario con in",
+  "Comprobar pertenencia de caracteres en un string",
+  "¿Cómo saber si dos variables apuntan al mismo objeto en memoria?"
+ ],
+ "7244151df1b85486": [
+  "cómo enviar correos electrónicos con python",
+  "enviar un email con archivo adjunto usando smtplib",
+  "smtp con ssl y autenticación",
+  "cómo enviar correos usando una cuenta de gmail",
+  "contraseña de aplicación gmail smtplib",
+  "adjuntar un PDF a un correo en python",
+  "usar starttls en smtplib",
+  "enviar mensajes con EmailMessage"
+ ],
+ "73bf7c200b4738d7": [
+  "Cómo recibir JSON en una ruta POST de Flask",
+  "Manejo de debug en Flask",
+  "¿Por qué no usar debug=True en producción con Flask?",
+  "Definir modelos en Django con ORM",
+  "Crear un ViewSet en Django REST Framework",
+  "Configurar permisos en Django DRF",
+  "Campos de un modelo en Django",
+  "Cómo se usa el decorador app.route en Flask"
+ ],
+ "73c906808998acf8": [
+  "cómo buscar en un diccionario sin que falle si no existe la clave",
+  "método get",
+  "cómo combinar dos diccionarios en uno nuevo en python 3",
+  "para qué sirve setdefault en un diccionario",
+  "cómo usar Counter para contar frecuencias de letras",
+  "cómo recorrer claves y valores a la vez en un bucle for",
+  "cómo eliminar una clave de un diccionario con del",
+  "cómo crear un diccionario con valores por defecto usando defaultdict"
+ ],
+ "73fdff131a6f500e": [
+  "cómo hacer que mi clase funcione con len()",
+  "método __getitem__ en python",
+  "cómo permitir corchetes en mis objetos",
+  "hacer que un objeto se comporte como una función con __call__",
+  "implementar un context manager con with",
+  "cómo comprobar si un elemento está dentro de mi clase",
+  "métodos para contenedores personalizados",
+  "para qué sirve __enter__ y __exit__"
+ ],
+ "74144d5517df824a": [
+  "operadores de asignación",
+  "cómo funciona x += 3",
+  "asignación con operador",
+  "x **= 3",
+  "qué hace x //= 3",
+  "abreviar operaciones en una variable",
+  "incrementar una variable en python",
+  "actualizar valor de variable con operador"
+ ],
+ "742069fbd78172cb": [
+  "reglas para nombrar variables",
+  "por qué 2nombre da error",
+  "las variables distinguen mayúsculas y minúsculas",
+  "puedo usar palabras reservadas como nombre de variable",
+  "cómo ver todas las palabras reservadas de python",
+  "puedo usar tildes y ñ en los nombres de variables",
+  "por qué no debo usar list o str como nombres de variables",
+  "me sale TypeError: 'list' object is not callable por qué es"
+ ],
+ "74c3bdeafc267936": [
+  "Estructura condicional if elif else",
+  "¿Qué es el operador ternario en Python?",
+  "Valores que evalúan como False en Python",
+  "¿Qué significa que un valor sea truthy?",
+  "Comprobar si una variable string no está vacía",
+  "Cómo hacer un if corto en una línea",
+  "¿Qué tipos de datos evalúan como Falsy?",
+  "Uso de condicionales para evaluar notas"
+ ],
+ "74ed211476368670": [
+  "¿Qué librería se usa para parsear HTML?",
+  "¿Cómo hago scraping de una página web en Python?",
+  "¿Qué es mejor que Selenium para automatizar navegadores?",
+  "¿Cómo encuentro elementos con BeautifulSoup usando clases?",
+  "me sale un error al hacer web scraping dinámico con JS",
+  "¿Cómo extraigo los links de una página?",
+  "Comando para instalar playwright",
+  "¿Cómo simulo un login en una página con código?"
+ ],
+ "757ccea4edefcd89": [
+  "cómo heredar de otra clase en python",
+  "para qué sirve super()",
+  "me sale AttributeError al heredar",
+  "cómo sobrescribir un método del padre",
+  "comprobar si un objeto es instancia de una clase",
+  "qué es el polimorfismo en python",
+  "llamar al constructor de la clase padre",
+  "herencia y clases en python"
+ ],
+ "7615033c432d5266": [
+  "mejor tutorial oficial para aprender python",
+  "sitios web para aprender python desde cero",
+  "dónde leer artículos de calidad sobre python",
+  "aprender python interactivo en el navegador",
+  "guía moderna completa de python",
+  "tutoriales conceptuales y profundos de python",
+  "aprender python con futurecoder",
+  "donde empezar a estudiar python"
+ ],
+ "762d5ee7b196c7a7": [
+  "dataclass inmutable",
+  "cómo crear una clase dataclass que no se pueda modificar",
+  "para qué sirve frozen=True en una clase",
+  "crear un punto con dataclass y coordenadas flotantes",
+  "¿Cómo hago una clase con @dataclass(frozen=True)?",
+  "definir clase Punto con x e y como float usando dataclass",
+  "clase inmutable python",
+  "hacer que una dataclass sea hasheable"
+ ],
+ "768033e2ce321ed7": [
+  "Cómo usar el antiguo operador % para formatear textos",
+  "Para qué sirve el método format en Python hoy en día",
+  "\"Hola, %s. Tienes %d años\" % (\"Ana\", 30)",
+  "Formato antiguo con .format()",
+  "Cuándo es útil usar .format() con plantillas externas",
+  "Sintaxis antigua de formateo de strings en Python",
+  "\"Hola, {}\".format(\"Ana\")",
+  "Diferencia entre f-strings y el método format antiguo"
+ ],
+ "782a7f0d557b86a3": [
+  "Cómo convertir fecha a ISO",
+  "¿Qué hace datetime.now().isoformat()?",
+  "parsear fecha string python",
+  "me sale el nombre del mes en inglés con strftime",
+  "cómo saber el día de la semana en español con datetime",
+  "timestamp a fecha datetime con timezone",
+  "códigos de formato para fechas en python",
+  "cómo sacar el timestamp actual en segundos"
+ ],
+ "78c17a163b847b1e": [
+  "convenciones de nombres en python",
+  "cómo nombrar variables en python PEP 8",
+  "¿Cómo se escriben las constantes?",
+  "normas para nombrar clases",
+  "snake_case o camelcase para funciones",
+  "nombre de módulos python",
+  "PEP 8 nombres de variables",
+  "cómo poner nombre a una clase en python"
+ ],
+ "78d269b7f4041e88": [
+  "cómo leer un fichero gigante línea a línea sin gastar memoria",
+  "contar líneas de un archivo grande en python",
+  "leer un vídeo binario por bloques",
+  "cómo ver las últimas líneas de un log como el tail de linux",
+  "deque para leer el final de un fichero",
+  "hashlib.sha256",
+  "abrir archivo en modo binario rb",
+  "cómo procesar ficheros enormes eficientemente"
+ ],
+ "78dc421fa296ea5e": [
+  "cómo limpiar la caché de una función en python",
+  "ver estadísticas de caché de fibonacci",
+  "diferencia entre lru_cache y cache",
+  "decorador para memoización automática",
+  "¿Cómo uso @functools.lru_cache(maxsize=128)?",
+  "calcular fibonacci rápido con caché",
+  "método estático y de clase en python",
+  "para qué sirve @cached_property"
+ ],
+ "78f5a7e160d028fc": [
+  "with open",
+  "cómo leer un fichero línea a línea",
+  "modos de apertura de archivos",
+  "para qué sirve open",
+  "cómo usar pathlib",
+  "leer texto con Path",
+  "diferencia entre r y w en archivos",
+  "cómo comprobar si existe un archivo"
+ ],
+ "79064ef161804045": [
+  "Diferencia entre módulo, paquete y librería",
+  "qué es un framework en python",
+  "diferencia entre librería y framework",
+  "qué es la biblioteca estándar",
+  "para qué sirve pip y PyPI",
+  "qué es un archivo .py considerado oficialmente",
+  "diferencia entre paquete y módulo",
+  "qué contiene una carpeta con __init__.py"
+ ],
+ "7a93116bba77c25b": [
+  "Cómo hacer que un parámetro sea solo por posición",
+  "Parámetros solo con nombre en Python",
+  "¿Qué significa la barra diagonal en una función?",
+  "Obligar a usar argumentos con nombre con *",
+  "TypeError al pasar argumentos a una función",
+  "Cómo definir parámetros posicionales y de keyword a la vez",
+  "Diferencia entre antes y después del asterisco en los argumentos",
+  "Sintaxis de la barra y el asterisco en los parámetros"
+ ],
+ "7ba692d152aaaef5": [
+  "¿Qué tipos son inmutables en Python?",
+  "¿Cuáles son los tipos mutables?",
+  "¿Qué pasa si modifico una lista dentro de una tupla?",
+  "¿Cómo se pasan los argumentos en Python?",
+  "me sale TypeError al intentar cambiar una tupla",
+  "¿Una función modifica un entero que se le pasa?",
+  "¿Qué tipos de datos crean un objeto nuevo al cambiar?",
+  "cómo afecta modificar un objeto mutable pasado a una función"
+ ],
+ "7ebcb11dec35710d": [
+  "cómo invertir un string sin slicing",
+  "ejercicio para contar vocales",
+  "cómo comprobar si una frase es palíndroma",
+  "ejercicio para comprimir cadenas de texto",
+  "cómo detectar anagramas sin sorted",
+  "ejercicios de strings nivel medio y difícil",
+  "función para palíndromos ignorando tildes",
+  "cómo comprimir un string repetido"
+ ],
+ "7fa909a7156a2a27": [
+  "Diferencia entre copy y deepcopy",
+  "¿Por qué se cambia b si modifico a?",
+  "qué es una copia superficial en python",
+  "cuándo usar copy.deepcopy(a)",
+  "asignar b = a copia la lista?",
+  "problema con listas anidadas al copiar",
+  "diferencia entre a[:] y copy.deepcopy",
+  "qué hace a.copy() exactamente"
+ ],
+ "80a8d1d16c07f251": [
+  "convertir script en exe",
+  "cómo hago un ejecutable con pyinstaller",
+  "pyinstaller --onefile --windowed mi_app.py",
+  "ocultar consola en pyinstaller",
+  "mi antivirus marca mi ejecutable de python como virus",
+  "alternativas a pyinstaller para compilar python",
+  "cómo pasar mi programa a exe",
+  "crear un ejecutable que no abra la consola negra"
+ ],
+ "80b16ff8efec0a6c": [
+  "¿Cómo obtener el último carácter de un string?",
+  "Invertir una cadena de texto en Python",
+  "¿Qué es el slicing de strings?",
+  "Me sale TypeError al intentar modificar un string",
+  "¿Cómo saber la longitud de un texto?",
+  "Concatenar y repetir strings",
+  "Extraer una subcadena usando índices",
+  "¿Cómo funciona el paso en el slicing?"
+ ],
+ "80fcc01693ec8ec9": [
+  "Float y precisión",
+  "0.1 + 0.2 == 0.3 da False",
+  "¿Cómo comparar números decimales en Python?",
+  "Usar Decimal para dinero",
+  "math.isclose para qué sirve",
+  "Aritmética de punto flotante errores",
+  "me da 0.30000000000000004 al sumar decimales",
+  "¿Cómo sumar dinero sin errores de precisión?"
+ ],
+ "842ff66b4a7b6a33": [
+  "libreria para validacion de datos python",
+  "alternativa a dataclasses",
+  "como serializar y deserializar objetos",
+  "validar esquemas con python",
+  "pydantic para settings",
+  "libreria marshmallow para que sirve",
+  "validar datos en python",
+  "que es attrs"
+ ],
+ "871a7d398137430a": [
+  "qué es el MRO en python",
+  "orden de resolución en herencia múltiple",
+  "cómo calcula python el orden de las clases",
+  "para qué sirve __mro__",
+  "cómo funciona super() en herencia múltiple",
+  "algoritmo C3 python",
+  "orden de llamadas con herencia múltiple",
+  "consultar la jerarquía de una clase"
+ ],
+ "89721c4da2bda23f": [
+  "Qué herramientas hay para comprobar tipos en Python",
+  "Cómo instalar y usar mypy",
+  "Python ejecuta las anotaciones de tipos?",
+  "Qué es el modo estricto de mypy",
+  "Cómo funcionan las anotaciones diferidas en Python 3.14",
+  "qué validados de tipos actúan en tiempo de ejecución",
+  "cómo compruebo los tipos en mi código",
+  "puedo usar tipos definidos más abajo sin comillas en python"
+ ],
+ "89e800d67506c12a": [
+  "Cómo usar patch en requests",
+  "Dónde se debe parchear con unittest.mock",
+  "regla de patch donde se usa",
+  "mock_get.return_value.json.return_value",
+  "cómo simular una llamada a una API con tests",
+  "me da error al hacer patch de requests get",
+  "cómo uso assert_called_once en mis pruebas",
+  "por qué fallan mis mocks si parcheo donde se define"
+ ],
+ "8a3607b993758166": [
+  "cuándo usar lista tupla set o diccionario",
+  "diferencia entre lista y tupla en python",
+  "para qué sirve un set en python",
+  "cuándo conviene usar un diccionario",
+  "una lista que no cambie",
+  "quitar duplicados y comprobar pertenencia muy rápido",
+  "diferencias entre colecciones de python",
+  "qué estructura de datos elegir"
+ ],
+ "8b2e59efb6c51e7d": [
+  "¿Para qué sirve numpy en Python?",
+  "¿Cómo creo un array de ceros con numpy?",
+  "¿Qué hace np.arange()?",
+  "¿Cómo multiplico matrices en numpy?",
+  "¿Qué es el broadcasting en numpy?",
+  "¿Cómo leo un CSV con pandas?",
+  "¿Cómo se hace indexación booleana en arrays?",
+  "Instalar numpy para ciencia de datos"
+ ],
+ "8bb4f3e186db022a": [
+  "guardar estado de un objeto en disco python",
+  "para qué sirve pickle",
+  "es seguro cargar archivos pickle de internet",
+  "alternativa a pickle para datos legibles",
+  "diccionario persistente en disco shelve",
+  "pickle.dump y pickle.load",
+  "cuidado con código arbitrario al cargar pickle",
+  "cómo serializar objetos complejos"
+ ],
+ "8c738d2a6d87ee44": [
+  "¿Qué es el match case en Python?",
+  "hacer un switch case",
+  "coincidencia de patrones con match",
+  "¿Cómo capturar variables en un case de match?",
+  "match con diccionarios y clases",
+  "guardas en match case",
+  "¿Desde qué versión está disponible match?",
+  "el _ en match case"
+ ],
+ "8d318951e46c61db": [
+  "cómo practicar python",
+  "consejos para avanzar aprendiendo a programar",
+  "cuánto tiempo debo programar al día",
+  "cómo usar la inteligencia artificial para aprender python sin hacer trampa",
+  "me atasco mucho con los problemas de código",
+  "qué hacer cuando mi código falla",
+  "por qué deberías hacer proyectos pequeños",
+  "cómo leer código de otros para aprender"
+ ],
+ "8e4b60d169997bf4": [
+  "cómo leer un csv en python como diccionarios",
+  "por qué salen líneas en blanco en csv python",
+  "leer csv de excel con separador punto y coma",
+  "csv con encoding utf-8-sig",
+  "cómo convertir decimales con coma en csv",
+  "csv.DictReader",
+  "escribir listas de diccionarios en csv",
+  "todos los valores del csv se leen como texto"
+ ],
+ "9040fac036fcdf92": [
+  "qué librería usar para automatizar web",
+  "diferencia entre selenium y playwright",
+  "cómo simular clics de ratón con python",
+  "librería para programar tareas simples",
+  "gestionar colas de tareas distribuidas python",
+  "cómo vigilar cambios en archivos desde python",
+  "automatización web moderna python",
+  "apscheduler o schedule"
+ ],
+ "90dcc0fadfae56c2": [
+  "Diferencia entre función y método",
+  "¿Por qué se usa un punto antes de la función?",
+  "qué es self en python",
+  "cómo llamar a len() frente a append()",
+  "ejemplo de método y función",
+  "¿Por qué me da error al llamar append sin objeto?",
+  "qué define que algo sea un método",
+  "diferencia sintáctica entre función y método"
+ ],
+ "91270249a87cb94e": [
+  "pasos para enfrentarse a un problema nuevo de programación",
+  "cómo analizar la complejidad en tiempo y memoria",
+  "qué hacer con los casos límite al programar",
+  "cómo convertir O(n²) en O(n) usando diccionarios",
+  "por qué resolver ejemplos pequeños a mano antes de programar",
+  "consejos para resolver problemas de código",
+  "cuándo usar búsqueda binaria o dos punteros",
+  "empezar por la solución más simple que funcione"
+ ],
+ "9338ab2d3e9ada7f": [
+  "cómo usar breakpoint en python",
+  "alternativa a print para debugear",
+  "cómo funciona icecream en python",
+  "comandos de pdb para depurar",
+  "cómo mostrar el error completo con traceback",
+  "pausar la ejecución con python debugger",
+  "imprimir nombre y valor de variable print",
+  "logging básico en python"
+ ],
+ "956a48811316ba0c": [
+  "NameError: name 'x' is not defined",
+  "UnboundLocalError: cannot access local variable",
+  "por qué dice que la variable no está definida si la creé antes",
+  "me sale nameerror al usar una variable",
+  "olvidé poner las comillas en un print y da error",
+  "qué es el unboundlocalerror",
+  "variable local referenciada antes de asignación",
+  "por qué python dice que no existe mi variable"
+ ],
+ "964d2919738fd9d4": [
+  "cómo imprimir diccionarios grandes de forma bonita",
+  "pprint para estructuras anidadas",
+  "cómo buscar palabras parecidas en una lista",
+  "difflib get_close_matches",
+  "calcular el porcentaje de parecido entre dos textos",
+  "comparar textos como git diff en python",
+  "obtener las letras del abecedario con string",
+  "módulo para sugerencias de autocorrección"
+ ],
+ "96a5bbaadbe1ce73": [
+  "¿Cómo obtener el código Unicode de una letra?",
+  "pasar de número a carácter en python",
+  "¿Cómo se comparan textos alfabéticamente?",
+  "las mayúsculas van antes que las minúsculas en python",
+  "ordenar ignorando mayúsculas",
+  "¿Cómo hago un cifrado César sencillo?",
+  "función ord() y chr()",
+  "¿Por qué \"Zeta\" < \"alfa\" da True?"
+ ],
+ "96fb47376cbfcad2": [
+  "qué es doctest en python",
+  "hacer tests dentro de los docstrings",
+  "probar ejemplos de la documentación automáticamente",
+  "doctest.testmod()",
+  "ejecutar doctests desde la línea de comandos",
+  "pytest con doctest",
+  "escribir pruebas en los comentarios de función",
+  "cómo validar que los ejemplos del docstring funcionan"
+ ],
+ "976bab2306da1684": [
+  "Comparar strings con ==",
+  "¿Cuándo usar is en vez de ==?",
+  "Diferencia entre is y == en cadenas",
+  "¿Por qué 'hola' is 'hola' puede dar False?",
+  "Nunca usar is para comparar strings",
+  "Comparación de identidad en Python",
+  "¿Cómo comparar texto correctamente?",
+  "¿Es seguro usar is con ficheros?"
+ ],
+ "97f2835e07964682": [
+  "cómo quitar duplicados de una lista usando conjuntos",
+  "para qué sirve un set en python",
+  "cómo hacer la intersección de dos conjuntos con el símbolo &",
+  "cómo comprobar si un conjunto es subconjunto de otro",
+  "cómo se crea un conjunto vacío",
+  "diferencia entre set y frozenset",
+  "cómo calcular la diferencia simétrica entre dos conjuntos con ^",
+  "puedo meter listas dentro de un conjunto"
+ ],
+ "97feec28ea4c539f": [
+  "cómo hacer una cli en python",
+  "typer vs click",
+  "librería para argumentos de consola sin instalar nada",
+  "cómo poner colores en la terminal python",
+  "barra de progreso para bucles python",
+  "crear menús interactivos en consola",
+  "argparse python",
+  "librería rica para consola"
+ ],
+ "9825154d82db0eca": [
+  "¿Qué mide la notación Big O?",
+  "Qué significa O(1)",
+  "Diferencia entre O(n) y O(n²)",
+  "algoritmo con complejidad O(log n)",
+  "Por qué O(n²) es tan lento con un millón de datos",
+  "mi programa va muy lento, creo que es por la complejidad",
+  "¿Qué es una complejidad exponencial O(2ⁿ)?",
+  "Cómo afecta el tamaño de los datos al rendimiento"
+ ],
+ "987ede6dcf69d776": [
+  "¿Cómo ajustar líneas de texto a un ancho máximo?",
+  "recortar texto largo poniendo puntos suspensivos",
+  "quitar la sangría común de un texto multilínea",
+  "añadir prefijo a cada línea",
+  "textwrap.fill",
+  "¿Cómo uso textwrap.shorten?",
+  "función para quitar indentación en python",
+  "partir texto en líneas con textwrap"
+ ],
+ "9b1b06ecf9bad2c3": [
+  "Cómo invertir un diccionario",
+  "buscar clave por su valor en un diccionario",
+  "cómo hago para cambiar claves por valores en un diccionario",
+  "encontrar la clave del valor máximo en un diccionario",
+  "invertir diccionario python",
+  "cómo busco la clave a partir del valor",
+  "obtener clave de un valor especifico",
+  "invertir diccionario con list comprehension"
+ ],
+ "9c887fe0b7535561": [
+  "Cómo es la estructura de un fichero pyproject.toml moderno",
+  "Dónde se configuran las dependencias de desarrollo en pyproject.toml",
+  "Configurar ruff en pyproject.toml",
+  "Opciones de configuración para mypy en toml",
+  "cómo configuro pytest en pyproject.toml",
+  "Qué build backend se recomienda usar en pyproject.toml",
+  "Definir dependencias opcionales en Python",
+  "Sección [tool.ruff.lint]"
+ ],
+ "9cc05c3d2de16b72": [
+  "Cómo hacer una búsqueda binaria en Python",
+  "Diferencia entre búsqueda lineal y binaria",
+  "¿Para qué sirve el módulo bisect?",
+  "Función para buscar en una lista ordenada eficientemente",
+  "¿La búsqueda lineal necesita la lista ordenada?",
+  "Implementación de busqueda_binaria",
+  "cómo uso bisect_left",
+  "Qué devuelve la búsqueda si no encuentra el elemento"
+ ],
+ "9ce0f39ecd611b44": [
+  "git init add commit push",
+  "gitignore mínimo para python",
+  "qué es __pycache__ y si se puede borrar",
+  "archivos .pyc en git",
+  "cómo ignorar el entorno virtual en git",
+  "para qué sirve el bytecode en python",
+  "subir mi proyecto a github por primera vez",
+  "qué carpetas debo excluir del control de versiones"
+ ],
+ "9dd60f5ff6d9e33f": [
+  "cómo convertir texto a número",
+  "pasar string a int python",
+  "por qué da ValueError al convertir a entero",
+  "convertir número a string",
+  "cómo saber si un valor es True o False con bool",
+  "convertir hexadecimal a entero python",
+  "pasar de binario a decimal",
+  "convertir string a float"
+ ],
+ "9feba05fb39e5e89": [
+  "Por qué 0.1 + 0.2 no da exacto",
+  "Cómo comparar floats correctamente",
+  "Cómo representar infinito en Python",
+  "qué es un NaN y cómo se comporta",
+  "cómo usar notación científica con la letra e",
+  "Para qué sirven los guiones bajos en los números grandes",
+  "Tienen límite de tamaño los enteros en Python",
+  "por qué float(\"nan\") == float(\"nan\") da False"
+ ],
+ "a054b5a4a2ba05dc": [
+  "Me sale el error `coroutine was never awaited`, ¿qué pasa?",
+  "¿Por qué no debo usar `time.sleep` dentro de una función asíncrona?",
+  "Cómo ejecutar una función bloqueante síncrona dentro de asyncio",
+  "¿Cómo limitar cuántas tareas concurrentes se ejecutan en asyncio?",
+  "Cómo usar un semáforo con `asyncio`",
+  "¿Cómo se inicia un programa con asyncio?",
+  "Diferencia entre `asyncio.sleep` y `time.sleep` en corrutinas",
+  "¿Puedo llamar a `asyncio.run` dentro de otro bucle de eventos?"
+ ],
+ "a08c1edd0cf9531a": [
+  "contador de líneas palabras y caracteres",
+  "organizador de notas en JSON",
+  "procesador de CSV con estadísticas",
+  "cómo leer un fichero y contar palabras",
+  "ejercicio para analizar un archivo CSV de ventas",
+  "crear una CLI para notas",
+  "¿Cómo calculo el total de ventas desde un archivo?",
+  "práctica con ficheros y JSON"
+ ],
+ "a0e6ea91a195d8b9": [
+  "Diferencia entre iterable, iterador y generador",
+  "qué es un iterador en python",
+  "cómo funciona yield",
+  "¿Por qué el generador da vacío la segunda vez?",
+  "diferencia entre lista y generador en memoria",
+  "cómo usar next() con un iterador",
+  "qué objetos se pueden recorrer con for",
+  "diferencia entre iterable y generador"
+ ],
+ "a2e884653d568767": [
+  "alternativa rapida a pandas",
+  "libreria para analisis de datos tabular",
+  "crear graficas interactivas con python",
+  "numpy vs polars",
+  "visualizacion base con python",
+  "librerias de data science",
+  "algebra lineal en python",
+  "bokeh o plotly para la web"
+ ],
+ "a33177e2c10a1f8a": [
+  "ejemplo de match case con diccionarios",
+  "cómo usar pattern matching con clases",
+  "patrón con guardas en match case",
+  "cómo validar el tipo de un entero en un match case",
+  "lanzar ValueError en un comando desconocido con match",
+  "cómo comprobar coordenadas con pattern matching",
+  "ejemplo de código para procesar comandos con match",
+  "capturar teclas con case en Python"
+ ],
+ "a47231f18640afca": [
+  "Cómo generar un número aleatorio entre 1 y 6",
+  "Cómo simular el lanzamiento de un dado",
+  "Por qué random no sirve para contraseñas",
+  "Cómo elegir un elemento al azar de una lista",
+  "Cómo hacer una baraja aleatoria con shuffle",
+  "Para qué sirve random.seed",
+  "cómo elegir varios elementos sin repetición para la lotería",
+  "cómo usar pesos en la aleatoriedad con choices"
+ ],
+ "a4ff8b0694466816": [
+  "Cómo convertir una lista en un montículo o heap",
+  "¿Qué hace `heapq.heapify`?",
+  "Cómo encontrar los elementos más grandes de una lista",
+  "¿Dónde debo insertar un elemento para mantener una lista ordenada?",
+  "¿Para qué sirve el módulo bisect?",
+  "Cómo hacer una cola de prioridad en Python",
+  "¿Cómo calcular calificaciones por tramos usando bisect?",
+  "Sáqueme siempre el menor elemento de una lista con heapq"
+ ],
+ "a8abdb6cb312ba98": [
+  "Comandos para iniciar un proyecto en Django",
+  "Crear una app en Django",
+  "Cómo hacer migraciones en Django",
+  "Ejecutar el servidor de desarrollo de Django",
+  "Crear un superusuario desde la terminal en Django",
+  "python manage.py makemigrations para qué sirve",
+  "Iniciar proyecto Django con django-admin",
+  "Comandos básicos de Django CLI"
+ ],
+ "a8da8994ced2f014": [
+  "Cómo quitar espacios a un string",
+  "Invertir una cadena de texto en Python",
+  "\"hola mundo\".title()",
+  "Cómo quitar un sufijo concreto a un archivo",
+  "Diferencia entre lower y casefold",
+  "Cómo rellenar un número con ceros a la izquierda",
+  "Unir una lista de strings con comas",
+  "\"  hola  \".strip()"
+ ],
+ "a9350115cb214c4f": [
+  "cómo usar dataclasses en python",
+  "para qué sirve field default_factory",
+  "validar datos después del init en dataclass",
+  "crear una dataclass inmutable",
+  "dataclasses con frozen=True",
+  "convertir dataclass a diccionario",
+  "para qué sirve @dataclass",
+  "argumentos solo por nombre en dataclass"
+ ],
+ "aad49db57d8a8553": [
+  "qué estudiar para automatizar tareas",
+  "librerías para desarrollo web backend en python",
+  "qué aprender para ciencia de datos y machine learning",
+  "tecnologías para devops y sistemas en python",
+  "qué framework backend debo aprender",
+  "cómo empezar en inteligencia artificial con python",
+  "librerías de python para automatizar excel y web",
+  "qué estudiar según mi objetivo en python"
+ ],
+ "ab33ef90c2664911": [
+  "operadores aritméticos en python",
+  "cómo hacer una división entera",
+  "cuál es el símbolo de la potencia",
+  "calcular el resto de una división",
+  "operadores de comparación",
+  "cómo se escribe distinto de en python",
+  "a // b",
+  "a != b"
+ ],
+ "ab380db8b92b387d": [
+  "por qué falla open en windows con tildes",
+  "leer archivos con emojis sin errores",
+  "cómo usar open con encoding utf-8",
+  "problemas al leer ficheros en macos",
+  "es obligatorio poner encoding en open",
+  "error al abrir archivos con caracteres especiales",
+  "open(fichero.txt, encoding='utf-8')",
+  "cómo abrir un archivo correctamente en python"
+ ],
+ "ab58b2fa309d3a0c": [
+  "programación dinámica en python",
+  "cómo calcular el mínimo de monedas",
+  "algoritmo de la mochila python",
+  "subsecuencia comun mas larga",
+  "resolver problema de cambio de monedas",
+  "cómo guardar resultados en una tabla",
+  "función minimo_monedas",
+  "código para resolver el problema de la mochila"
+ ],
+ "ab8e538a554afc78": [
+  "todos los usos del guion bajo en python",
+  "para qué sirve el guion bajo solo _",
+  "qué significa _interno",
+  "cómo ignorar variables al desempaquetar",
+  "qué es un método dunder",
+  "para qué sirven los guiones bajos en los números 1_000_000",
+  "qué hace el guion bajo en match case",
+  "variable que no se usa en el bucle for"
+ ],
+ "abab12b5c34d68cf": [
+  "Cómo comprobar si hay algún número negativo en una lista",
+  "Comprobar si todos los elementos son positivos",
+  "calcular la media de una lista sin errores",
+  "Cómo usar sum con un valor inicial",
+  "Función para calcular la moda en Python",
+  "Evitar que max falle si la lista está vacía",
+  "¿Qué devuelve all con una lista vacía?",
+  "Calcular la desviación estándar de un iterable"
+ ],
+ "abf9d0bceb8b8d0c": [
+  "crear un directorio temporal que se borre solo",
+  "tempfile.TemporaryDirectory",
+  "cómo comprimir archivos en zip desde python",
+  "leer el contenido de un archivo zip",
+  "cuidado con zips de origen desconocido",
+  "crear un archivo temporal con sufijo csv",
+  "extraer un zip en python",
+  "z.namelist()"
+ ],
+ "abfa0e1a00561d9b": [
+  "Cómo funciona round() exactamente",
+  "por qué round(2.5) da 2",
+  "Cómo hacer un redondeo escolar hacia arriba",
+  "Cómo truncar un número con math",
+  "cómo mostrar un float con dos decimales",
+  "Cuál es la diferencia entre math.floor y math.ceil",
+  "cómo quitar los decimales a un número",
+  "el redondeo del banquero en Python"
+ ],
+ "ac60be46175a82af": [
+  "vuelta atrás python",
+  "cómo hacer permutaciones",
+  "calcular subconjuntos en python",
+  "itertools permutations y combinations",
+  "función para generar subconjuntos",
+  "backtracking en python",
+  "cómo deshacer cambios con pop",
+  "generar permutaciones de elementos"
+ ],
+ "ae07203b0fbcf541": [
+  "para qué sirve pass",
+  "qué diferencia hay entre pass y none",
+  "qué es ellipsis en python",
+  "cómo dejar una función vacía sin que dé error",
+  "qué devuelve una función sin return",
+  "para qué sirven los tres puntos ...",
+  "qué significa el valor none",
+  "cómo uso el marcador de por completar"
+ ],
+ "ae447438547bf35d": [
+  "cómo leer sys.argv en python",
+  "sys.exit(0)",
+  "cómo capturar lo que llega por la tubería con sys.stdin",
+  "saber en qué sistema operativo estoy con sys.platform",
+  "dónde está el intérprete de python actual",
+  "imprimir un error en stderr",
+  "diferencia entre exit y sys.exit",
+  "cómo comprobar la versión de python desde código"
+ ],
+ "b11ec778c4a68bef": [
+  "Cuáles son los principios SOLID",
+  "Qué significa la S de SOLID en programación",
+  "Principio de sustitución de Liskov en Python",
+  "Qué es el principio de inversión de dependencias",
+  "cómo aplicar interfaces pequeñas y específicas en python",
+  "Explícame el principio Abierto-Cerrado",
+  "Una clase una responsabilidad",
+  "Principios SOLID aplicados a Python"
+ ],
+ "b1739dd763485986": [
+  "libreria para machine learning clasico",
+  "framework para apps con LLMs",
+  "nlp industrial con python",
+  "diferencia entre pytorch y tensorflow",
+  "huggingface transformers libreria",
+  "crear RAG con python",
+  "xgboost o lightgbm",
+  "keras api de alto nivel"
+ ],
+ "b2231fd556466daf": [
+  "Cuál es la guía de estilo oficial para Python",
+  "Cuántos espacios usar para la indentación según PEP 8",
+  "Cuántas líneas en blanco van entre métodos de una clase",
+  "Límite de caracteres por línea en PEP 8",
+  "orden de las importaciones según pep8",
+  "cuándo debo poner dos líneas en blanco en un script de python",
+  "Normas PEP 8 para imports y espacios",
+  "puedo usar punto y coma para poner varias sentencias en la misma línea"
+ ],
+ "b301a3cb9af9f12a": [
+  "pip instala en otro python distinto",
+  "error externally-managed-environment linux",
+  "pip no se reconoce como comando",
+  "cómo solucionar conflictos de versiones pip",
+  "pip check para qué sirve",
+  "cómo actualizar un paquete con pip",
+  "qué hacer si el sistema protege python",
+  "comando para ver los paquetes instalados"
+ ],
+ "b53da16a3abd9fc5": [
+  "Quitar espacios en blanco a un string",
+  "¿Cómo pasar un texto a mayúsculas?",
+  "Separar un string por comas en una lista",
+  "Unir elementos de una lista en un texto",
+  "Comprobar si un string empieza por algo",
+  "¿Cómo saber si una cadena contiene solo números?",
+  "Rellenar un número con ceros a la izquierda",
+  "Método replace en cadenas de texto"
+ ],
+ "b5a9a8482e6ae671": [
+  "Cómo crear enumeraciones en Python con Enum",
+  "Para qué sirve auto() en un Enum",
+  "Diferencia entre Enum e IntEnum",
+  "Cómo usar Flag para permisos combinables",
+  "Cómo obtener el nombre y valor de un Enum",
+  "puedo comparar un IntEnum con un número entero",
+  "cómo comprobar si un flag está activo con el operador in",
+  "ejemplo de Enum en python"
+ ],
+ "b5faec6a6e49aff4": [
+  "por qué es malo guardar contraseñas con sha256 simple",
+  "cómo guardar contraseñas de forma segura en python",
+  "hashlib.scrypt",
+  "qué es la sal en las contraseñas",
+  "hmac.compare_digest",
+  "librerías recomendadas para contraseñas en python",
+  "cómo comprobar una contraseña hasheada",
+  "algoritmo lento para hashes"
+ ],
+ "b6822867a7a09633": [
+  "dónde hay ejercicios de Python",
+  "banco de ejercicios por nivel"
+ ],
+ "b79931f8cefaddc5": [
+  "TypeError: los más comunes",
+  "can only concatenate str (not \"int\") to str",
+  "'int' object is not callable",
+  "unhashable type: 'list'",
+  "por qué no puedo sumar un número y un texto",
+  "me sale noneleype object is not subscriptable",
+  "como solucionar missing 1 required positional argument",
+  "por qué da error al usar una lista como clave de un diccionario"
+ ],
+ "bb2fcd09ceb9a39c": [
+  "qué son *args y **kwargs",
+  "cómo pasar muchos argumentos a una función",
+  "qué significan los dos asteriscos en python",
+  "diferencia entre args y kwargs",
+  "cómo desempaquetar una lista al llamar a una función",
+  "recoger argumentos sobrantes en un diccionario",
+  "para qué sirve * en los parámetros",
+  "como uso **kwargs"
+ ],
+ "bb42943bf7bbeae9": [
+  "cómo hacer un salto de línea en un texto con barra",
+  "qué hace la t en un texto como",
+  "cómo poner comillas dobles dentro de un string con comillas dobles",
+  "cómo escribir una barra invertida literal en python",
+  "cómo usar un carácter unicode por su código en un texto",
+  "qué es un raw string y para qué sirve",
+  "cómo evitar que las barras invertidas se interpreten en una ruta",
+  "puedo terminar un raw string con una sola barra invertida"
+ ],
+ "bcaa0893b51cc42d": [
+  "comprobar si un texto es un número",
+  "isdigit()",
+  "por qué isdigit da falso en negativos",
+  "cómo saber si un string es float",
+  "validar número entero o decimal",
+  "controlar ValueError al convertir número",
+  "función para saber si se puede pasar a float",
+  "comprobar si se puede convertir a número"
+ ],
+ "bd62e76ede60c9b5": [
+  "Definir modelos en SQLAlchemy 2.0 con Mapped",
+  "Cómo hacer operaciones CRUD con SQLAlchemy 2.x",
+  "Usar select() en SQLAlchemy en lugar de query",
+  "Crear tablas automáticamente con SQLAlchemy",
+  "Actualizar y borrar registros con SQLAlchemy Session",
+  "Relacionar clases con DeclarativeBase en SQLAlchemy",
+  "Cómo buscar por ID en SQLAlchemy",
+  "Filtrar resultados con SQLAlchemy 2.0"
+ ],
+ "bdbdebea62c94e47": [
+  "qué hace la función divmod",
+  "cómo saber el identificador único o posición en memoria de un objeto con id",
+  "cómo comprobar si un objeto es de una clase concreta con isinstance",
+  "para qué sirve la función zip",
+  "cómo redondear un número con round",
+  "cómo saber si todos los elementos de una lista son verdaderos con all",
+  "qué devuelve la función callable",
+  "cómo ver los atributos y métodos disponibles de un objeto con dir"
+ ],
+ "bde4e6dde2996f1b": [
+  "cómo crear una tupla de un solo elemento",
+  "para qué sirve una tupla",
+  "cómo se hace el intercambio de variables sin temporal en python",
+  "qué son las named tuples",
+  "cómo acceder al primer elemento de una tupla llamada coordenadas",
+  "puedo usar tuplas como claves de diccionarios",
+  "cómo desempaquetar coordenadas x e y",
+  "qué diferencia hay entre tupla y lista respecto a la mutabilidad"
+ ],
+ "be03a2b8634fc3a3": [
+  "webs para practicar algoritmos de python",
+  "plataforma de ejercicios de python con mentores",
+  "dónde hacer katas de python",
+  "ejercicios de python para entrevistas de trabajo",
+  "página de retos matemáticos y lógicos en python",
+  "ejercicios de python para principiantes",
+  "practicar python con w3resource",
+  "retos de programación en diciembre advent of code"
+ ],
+ "be0df9d37b7324e1": [
+  "Diferencia entre remove, pop y del",
+  "cómo borrar el último elemento de una lista",
+  "cómo vaciar una lista por completo",
+  "¿Qué devuelve pop()?",
+  "eliminar un elemento por su índice",
+  "ValueError al usar remove en python",
+  "cómo quitar todas las apariciones de un valor",
+  "borrar un rango de elementos con del"
+ ],
+ "be1a01ec29716f78": [
+  "¿Cómo crear una API con FastAPI?",
+  "Instalar FastAPI y uvicorn",
+  "Validar campos en FastAPI con Pydantic",
+  "Cómo usar @app.get en FastAPI",
+  "me sale un error al validar que el precio sea positivo en fastapi",
+  "¿Cómo devuelvo un error 404 en FastAPI?",
+  "Definir modelos de respuesta con Pydantic",
+  "Listar elementos con paginación en FastAPI"
+ ],
+ "be89fa83abb5255e": [
+  "novedades de python 3.13",
+  "qué trae python 3.13",
+  "free-threaded python 3.13",
+  "copy.replace() python",
+  "qué módulos se han eliminado en python 3.13",
+  "cómo salir del intérprete en python 3.13 sin poner paréntesis",
+  "compilador jit en python 3.13",
+  "typing.TypeIs en python"
+ ],
+ "bf34fd5656d0c26c": [
+  "Cómo recorrer una lista con un bucle for",
+  "Generar una secuencia de números con range",
+  "¿Cómo obtener el índice y el valor en un bucle?",
+  "Iterar dos listas a la vez con zip",
+  "Diferencia entre break y continue en un bucle",
+  "¿Para qué sirve el guion bajo _ en un for?",
+  "Recorrer un rango con paso negativo",
+  "Iniciar la función enumerate en un número distinto de cero"
+ ],
+ "bfd76705cd5147df": [
+  "qué versión de python debo usar",
+  "python --version",
+  "cada cuánto sale una versión nueva de python",
+  "cuánto tiempo dura el soporte de una versión de python",
+  "requires-python en el proyecto",
+  "cómo saber qué versión tengo instalada",
+  "mis librerías no funcionan con la última versión de python",
+  "cuál es la mejor versión de python para instalar hoy"
+ ],
+ "c0170acd7fe057ac": [
+  "¿Cómo hago el FizzBuzz en Python?",
+  "ejercicio adivina el número",
+  "cómo calcular números primos hasta 200",
+  "secuencia de Collatz código",
+  "calcular números perfectos hasta 10000",
+  "problema para practicar bucles y condicionales",
+  "¿Me pasas un ejercicio de múltiplos de 3 y 5?",
+  "necesito un reto de programación con la regla n/2 y 3n+1"
+ ],
+ "c0b9368788e699d8": [
+  "importar módulos",
+  "para qué sirve __name__ == __main__",
+  "cómo ver las funciones de un módulo con dir",
+  "módulos estándar de python",
+  "alias en imports",
+  "qué librería usar para fechas",
+  "cómo usar math",
+  "biblioteca estándar"
+ ],
+ "c15c65743d8513a7": [
+  "canales de youtube en inglés de python",
+  "¿Cuál es el mejor canal educativo de Python?",
+  "canales para aprender python avanzado",
+  "mejores tutoriales de python en youtube",
+  "canal de arjancodes",
+  "aprender python con videos en ingles",
+  "dónde ver proyectos prácticos de python en video",
+  "canal de mcoding python"
+ ],
+ "c1c36407f4bfdab7": [
+  "cómo sumar dos objetos en python",
+  "método especial para la resta __sub__",
+  "cómo hacer que un objeto devuelva su valor absoluto",
+  "para qué sirve __rmul__",
+  "sobrecargar operadores aritméticos",
+  "cómo implementar el operador de negación -v",
+  "qué hace __bool__ en una clase",
+  "métodos para sobrecarga de operadores"
+ ],
+ "c218e394837c9bc3": [
+  "cómo medir el tiempo que tarda una función",
+  "time.perf_counter() vs time.time()",
+  "medir rendimiento python cProfile",
+  "reloj que nunca retrocede python",
+  "medir código línea a línea",
+  "cuánto tarda mi script python",
+  "time.monotonic()",
+  "cómo saber qué parte de mi código es más lenta"
+ ],
+ "c22737c72a3febf3": [
+  "árboles binarios de búsqueda python",
+  "cómo insertar en un arbol",
+  "recorrido en orden de un árbol",
+  "calcular la altura de un árbol",
+  "clase NodoArbol",
+  "recorridos preorden y postorden",
+  "yield from en python",
+  "crear un bst en python"
+ ],
+ "c31a5e1bb20bc031": [
+  "función para saber si un número es primo",
+  "criba de eratóstenes en python",
+  "cómo factorizar un número en python",
+  "factorizar(360)",
+  "criba(30)",
+  "algoritmo para calcular primos eficiente",
+  "cómo sacar los factores primos de un número",
+  "probar hasta la raíz cuadrada para primos"
+ ],
+ "c373f102e565a67a": [
+  "cómo hacer un decorador básico en python",
+  "para qué sirve functools.wraps",
+  "crear un decorador que acepte argumentos",
+  "decorador con parámetros para reintentar una función",
+  "decorar una llamada a api con reintentos",
+  "¿Cómo uso @functools.wraps dentro de un wrapper?",
+  "medir tiempo en clases con decoradores",
+  "ejemplo de decorador que imprime al llamar a una función"
+ ],
+ "c4dcf2f324db9943": [
+  "cómo limpiar la pantalla de la terminal en python",
+  "os.system",
+  "cómo pausar la ejecución hasta pulsar intro",
+  "getpass.getpass",
+  "pedir contraseña sin que se vea en pantalla",
+  "cómo hacer una espera de unos segundos en el script",
+  "time.sleep",
+  "cómo limpiar consola en windows y linux"
+ ],
+ "c5db057a4e6135a0": [
+  "cómo crear un gestor de contextos con __enter__ y __exit__",
+  "usar contextmanager de contextlib",
+  "cómo ignorar excepciones específicas con suppress",
+  "manejar múltiples context managers dinámicamente con ExitStack",
+  "ejemplo de context manager para base de datos",
+  "¿Cómo creo un directorio temporal que se borre solo?",
+  "para qué sirve retornar True en __exit__",
+  "usar la sentencia with con clases propias"
+ ],
+ "c61afe23a326439d": [
+  "¿Qué complejidad tiene buscar en un set?",
+  "¿Es mejor usar un set o una lista para buscar elementos?",
+  "cómo concatenar strings eficientemente en un bucle",
+  "Por qué no se debe usar lista.pop(0) para hacer una cola",
+  "Coste de len() en diccionarios",
+  "¿Cuánto cuesta hacer append en una lista?",
+  "tengo que buscar muchas veces en una lista, ¿cómo lo optimizo?",
+  "Complejidad de ordenar una lista"
+ ],
+ "c711f70fadbd197d": [
+  "métodos dunder",
+  "para qué sirve __str__",
+  "diferencia entre __str__ y __repr__",
+  "cómo comparar objetos con __eq__",
+  "sobrecarga de operadores",
+  "método de clase",
+  "cómo usar classmethod",
+  "representación para desarrolladores"
+ ],
+ "c77c62d6b8468fa7": [
+  "¿Dónde busca Python los módulos al hacer un import?",
+  "Cómo recargar un módulo en el REPL",
+  "por qué mi fichero random.py no funciona bien",
+  "¿Se ejecuta un módulo más de una vez?",
+  "importlib.reload(mi_modulo)",
+  "sys.path",
+  "¿De qué archivo viene este módulo importado?",
+  "mi archivo se llama json.py y falla todo"
+ ],
+ "c82f65d450aea3a7": [
+  "pila lifo python",
+  "cola fifo con deque",
+  "ver la cima de una pila sin sacarla",
+  "cómo comprobar paréntesis equilibrados",
+  "usar collections deque como cola",
+  "función equilibrado texto",
+  "diferencia entre pila y cola",
+  "método popleft"
+ ],
+ "ca0c5a074d7c7998": [
+  "cómo pedir ayuda en un foro de programación",
+  "qué debe incluir una buena pregunta sobre un error",
+  "cómo reportar un bug en python",
+  "nadie me responde en stack overflow qué hago mal",
+  "cómo mostrar el traceback cuando pido ayuda",
+  "cómo redactar una duda de código para que me ayuden",
+  "por qué es importante dar el código mínimo al preguntar",
+  "cómo hacer una pregunta efectiva sobre un error"
+ ],
+ "ca3b2e65a2e9d8fc": [
+  "Cómo crear un iterador infinito con count",
+  "Para qué sirve cycle en itertools",
+  "Cómo cortar un iterador mientras cumple una condición con takewhile",
+  "Cómo filtrar con compress usando una máscara",
+  "Cómo repetir un elemento N veces con repeat",
+  "cómo recorro colores sin fin en un bucle",
+  "diferencia entre takewhile y dropwhile",
+  "Cómo usar starmap con una lista de tuplas"
+ ],
+ "ca756dd8fdb4de13": [
+  "Antipatrones comunes en Python",
+  "Por qué no se debe hacer if x == True",
+  "Cómo comprobar correctamente si una lista está vacía",
+  "Por qué usar join en lugar de concatenar strings en un bucle",
+  "cómo comprobar el tipo de un objeto sin usar type()",
+  "me sale un warning por usar un bloque try except vacío o demasiado amplio",
+  "Por qué es malo abrir ficheros sin un context manager with",
+  "Evitar for x in list(generador)"
+ ],
+ "cb3ca61bea168f42": [
+  "cómo capturar grupos en expresiones regulares",
+  "obtener año mes y día con grupos de captura",
+  "grupos con nombre en regex con ?P",
+  "cómo ignorar mayúsculas y minúsculas en re",
+  "flags de expresiones regulares",
+  "para qué sirve re.DOTALL",
+  "cómo hacer que ^ y $ apliquen a cada línea con multiline",
+  "acceder a un grupo específico con match.group"
+ ],
+ "cbbb20dcb0e125cb": [
+  "Por qué la función de Fibonacci recursiva tarda tanto",
+  "Cómo usar memoización con el decorador cache",
+  "Fibonacci iterativo en Python",
+  "¿Qué complejidad tiene fib con @cache?",
+  "mi función recursiva tarda segundos con n=40",
+  "Cómo optimizar funciones recursivas lentas",
+  "importar cache de functools",
+  "Diferencia entre fibonacci lento y con memoización"
+ ],
+ "cbe92576b4bf9db6": [
+  "¿Cómo configuro el sistema de logs básico en Python?",
+  "¿Por qué se debe usar __name__ al crear un logger?",
+  "¿Cómo guardo los logs en un archivo además de la consola?",
+  "¿Cómo añado contexto extra a un mensaje de log?",
+  "¿Cómo puedo silenciar los logs verbosos de librerías como httpx?",
+  "¿Qué diferencia hay entre logger.error y logger.exception?",
+  "¿Qué alternativa moderna existe para logs estructurados en JSON?",
+  "¿Cómo configuro el nivel mínimo de los mensajes de log?"
+ ],
+ "cbea07b379f5800e": [
+  "Cómo acceder a datos anidados sin errores",
+  "evitar KeyError al buscar en diccionarios anidados",
+  "cómo hago para leer JSON o diccionarios anidados de forma segura",
+  "usar get para datos anidados",
+  "acceder a claves anidadas con una función recursiva",
+  "cómo evitar que pete al buscar en diccionarios",
+  "atrapar KeyError e IndexError al buscar datos",
+  "acceso seguro a diccionarios anidados"
+ ],
+ "cc4c64f017cbba8b": [
+  "dos números que suman un objetivo",
+  "problema two sum en python",
+  "cómo hacerlo en O(n) con un diccionario",
+  "función dos_suma",
+  "buscar complemento en un diccionario",
+  "evitar bucles anidados con un diccionario",
+  "encontrar índices que suman un número",
+  "método enumerate python"
+ ],
+ "cc62092718e3b296": [
+  "Cómo documentar funciones en Python",
+  "Para qué sirven las anotaciones de tipo",
+  "Cómo ver la ayuda de una función creada por mí",
+  "¿Python comprueba los tipos al ejecutar?",
+  "Formato estándar para Args y Returns en docstrings",
+  "Cómo acceder a la documentación de una función con código",
+  "Lanzar un ValueError si una medida es negativa",
+  "Qué herramienta detecta errores de tipos estáticos"
+ ],
+ "cc6d047928edbaad": [
+  "Cómo configurar logging en Python",
+  "Diferivias niveles de logging debug info warning error critical",
+  "Cómo hacer un log sin f-string para lazy eval",
+  "Configurar logging para producción con archivo rotativo",
+  "qué es rotatingfilehandler en logging",
+  "cómo guardo los logs en formato json",
+  "cómo mostrar el traceback completo en un log de error",
+  "ejemplo básico de logging.basicConfig"
+ ],
+ "cce5c12431a35574": [
+  "cómo hacer tests unitarios en python",
+  "crear pruebas con unittest",
+  "método setUp en unittest",
+  "comprobar excepciones en tests",
+  "assertAlmostEqual para decimales",
+  "ejecutar tests desde la terminal",
+  "python -m unittest discover",
+  "alternativa a unittest en python"
+ ],
+ "ce0b5fad183ac066": [
+  "Cómo comprobar si un string son solo números",
+  "Diferencia entre find y index en strings",
+  "Cómo dividir un texto por comas",
+  "\"banana\".find(\"na\")",
+  "Comprobar si una cadena empieza por https",
+  "Cómo usar split sin argumentos",
+  "Qué devuelve isdigit con números decimales",
+  "Método para dividir por líneas un texto largo"
+ ],
+ "cf097737e05df3de": [
+  "cómo guardar un diccionario en json",
+  "json.dumps ensure_ascii=False",
+  "guardar objetos que json no admite",
+  "error JSONDecodeError python",
+  "equivalencias tipos json python",
+  "cómo cargar un archivo json con utf-8",
+  "serializar fechas en json",
+  "json.dump vs json.dumps"
+ ],
+ "d34529925b4668ed": [
+  "cómo leer ficheros toml en python",
+  "leer configuración ini python",
+  "obtener variable de entorno os.environ",
+  "cargar archivo .env con dotenv",
+  "dónde guardar contraseñas y claves de api",
+  "diferencia entre get y corchetes en os.environ",
+  "tomllib python versión",
+  "configparser getint"
+ ],
+ "d3a01ed5b587f525": [
+  "ejercicio para calcular el IMC en Python",
+  "cómo hacer un conversor de temperatura",
+  "ejercicio de segundos a horas y minutos",
+  "fórmula de interés compuesto en Python",
+  "cómo implementar el algoritmo de Luhn",
+  "ejercicios de variables y operadores",
+  "calculadora de interés compuesto ejercicio",
+  "validador de tarjeta de crédito en Python"
+ ],
+ "d4529427f5ee47b2": [
+  "Cómo ejecutar comandos de consola desde Python",
+  "Lanzar CalledProcessError subprocess",
+  "subprocess.run capture_output text=True",
+  "Para qué sirve check=True en subprocess",
+  "cómo ejecuto un comando del sistema y guardo su salida en una variable",
+  "me da error al usar subprocess con una tubería de comandos, ¿cómo activo el shell?",
+  "Imprimir la salida estándar de un proceso ejecutado con subprocess",
+  "riesgos de usar shell=True en subprocess"
+ ],
+ "d4f709d93f195f2b": [
+  "Cómo usar f-strings en Python",
+  "Formatear números decimales con f-strings",
+  "¿Cómo mostrar dos decimales en un print?",
+  "Truco de depuración con f-strings",
+  "Alinear texto a la derecha con f-strings",
+  "Mostrar un número con separadores de miles",
+  "Convertir un número a binario usando f-strings",
+  "Incluir condiciones dentro de una f-string"
+ ],
+ "d5d7e8fb326e1801": [
+  "FileNotFoundError: No such file or directory",
+  "RecursionError: maximum recursion depth exceeded",
+  "PermissionError al abrir un archivo en python",
+  "MemoryError en python",
+  "por qué no encuentra mi archivo de texto si está en la carpeta",
+  "KeyboardInterrupt qué es",
+  "cómo evitar el error de recursión infinita",
+  "division by zero en python"
+ ],
+ "d86c33bd96d35ae1": [
+  "Cómo quitar tildes a un texto en Python",
+  "unicodedata.normalize",
+  "Función para eliminar acentos manteniendo la eñe",
+  "Por qué la ñ pierde la tilde al quitar acentos",
+  "Quitar tildes usando unicodedata",
+  "Código para limpiar tildes de una frase",
+  "Cómo funciona la descomposición NFD en textos",
+  "Filtrar marcas de combinación Mn en Python"
+ ],
+ "d8c55f4b131dec5a": [
+  "cuándo usar composición o herencia",
+  "diferencia entre es un y tiene un",
+  "qué es un mixin en python",
+  "composición en python",
+  "crear clases con mixins",
+  "por qué usar composición en lugar de herencia",
+  "ejemplo de composición con clases",
+  "mixins y herencia múltiple"
+ ],
+ "d919a6a8630cd02e": [
+  "¿Qué algoritmos de ordenación son O(n²)?",
+  "Cómo funciona el método de la burbuja",
+  "¿Por qué no se usa el ordenamiento por selección en programas reales?",
+  "¿Qué algoritmo usa Timsort por dentro para listas casi ordenadas?",
+  "Código de ordenación por inserción en Python",
+  "algoritmos de ordenación simples",
+  "¿Para qué sirve el método de inserción?",
+  "Explicación del algoritmo bubblesort"
+ ],
+ "db5bfc98ca28ee40": [
+  "¿Cuáles son las partes de una función recursiva?",
+  "Cómo calcular potencias de forma recursiva",
+  "Función recursiva para comprobar si una palabra es un palíndromo",
+  "Cómo resolver el problema de las torres de hanoi en Python",
+  "¿Qué es el caso base en la recursión?",
+  "algoritmo divide y vencerás para potencia",
+  "cómo hacer recursividad",
+  "Ejemplo de función recursiva"
+ ],
+ "dc029fb66fd698d1": [
+  "calcular edad exacta python",
+  "cómo sumar meses a una fecha",
+  "días que faltan para navidad",
+  "saber si un año es bisiesto",
+  "calcular días laborables entre dos fechas",
+  "número de semana del año actual",
+  "calendar.monthrange",
+  "timedelta no tiene meses qué uso"
+ ],
+ "dc43e5a222f65543": [
+  "¿Cómo compara el operador == los objetos de mis clases por defecto?",
+  "¿Qué pasa con el __hash__ si defino __eq__ en una clase?",
+  "cómo puedo usar mis objetos en un set o como clave de diccionario",
+  "Para qué sirve devolver NotImplemented en __eq__",
+  "¿Cómo hace una dataclass con frozen=True para solucionar esto?",
+  "Cómo implementar igualdad por contenido en Python",
+  "por qué mi objeto deja de ser hasheable al sobrescribir la igualdad",
+  "Método especial para definir el hash de un objeto"
+ ],
+ "dde0d70008a15951": [
+  "operadores lógicos python",
+  "cómo funciona and y or",
+  "negar un valor booleano",
+  "not True",
+  "qué es el short-circuit evaluation",
+  "evaluación de cortocircuito en python",
+  "operador lógico and",
+  "cómo combinar condiciones con and y or"
+ ],
+ "de29a96843cf6c35": [
+  "Qué es import this",
+  "Cuáles son los principios del zen de Python",
+  "cómo veo los principios de python",
+  "Frases famosas del zen de python",
+  "qué significa explícito es mejor que implícito",
+  "Principios de diseño de Python",
+  "dónde salen los principios de python",
+  "principios de python el zen"
+ ],
+ "de411d017fa41980": [
+  "Qué son los descriptores en Python",
+  "Cómo implementar el patrón Singleton usando metaclases",
+  "Para qué sirve __init_subclass__",
+  "Cómo validar que un atributo de clase sea positivo con descriptores",
+  "cómo hago una clase de la que solo se pueda crear una única instancia",
+  "ejemplo de __set_name__ y __get__",
+  "Crear un hook cuando heredan de mi clase",
+  "metaclase Singleton en Python"
+ ],
+ "df29327d3290adbd": [
+  "Cómo categorizar tests en pytest con marks",
+  "Cómo saltarse un test en pytest",
+  "¿Qué es un mock en python con unittest.mock?",
+  "Cómo excluir tests lentos en pytest",
+  "Comandos para ejecutar pytest",
+  "cómo simular dependencias externas en los tests",
+  "quiero ver el reporte de cobertura de pytest",
+  "cómo marcar un test que sé que va a fallar"
+ ],
+ "df8c66a7de138305": [
+  "Cómo poner formato de miles a un número con f-strings",
+  "Formato de porcentaje en f-string",
+  "Alinear texto a la derecha con f-strings",
+  "Cómo mostrar un número con formato español de comas y puntos",
+  "f\"{n:,.2f}\"",
+  "Rellenar con asteriscos un texto formateado",
+  "Cómo mostrar notación científica con f-strings",
+  "Especificaciones anidadas en f-strings"
+ ],
+ "df9ca1bbb5eaa030": [
+  "ImportError: cannot import name 'X' from partially initialized module",
+  "por qué sale error por importaciones circulares",
+  "cómo solucionar dependencias circulares en python",
+  "if TYPE_CHECKING:",
+  "importar dentro de una función para evitar ciclos",
+  "a.py importa b.py y b.py importa a.py",
+  "cómo importar solo para anotaciones de tipo",
+  "error al inicializar parcialmente un módulo"
+ ],
+ "e096621b5fb42645": [
+  "pedir datos al usuario hasta que sean válidos",
+  "validar número entero con mínimo y máximo",
+  "¿Cómo pedir sí o no al usuario?",
+  "leer varios números en una sola línea",
+  "capturar ValueError al pedir un número",
+  "pedir edad con validación",
+  "bucle while True para input",
+  "¿Cómo separar números introducidos por espacios?"
+ ],
+ "e0f3b6ace8aed7c8": [
+  "¿Cuál es el framework de testing estándar en Python?",
+  "¿Cómo uso fixtures en pytest para reutilizar estado?",
+  "¿Cómo ejecuto el mismo test con diferentes valores?",
+  "¿Cómo se mockean peticiones o dependencias externas?",
+  "¿Cómo pruebo que una función lanza una excepción específica?",
+  "¿Cómo se escriben tests asíncronos con pytest?",
+  "Comando para correr tests y ver la cobertura",
+  "¿Qué hace assert en un test?"
+ ],
+ "e2a5abca792123dd": [
+  "¿Cómo guardo una gráfica generada con matplotlib?",
+  "¿Qué librería sirve para hacer gráficos estadísticos bonitos?",
+  "¿Cómo creo un histograma con seaborn?",
+  "¿Cómo genero una matriz de correlación en forma de heatmap?",
+  "¿Para qué sirve sns.pairplot?",
+  "¿Cómo configuro el estilo visual por defecto en seaborn?",
+  "¿Cómo creo subplots con matplotlib?",
+  "¿Qué hace plt.tight_layout()?"
+ ],
+ "e2f825e1a6230011": [
+  "Qué herramienta todo en uno reemplaza a flake8, black y isort",
+  "Cómo usar ruff para linting y formateo",
+  "Herramientas para type checking en Python",
+  "Cómo medir la cobertura de código con pytest",
+  "cómo configuro pre-commit hooks en mi proyecto",
+  "comando para formatear código con ruff",
+  "pytest --cov",
+  "Instalar y ejecutar mypy"
+ ],
+ "e5a35bceeea89968": [
+  "Cómo usar genéricos en Python 3.12",
+  "Define una clase genérica con [T]",
+  "para qué sirve type Matriz = list[list[float]]",
+  "cómo se hacía antes Generic[T] en Python",
+  "Crear una función genérica en Python moderno",
+  "diferencia entre sintaxis nueva y antigua de TypeVar",
+  "me sale un lío con los genéricos en clases, ¿cómo se escribe en 3.12?",
+  "Ejemplo de uso de TypeVar en versiones antiguas"
+ ],
+ "e609039e51209b71": [
+  "¿Cómo ejecuto varias corrutinas en paralelo con asyncio?",
+  "¿Qué diferencia hay entre asyncio.gather y TaskGroup?",
+  "¿Cómo pongo un timeout a una petición asíncrona?",
+  "¿Cómo implemento el patrón productor-consumidor en Python?",
+  "¿Cómo manejo errores si una tarea falla en un TaskGroup?",
+  "¿Qué función inicia el bucle de eventos principal?",
+  "me sale TimeoutError en asyncio cómo lo soluciono",
+  "¿Cómo hago una petición HTTP asíncrona con httpx?"
+ ],
+ "e748e159dfde8d61": [
+  "organizar archivos por extension con python",
+  "script para ordenar descargas",
+  "enviar email usando smtplib",
+  "como adjuntar html en un correo con python",
+  "usar pathlib para mover archivos",
+  "enviar correo electrónico con variables de entorno",
+  "automatizar la limpieza de carpetas",
+  "como uso MIMEMultipart"
+ ],
+ "e8a64bc66f81ed06": [
+  "¿Python es compilado o interpretado?",
+  "para qué sirve PyPy",
+  "qué son los archivos .pyc",
+  "cómo se ejecuta python por dentro",
+  "qué hace CPython con el código",
+  "¿Python tiene JIT?",
+  "para qué sirve MicroPython",
+  "donde se guarda el bytecode de python"
+ ],
+ "ebb5c83e34e2f6fe": [
+  "Scope y variables no definidas",
+  "UnboundLocalError por qué sale",
+  "me sale UnboundLocalError al leer una variable",
+  "¿Puedo leer una variable global dentro de una función?",
+  "Closure en Python",
+  "Por qué Python espera que defina la variable antes",
+  "variables locales y alcance",
+  "¿Por qué falla print(x) antes de asignarla?"
+ ],
+ "ebdad391b26c3862": [
+  "Cómo conectar SQLite en Python",
+  "Usar sqlite3 con un gestor de contextos",
+  "Acceder a columnas por nombre en sqlite3",
+  "Crear una tabla en SQLite con Python",
+  "Manejar transacciones y commit en SQLite",
+  "Insertar datos en SQLite con parámetros",
+  "Crear un engine de SQLAlchemy",
+  "Configurar la conexión a base de datos con SQLAlchemy"
+ ],
+ "ecb44539aec82076": [
+  "Cómo generar un token seguro para URLs",
+  "Generar un número aleatorio seguro entre 0 y 100",
+  "Qué hace secrets.compare_digest",
+  "Crear contraseña aleatoria en Python",
+  "secrets.token_hex(16)",
+  "Módulo para aleatoriedad criptográfica",
+  "Cómo elegir un elemento al azar de forma segura",
+  "Para qué sirve secrets.randbelow"
+ ],
+ "ecb57ec46e7c82b8": [
+  "recorrer una lista al revés",
+  "¿Cómo recorrer un bucle de dos en dos?",
+  "ordenar diccionario por valor",
+  "salir de dos bucles anidados",
+  "¿Para qué sirve el else en un for?",
+  "for ... else en python",
+  "reversed() vs range() con paso negativo",
+  "¿Cómo saber si todos los elementos son positivos con un bucle?"
+ ],
+ "ed44cbb0924154fa": [
+  "¿Cómo funciona try except else y finally?",
+  "¿Cuándo se ejecuta el bloque else en excepciones?",
+  "¿Para qué sirve finally?",
+  "me sale FileNotFoundError al abrir un archivo",
+  "¿Es bueno usar un except vacío?",
+  "¿Qué excepciones se pueden agrupar desde Python 3.14?",
+  "cómo capturar varios errores sin usar paréntesis",
+  "¿Qué líneas debo meter dentro del bloque try?"
+ ],
+ "edf9ddc1bc41f228": [
+  "recorrido en anchura grafos python",
+  "búsqueda en profundidad dfs",
+  "cómo hacer bfs en un grafo",
+  "grafo como diccionario de adyacencia",
+  "encontrar camino más corto sin pesos",
+  "función dfs con recursión",
+  "librería networkx para grafos",
+  "algoritmo bfs con deque"
+ ],
+ "ee4a5b075829f25b": [
+  "Cómo obtener solo la extensión de un archivo con pathlib",
+  "p.suffix",
+  "cómo saco la ruta absoluta de un Path en python",
+  "borrar carpeta vacía python",
+  "me sale error al intentar borrar una carpeta que tiene dentro cosas, cómo se hace",
+  "cómo busco archivos jpg en subcarpetas con pathlib",
+  "leer texto de un fichero usando path",
+  "cómo sacar una ruta relativa al propio script en ejecución"
+ ],
+ "ef2933df62c44abb": [
+  "clases abstractas",
+  "abc abstractmethod",
+  "cómo crear una dataclass",
+  "para qué sirve @dataclass",
+  "post init en dataclasses",
+  "heredar de ABC",
+  "método abstracto",
+  "reducir código repetitivo en clases"
+ ],
+ "ef5d526d85117d81": [
+  "validar email python",
+  "cómo comprobar si un dni es correcto",
+  "validar teléfono español con regex",
+  "re.fullmatch",
+  "comprobar formato de correo electrónico",
+  "algoritmo letra dni python",
+  "validar número de móvil o fijo",
+  "expresión regular para DNI"
+ ],
+ "efad58d4608e09eb": [
+  "ValueError: invalid literal for int()",
+  "KeyError: 'nombre'",
+  "IndexError: list index out of range",
+  "por qué da error el int() con una letra",
+  "como evitar el KeyError en un diccionario",
+  "list index out of range por qué pasa",
+  "demasiados valores para desempaquetar",
+  "cómo buscar en un diccionario sin que falle si no está la clave"
+ ],
+ "efba7a31316f9084": [
+  "¿Cómo puedo implementar todas las comparaciones sin escribir __le__, __gt__ y __ge__?",
+  "Para qué sirve el decorador @total_ordering",
+  "cómo comparar versiones de software correctamente en Python",
+  "¿Qué métodos mínimos necesito implementar para usar @total_ordering?",
+  "Por qué comparar números de versión como texto da resultados incorrectos",
+  "Cómo ordenar objetos de una clase personalizada",
+  "¿Qué hace el método __lt__?",
+  "Ejemplo de uso de functools para comparaciones"
+ ],
+ "efe17490a9bc8eb3": [
+  "Cómo se implementa el algoritmo merge sort",
+  "Diferencia de rendimiento entre quicksort y merge sort",
+  "¿Por qué es mejor usar sorted() en vez de escribir tu propio quicksort?",
+  "¿Qué algoritmo de ordenación usa Python por debajo?",
+  "Código de quicksort en Python",
+  "¿Qué complejidad tiene mergesort?",
+  "cómo ordenar una lista en código real",
+  "¿Qué es Timsort?"
+ ],
+ "f004d5122f9a1628": [
+  "mejor librería de criptografía en python",
+  "cómo hacer un hash de contraseñas",
+  "trabajar con jwt en python",
+  "autenticación oauth2 python",
+  "manejar certificados ssl en python",
+  "passlib vs bcrypt",
+  "encriptar datos en python",
+  "librería para tokens"
+ ],
+ "f10b011f02776a4b": [
+  "cómo memorizar resultados de funciones con cache",
+  "diferencia entre cache y lru_cache",
+  "para qué sirve partial de functools",
+  "cómo fijar argumentos por defecto con partial",
+  "cómo funciona cached_property en una clase",
+  "cómo crear funciones que cambian según el tipo con singledispatch",
+  "diferencia entre usar lambda y partial",
+  "por qué mi función decorada pierde el nombre y el docstring"
+ ],
+ "f1cc2751013ee60f": [
+  "cómo leer un archivo .env en python",
+  "validar variables de entorno con pydantic",
+  "configuración multi entorno python",
+  "python-dotenv",
+  "cómo cargar ajustes de configuración",
+  "dynaconf python",
+  "leer entorno",
+  "configuración con validación"
+ ],
+ "f5d1d2962e6a1109": [
+  "novedades de Python 3.12",
+  "qué trae Python 3.13",
+  "modo sin GIL en Python",
+  "cómo crear alias de tipos en Python 3.12",
+  "qué es el JIT compiler experimental",
+  "método copy.replace para objetos inmutables",
+  "f-strings multilínea en qué versión",
+  "qué pasa con distutils en Python 3.12"
+ ],
+ "f697ba571d872721": [
+  "Cómo instalar un paquete con pip",
+  "Cómo guardar las dependencias en un requirements.txt",
+  "Qué es uv y por qué es más rápido que pip",
+  "Comandos básicos de uv para proyectos en Python",
+  "cómo instalo paquetes en modo desarrollo con pip",
+  "actualizar un paquete con pip",
+  "uv add --dev pytest",
+  "Instalación oficial de uv en Linux y macOS"
+ ],
+ "f752adbe626065ac": [
+  "conectar con smtp de gmail con python",
+  "leer un archivo excel con openpyxl",
+  "como programar tareas recurrentes en python",
+  "usar la libreria schedule",
+  "ejecutar una funcion cada cierto tiempo",
+  "leer celdas de un xlsx",
+  "bucle para schedule run_pending",
+  "mandar correo usando SSL"
+ ],
+ "f78f61e7971e7fd3": [
+  "novedades de python 3.14",
+  "qué son las t-strings en python",
+  "t\"Hola {nombre}\"",
+  "except A, B sin paréntesis",
+  "módulo zstd en la biblioteca estándar de python",
+  "uuid.uuid7() en python",
+  "anotaciones diferidas pep 649",
+  "múltiples intérpretes en un mismo proceso python"
+ ],
+ "f8cf31a7c4275da5": [
+  "hashlib.sha256(\"hola\".encode()).hexdigest()",
+  "cómo calcular el hash de un fichero grande en python 3.11",
+  "para qué sirve md5 si no es seguro",
+  "se puede descifrar un hash",
+  "cómo comprobar que un archivo no ha cambiado",
+  "hashlib.file_digest",
+  "cuántos caracteres da un sha256 hexadecimal",
+  "diferencia entre hash y cifrado"
+ ],
+ "faae6cff1bede9a1": [
+  "cómo usar enumerate con zip",
+  "zip estricto en python",
+  "ValueError si las longitudes no coinciden en zip",
+  "iter con centinela en python",
+  "leer un fichero por bloques usando iter",
+  "función lambda en iter",
+  "zip con strict=True",
+  "recorrer bucles con condición de parada"
+ ],
+ "fac53f2b34fa2cdf": [
+  "orm para python recomendado",
+  "driver de postgresql para python",
+  "migraciones con sqlalchemy",
+  "orm asincrono para fastapi",
+  "cliente para redis en python",
+  "conectar mongodb con async",
+  "peewee vs sqlalchemy",
+  "librerias para bases de datos relacionales"
+ ],
+ "fbee84a4b0a35c87": [
+  "leer un fichero de texto entero",
+  "Path(...).read_text()",
+  "cómo escribir en un fichero sin liarme con open",
+  "añadir texto al final de un archivo con a",
+  "comprobar si un archivo existe",
+  "splitlines()",
+  "pathlib leer líneas",
+  "sobrescribir fichero de texto"
+ ],
+ "fc294905db57d3d5": [
+  "qué versión introdujo match case",
+  "cómo usar tipos de unión con barra vertical en Python",
+  "novedades de Python 3.10",
+  "ejemplo de union types en Python",
+  "cómo funciona el pattern matching",
+  "mensajes de error de sintaxis mejorados en qué versión",
+  "sintaxis para int o str con pipe",
+  "qué es el pattern matching en Python 3.10"
+ ],
+ "fca4cbfcd6017e96": [
+  "cómo levantar un servidor web rápido desde la terminal",
+  "python -m http.server",
+  "cómo comprobar si un puerto está abierto con python",
+  "resolver un nombre de dominio a dirección IP",
+  "módulo socket para comprobar puertos",
+  "cómo saber la ip de una web desde código",
+  "escanear puertos con python",
+  "montar un servidor local en una carpeta"
+ ],
+ "fd7ed978c040535e": [
+  "¿Cuál es la diferencia entre __str__ y __repr__?",
+  "¿Qué método debo definir si solo puedo elegir uno entre __str__ y __repr__?",
+  "cómo ve el REPL un objeto de mi clase",
+  "Para qué se usa print() con respecto a estos métodos especiales",
+  "haz que mi clase Punto muestre una representación bonita para el usuario",
+  "¿Quién utiliza __repr__ por defecto?",
+  "Diferencia entre la salida para el usuario y para el programador",
+  "Cómo hacer que la interpolación con f-strings use la representación de programador usando !r"
+ ],
+ "fdc8757b521a7cb7": [
+  "Cómo calcular la raíz cuadrada en Python",
+  "Cuál es la diferencia entre math.pow y el operador **",
+  "Cómo calcular el máximo común divisor",
+  "Cómo hacer potencias con módulo de forma eficiente",
+  "cómo calcular el factorial de un número",
+  "Para qué sirve math.dist",
+  "cómo calcular combinaciones y variaciones",
+  "diferencia entre sqrt e isqrt"
+ ],
+ "ff2deb0c88065fc2": [
+  "cómo transponer una matriz en python",
+  "rotar una matriz 90 grados",
+  "crear una matriz de ceros correctamente",
+  "cuidado con mal = [[0] * 3] * 2",
+  "cómo obtener los vecinos de una celda en una matriz",
+  "aplanar una matriz de listas",
+  "sumar todos los elementos de una matriz",
+  "librería para cálculo numérico con matrices grandes"
+ ],
+ "ff599ad9576bf4c9": [
+  "Recursión sin caso base",
+  "RecursionError stack overflow",
+  "me sale RecursionError en mi función",
+  "¿Cuál es el límite de recursión en Python?",
+  "sys.setrecursionlimit",
+  "¿Cómo evitar un bucle infinito en funciones recursivas?",
+  "Caso base en recursividad",
+  "Por qué mi función recursiva no termina"
+ ],
+ "ffa4a6c470a24b5a": [
+  "clase Rectángulo con métodos de área y perímetro",
+  "sistema de biblioteca con clases en Python",
+  "clase abstracta Forma y figuras geométricas",
+  "implementar __iter__ y __next__",
+  "cómo crear un iterador infinito personalizado",
+  "ejercicio de POO con herencia y clases abstractas",
+  "¿Cómo hago __str__ en una clase?",
+  "problema avanzado de programación orientada a objetos"
+ ]
+}
