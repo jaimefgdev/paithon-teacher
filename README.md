@@ -42,6 +42,24 @@ pregunta ──► BM25 (léxico) ──┐
 | Solo BM25 | 88 % | 0,69 |
 | Híbrido (BM25 + `gemini-embedding-001`, RRF) | **94 %** | **0,79** |
 
+Con preguntas reales de otras personas sale más bajo. `evals/preguntas_stackoverflow.jsonl` tiene 95
+títulos de las preguntas sobre Python más votadas de [Stack Overflow en español](https://es.stackoverflow.com)
+(con el enlace a cada una; contenido CC BY-SA 4.0), elegidas entre las de Python general y etiquetadas con el
+apartado que las responde:
+
+| Modo | recall@5 | MRR |
+|---|---|---|
+| Solo BM25 | 57 % | 0,48 |
+| Híbrido | **81 %** | **0,64** |
+
+Fallan sobre todo las preguntas muy cortas o con símbolos («¿Qué significa := en Python?», «¿Existe algo como
+typeof en Python?»). Tres de las elegidas no tienen respuesta en los apuntes (el «shebang», un error propio de
+Python 2 y la concatenación implícita de literales).
+
+```
+paithon evaluar --preguntas evals/preguntas_stackoverflow.jsonl --detalle
+```
+
 Los embeddings rescatan las preguntas dichas con otras palabras («repetir algo mientras el usuario no
 acierte» → bucle `while`); BM25, las que nombran algo exacto (`isinstance`, `0.1 + 0.2`).
 

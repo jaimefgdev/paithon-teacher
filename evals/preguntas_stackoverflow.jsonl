@@ -1,0 +1,95 @@
+{"pregunta": "¿Qué es if __name__ == “__main__”:?", "esperado": ["Qué significa if __name__"], "fuente": "https://es.stackoverflow.com/q/32165"}
+{"pregunta": "Entendiendo la ausencia de punteros en Python", "esperado": ["Variables como etiquetas"], "fuente": "https://es.stackoverflow.com/q/397"}
+{"pregunta": "¿Cómo puedo reemplazar las letras con tildes por las mismas sin tilde, pero no la \"ñ\"?", "esperado": ["Quitar tildes de un texto"], "fuente": "https://es.stackoverflow.com/q/135707"}
+{"pregunta": "¿Cómo contar las llamadas totales al método de una clase?", "esperado": ["Atributos de clase frente a atributos de instancia"], "fuente": "https://es.stackoverflow.com/q/774"}
+{"pregunta": "Diferencia entre atributos de instancia y atributos de clase", "esperado": ["Atributos de clase frente a atributos de instancia"], "fuente": "https://es.stackoverflow.com/q/132561"}
+{"pregunta": "Problema con Problema de la mochila", "esperado": ["Cambio de monedas y mochila"], "fuente": "https://es.stackoverflow.com/q/4877"}
+{"pregunta": "¿Qué es memoización y cómo se usa?", "esperado": ["Memoización", "Functools: cache"], "fuente": "https://es.stackoverflow.com/q/398370"}
+{"pregunta": "¿Bucle for asíncrono en python?", "esperado": ["Asyncio", "Async"], "fuente": "https://es.stackoverflow.com/q/269596"}
+{"pregunta": "¿Para qué sirve y cómo funciona la palabra clave \"with\" en Python?", "esperado": ["Context managers"], "fuente": "https://es.stackoverflow.com/q/31428"}
+{"pregunta": "¿Cuál es la diferencia entre una tupla y una lista en Python?", "esperado": ["Lista, tupla, set y diccionario", "Tuplas"], "fuente": "https://es.stackoverflow.com/q/415447"}
+{"pregunta": "¿Pedir perdón o pedir permiso? Consideraciones de desempeño", "esperado": ["Manejo de errores", "Try, except, else y finally"], "fuente": "https://es.stackoverflow.com/q/425"}
+{"pregunta": "¿Para qué se utiliza self en POO en Python?", "esperado": ["Qué es self"], "fuente": "https://es.stackoverflow.com/q/90357"}
+{"pregunta": "¿Cómo hallar el numero mas repetido de una lista?", "esperado": ["Collections", "Contar palabras y letras"], "fuente": "https://es.stackoverflow.com/q/151572"}
+{"pregunta": "Diferencia entre input() y raw_input()", "esperado": ["Python 2 frente a Python 3"], "fuente": "https://es.stackoverflow.com/q/38288"}
+{"pregunta": "Eliminar elementos duplicados en una lista", "esperado": ["Quitar duplicados"], "fuente": "https://es.stackoverflow.com/q/87813"}
+{"pregunta": "¿Cuál es la diferencia entre range y xrange en python?", "esperado": ["Python 2 frente a Python 3"], "fuente": "https://es.stackoverflow.com/q/4533"}
+{"pregunta": "Orden de inserción de los elementos en un diccionario", "esperado": ["Diccionarios"], "fuente": "https://es.stackoverflow.com/q/227"}
+{"pregunta": "¿Como llamar una aplicación externa a través de un comando en Python?", "esperado": ["Funciones avanzadas de la stdlib"], "fuente": "https://es.stackoverflow.com/q/2434"}
+{"pregunta": "¿Qué es exactamente \"object\" en Python?", "esperado": ["Qué es una clase y qué es un objeto"], "fuente": "https://es.stackoverflow.com/q/357775"}
+{"pregunta": "¿Qué son las clases realmente (Python)?", "esperado": ["Qué es una clase"], "fuente": "https://es.stackoverflow.com/q/452757"}
+{"pregunta": "¿Utilizar atributos \"privados\" en Python aumenta la seguridad de una aplicación web?", "esperado": ["Encapsulación"], "fuente": "https://es.stackoverflow.com/q/415615"}
+{"pregunta": "¿Qué significa := en Python?", "esperado": ["Operador morsa"], "fuente": "https://es.stackoverflow.com/q/386750"}
+{"pregunta": "¿Cuál es el funcionamiento de yield en Python", "esperado": ["Generadores e iteradores", "Iterable, iterador y generador"], "fuente": "https://es.stackoverflow.com/q/6048"}
+{"pregunta": "¿Cómo redondear \"correctamente\" en python?", "esperado": ["Round() y el redondeo"], "fuente": "https://es.stackoverflow.com/q/316983"}
+{"pregunta": "¿Cuál es la diferencia entre declarar una variable con self '''self.variable''' y sin self '''variable''' dentro de un método?", "esperado": ["Qué es self", "Atributos de clase frente a atributos de instancia"], "fuente": "https://es.stackoverflow.com/q/4729"}
+{"pregunta": "¿Cuál es el uso y significado de _nombre __nombre o __nombre__ en python?", "esperado": ["Los usos del guion bajo", "Encapsulación"], "fuente": "https://es.stackoverflow.com/q/4819"}
+{"pregunta": "¿Cómo leer una cantidad de datos o líneas específicas en Python?", "esperado": ["Leer ficheros grandes", "Ficheros"], "fuente": "https://es.stackoverflow.com/q/6638"}
+{"pregunta": "¿Cuál es la diferencia entre usar triple comillas dobles (\"\"\") y almohadilla (#) para comentar en Python?", "esperado": ["Sintaxis básica"], "fuente": "https://es.stackoverflow.com/q/281455"}
+{"pregunta": "¿Qué significan los símbolos \"&\" y \">>\" en Python?", "esperado": ["Bases numéricas"], "fuente": "https://es.stackoverflow.com/q/453092"}
+{"pregunta": "Métodos A* y Best First Search en grafo de ciudades", "esperado": ["Grafos", "Dijkstra"], "fuente": "https://es.stackoverflow.com/q/153777"}
+{"pregunta": "Limitar dígitos en un número periódico en Python", "esperado": ["Formato de números", "Round() y el redondeo"], "fuente": "https://es.stackoverflow.com/q/236945"}
+{"pregunta": "¿Qué es un \"callback\"?", "esperado": ["Funciones de orden superior"], "fuente": "https://es.stackoverflow.com/q/96218"}
+{"pregunta": "Generar combinaciones específicas en Python", "esperado": ["Itertools: combinatoria"], "fuente": "https://es.stackoverflow.com/q/204177"}
+{"pregunta": "Cómo importar módulos .py de subcarpetas a carpetas", "esperado": ["Importaciones relativas", "Módulos y paquetes"], "fuente": "https://es.stackoverflow.com/q/1087"}
+{"pregunta": "¿Para qué sirve el parámetro \"/\" al definir una función en Python?", "esperado": ["Parámetros solo posicionales"], "fuente": "https://es.stackoverflow.com/q/394009"}
+{"pregunta": "¿Como funciona la precedencia del operador modulo (combinado con otros operadores) en Python?", "esperado": ["Operadores"], "fuente": "https://es.stackoverflow.com/q/438000"}
+{"pregunta": "¿Cómo listar todos los archivos de una carpeta usando Python?", "esperado": ["Recorrer todos los ficheros", "Pathlib en detalle"], "fuente": "https://es.stackoverflow.com/q/24278"}
+{"pregunta": "¿Por qué el operador \"is\" no funciona para comparar valores?", "esperado": ["Diferencia entre == e is"], "fuente": "https://es.stackoverflow.com/q/306662"}
+{"pregunta": "¿Qué es un constructor?", "esperado": ["Qué es self y qué hace __init__"], "fuente": "https://es.stackoverflow.com/q/63407"}
+{"pregunta": "Ordenar una lista alfabéticamente en español incluido la Ñ y tildes", "esperado": ["Sort frente a sorted", "Ord(), chr() y comparar textos"], "fuente": "https://es.stackoverflow.com/q/594795"}
+{"pregunta": "Como invertir palabras individuales de un string con python?", "esperado": ["Fizzbuzz, máximo sin max", "Métodos de string para transformar"], "fuente": "https://es.stackoverflow.com/q/194809"}
+{"pregunta": "¿Es igual \"import XXX\" que \"from XXX import a, b, c\"?", "esperado": ["Módulos y paquetes", "Cómo funciona import"], "fuente": "https://es.stackoverflow.com/q/510310"}
+{"pregunta": "No me encuentra el ejecutable de python", "esperado": ["Instalar Python"], "fuente": "https://es.stackoverflow.com/q/281461"}
+{"pregunta": "¿Qué hace la estrella `*` como argumento de una función y cómo se usa en Python?", "esperado": ["Qué son *args", "Parámetros solo posicionales", "Desempaquetado"], "fuente": "https://es.stackoverflow.com/q/399534"}
+{"pregunta": "¿Por qué en Python 3 round() redondea 3.5 a 4 pero 2.5 a 2?", "esperado": ["Round() y el redondeo"], "fuente": "https://es.stackoverflow.com/q/317012"}
+{"pregunta": "¿Que exactamente son los métodos en python?. ¿Un método es un atributo?", "esperado": ["Función frente a método"], "fuente": "https://es.stackoverflow.com/q/351244"}
+{"pregunta": "¿Cómo verificar que un archivo exista en Python?", "esperado": ["Leer y escribir un fichero de texto", "Pathlib en detalle"], "fuente": "https://es.stackoverflow.com/q/512"}
+{"pregunta": "Duda con clases. ¿Para que sirve __init__?", "esperado": ["Qué es self y qué hace __init__"], "fuente": "https://es.stackoverflow.com/q/79502"}
+{"pregunta": "¿Cómo puedo recorrer una lista en orden inverso?", "esperado": ["For y while: patrones", "Sort y sorted, reverse y reversed"], "fuente": "https://es.stackoverflow.com/q/146070"}
+{"pregunta": "¿Existe algo como typeof en Python?", "esperado": ["type() y isinstance()"], "fuente": "https://es.stackoverflow.com/q/15622"}
+{"pregunta": "¿Para qué sirve @classmethod en python?", "esperado": ["Métodos de instancia, de clase y estáticos"], "fuente": "https://es.stackoverflow.com/q/4626"}
+{"pregunta": "¿Cómo convertir un tipo String a Float o Int?", "esperado": ["Conversión de tipos"], "fuente": "https://es.stackoverflow.com/q/49194"}
+{"pregunta": "Detectar y destruir objetos que colisionan", "esperado": ["Pygame"], "fuente": "https://es.stackoverflow.com/q/128691"}
+{"pregunta": "¿Cómo puedo eliminar todos los elementos repetidos de una lista?", "esperado": ["Quitar duplicados"], "fuente": "https://es.stackoverflow.com/q/196883"}
+{"pregunta": "(Overloading) - Sobrecargar Operadores en Python", "esperado": ["Sobrecarga de operadores"], "fuente": "https://es.stackoverflow.com/q/188145"}
+{"pregunta": "Comparar dos vectores elemento a elemento", "esperado": ["Bucle for", "Enumerate, zip estricto"], "fuente": "https://es.stackoverflow.com/q/90333"}
+{"pregunta": "¿Cómo recorrer carpetas, subcarpetas, ficheros y filtrarlos en Python?", "esperado": ["Recorrer todos los ficheros", "Pathlib en detalle"], "fuente": "https://es.stackoverflow.com/q/398988"}
+{"pregunta": "¿Es posible declarar una variable que contenga un if statement?", "esperado": ["Condicionales"], "fuente": "https://es.stackoverflow.com/q/95148"}
+{"pregunta": "¿Por qué imprimir una lista es diferente a imprimir sus elementos por separado?", "esperado": ["Str y repr"], "fuente": "https://es.stackoverflow.com/q/111217"}
+{"pregunta": "¿Por qué en Python no se pueden declarar variables que empiezen con un número?", "esperado": ["Convenciones de nombres"], "fuente": "https://es.stackoverflow.com/q/34858"}
+{"pregunta": "Error al instalar paquetes : \"pip\" no se reconoce como un comando interno o externo", "esperado": ["Problemas frecuentes con pip"], "fuente": "https://es.stackoverflow.com/q/348101"}
+{"pregunta": "¿Cómo me conecto a una Base de Datos MySQL con Python?", "esperado": ["Bases de datos"], "fuente": "https://es.stackoverflow.com/q/568"}
+{"pregunta": "¿Por qué al pasar una lista como parámetro de una funcion y modificarla, se modifica la lista original?", "esperado": ["Mutables e inmutables"], "fuente": "https://es.stackoverflow.com/q/132735"}
+{"pregunta": "Como conseguir el 'key' con el valor mas alto en un diccionario en Python?", "esperado": ["Invertir un diccionario y buscar la clave"], "fuente": "https://es.stackoverflow.com/q/407011"}
+{"pregunta": "¿Se puede llamar a una función sin el decorador? Python", "esperado": ["Decoradores"], "fuente": "https://es.stackoverflow.com/q/379746"}
+{"pregunta": "¿Cómo hacer un script que active un entorno virtual?", "esperado": ["Entornos virtuales paso a paso"], "fuente": "https://es.stackoverflow.com/q/85757"}
+{"pregunta": "¿Cómo ejecutar un script python a una determinada hora y fecha en Windows?", "esperado": ["Ejecutar algo cada cierto tiempo"], "fuente": "https://es.stackoverflow.com/q/60531"}
+{"pregunta": "¿Cómo determinar si una cadena es palíndroma? Es decir, si se lee igual de derecha a izquierda, que de izquierda a derecha", "esperado": ["Anagramas, palíndromos"], "fuente": "https://es.stackoverflow.com/q/389085"}
+{"pregunta": "Crear variables globales en Python", "esperado": ["Global y nonlocal"], "fuente": "https://es.stackoverflow.com/q/10768"}
+{"pregunta": "¿Cómo saber si un módulo esta instalado?", "esperado": ["Problemas frecuentes con pip"], "fuente": "https://es.stackoverflow.com/q/69860"}
+{"pregunta": "El metodo (Copy()) de las listas en python tiene sentido? (Python)", "esperado": ["Copy y deepcopy", "Copy: copia superficial"], "fuente": "https://es.stackoverflow.com/q/56168"}
+{"pregunta": "¿Cuál es la diferencia entre @staticmethod y @classmethod en Python?", "esperado": ["Métodos de instancia, de clase y estáticos"], "fuente": "https://es.stackoverflow.com/q/79446"}
+{"pregunta": "¿Cómo manejo acentos, Ñ y demás en Python?", "esperado": ["Unicodedecodeerror y encodings", "Str frente a bytes"], "fuente": "https://es.stackoverflow.com/q/2391"}
+{"pregunta": "¿ Las tuplas son mas eficientes porque se almacenan en algun sitio especifico?", "esperado": ["Tuplas", "Lista, tupla, set"], "fuente": "https://es.stackoverflow.com/q/442364"}
+{"pregunta": "¿Por qué la función lambda difiere de la función parcial?", "esperado": ["Functools: cache, partial"], "fuente": "https://es.stackoverflow.com/q/1012"}
+{"pregunta": "¿Cómo valido si una cadena está dentro de otra?", "esperado": ["Métodos de string para comprobar y buscar", "Operadores de identidad y pertenencia"], "fuente": "https://es.stackoverflow.com/q/395505"}
+{"pregunta": "¿Cómo ordeno los elementos de una lista numéricamente?", "esperado": ["Sort frente a sorted"], "fuente": "https://es.stackoverflow.com/q/386941"}
+{"pregunta": "Python. Extraer objeto al azar de una lista", "esperado": ["Números aleatorios: random"], "fuente": "https://es.stackoverflow.com/q/14454"}
+{"pregunta": "Problema al definir zona horaria mediante tzinfo en datetime usando pytz.timezone()", "esperado": ["Zonas horarias con zoneinfo"], "fuente": "https://es.stackoverflow.com/q/93979"}
+{"pregunta": "¿Cómo elimino las vocales de una cadena?", "esperado": ["Métodos de string para transformar"], "fuente": "https://es.stackoverflow.com/q/257986"}
+{"pregunta": "¿Cómo sumar vectores representados por tuplas en Python?", "esperado": ["Sobrecarga de operadores", "Bucle for"], "fuente": "https://es.stackoverflow.com/q/314"}
+{"pregunta": "¿Cómo contar números iguales consecutivos en Python?", "esperado": ["Itertools: agrupar"], "fuente": "https://es.stackoverflow.com/q/519740"}
+{"pregunta": "Como es que se almacenan numeros sumamente grandes en memoria?", "esperado": ["Float: precisión, infinito y nan"], "fuente": "https://es.stackoverflow.com/q/460088"}
+{"pregunta": "¿Qué es y que utilidad tiene super en POO?", "esperado": ["Herencia y super()"], "fuente": "https://es.stackoverflow.com/q/130241"}
+{"pregunta": "Que hace la función assert?", "esperado": ["Assert"], "fuente": "https://es.stackoverflow.com/q/159817"}
+{"pregunta": "Lanzar una excepción en Python", "esperado": ["Manejo de errores", "Relanzar y encadenar", "Excepciones personalizadas"], "fuente": "https://es.stackoverflow.com/q/73855"}
+{"pregunta": "Uso de *args y **kwargs en python", "esperado": ["Qué son *args y **kwargs"], "fuente": "https://es.stackoverflow.com/q/198044"}
+{"pregunta": "¿Cómo crear un List de setters y getters en python?", "esperado": ["Encapsulación"], "fuente": "https://es.stackoverflow.com/q/100845"}
+{"pregunta": "Error con math.sqrt() en Python: ValueError: math domain error", "esperado": ["Módulo math"], "fuente": "https://es.stackoverflow.com/q/239232"}
+{"pregunta": "¿Cómo unir dos diccionarios en Python?", "esperado": ["Fusionar y actualizar diccionarios"], "fuente": "https://es.stackoverflow.com/q/400015"}
+{"pregunta": "Error de indentación en Python", "esperado": ["Syntaxerror e indentationerror"], "fuente": "https://es.stackoverflow.com/q/301880"}
+{"pregunta": "Comprobar si existe una variable en python", "esperado": ["Nameerror y unboundlocalerror"], "fuente": "https://es.stackoverflow.com/q/499710"}
+{"pregunta": "¿Cuál es la diferencia entre \"if\" y \"if in\"?", "esperado": ["Operadores de identidad y pertenencia"], "fuente": "https://es.stackoverflow.com/q/342021"}
+{"pregunta": "format en Python", "esperado": ["Formatos antiguos: porcentaje y format()"], "fuente": "https://es.stackoverflow.com/q/291855"}
+{"pregunta": "¿Cómo hacer para que dos \"print\" impriman en la misma línea?", "esperado": ["Entrada y salida"], "fuente": "https://es.stackoverflow.com/q/289034"}
