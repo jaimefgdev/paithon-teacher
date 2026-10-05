@@ -44,17 +44,27 @@ class Buscador:
         textos = [texto_indexable(f, preguntas.get(f.id, ())) for f in self.fragmentos]
         self.bm25 = BM25(textos)
         self.embedder = embedder
-        self.vectores = embedder.documentos(textos) if embedder else None
+        self.aviso = ""
+        self.vectores: list[list[float]] | None = None
         # Cada pregunta de ejemplo con su propio vector: una pregunta corta del alumno se parece mucho más a otra
         # pregunta corta que a un apartado largo. Se embebe como consulta (mismo tipo de texto que la del alumno).
         self.dueños: list[int] = []
         self.vectores_preguntas: list[list[float]] = []
-        if embedder:
-            pares = [(i, q) for i, f in enumerate(self.fragmentos) for q in preguntas.get(f.id, ())]
-            if pares:
-                embeber = getattr(embedder, "consultas", embedder.documentos)
-                self.dueños = [i for i, _ in pares]
+        if not embedder:
+            return
+        try:
+            self.vectores = embedder.documentos(textos)
+        except OSError as e:  # sin cuota o sin red al arrancar: se busca solo con BM25, sin caerse
+            self.embedder, self.aviso = None, f"embeddings no disponibles ({e})"
+            return
+        pares = [(i, q) for i, f in enumerate(self.fragmentos) for q in preguntas.get(f.id, ())]
+        if pares:
+            embeber = getattr(embedder, "consultas", embedder.documentos)
+            try:
                 self.vectores_preguntas = embeber([q for _, q in pares])
+                self.dueños = [i for i, _ in pares]
+            except OSError as e:  # los vectores de los fragmentos sí están: se sigue sin los de las preguntas
+                self.aviso = f"vectores de las preguntas de ejemplo no disponibles ({e})"
 
     @property
     def modo(self) -> str:

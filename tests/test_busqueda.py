@@ -50,3 +50,22 @@ def test_si_falla_la_api_de_embeddings_sigue_con_bm25(fragmentos):
 
     resultados = Buscador(fragmentos, EmbedderCaido()).buscar("¿Qué es una tupla?", 5)
     assert resultados and all(r.origen == "bm25" for r in resultados)
+
+
+def test_si_no_hay_cuota_de_embeddings_al_arrancar_busca_con_bm25(fragmentos):
+    class EmbedderSinCuota(EmbedderFalso):
+        def documentos(self, textos):
+            raise OSError("HTTP Error 429: Too Many Requests")
+
+    b = Buscador(fragmentos, EmbedderSinCuota())
+    assert b.modo == "solo BM25" and "429" in b.aviso
+    assert b.buscar("¿Qué es una tupla?", 3)
+
+
+def test_sin_vectores_de_preguntas_sigue_con_los_de_los_fragmentos(fragmentos):
+    class EmbedderParcial(EmbedderFalso):
+        def consultas(self, textos):
+            raise OSError("HTTP Error 429: Too Many Requests")
+
+    b = Buscador(fragmentos, EmbedderParcial(), preguntas={fragmentos[0].id: ["¿qué es python?"]})
+    assert b.modo.startswith("híbrido") and b.vectores_preguntas == [] and "429" in b.aviso
