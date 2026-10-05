@@ -40,7 +40,7 @@ pregunta ──► BM25 (léxico) ──┐
 | Modo | recall@5 | MRR |
 |---|---|---|
 | Solo BM25 | 88 % | 0,69 |
-| Híbrido (BM25 + `gemini-embedding-001`, RRF) | **95 %** | **0,79** |
+| Híbrido (BM25 + `gemini-embedding-001`, RRF) | **94 %** | **0,79** |
 
 Los embeddings rescatan las preguntas dichas con otras palabras («repetir algo mientras el usuario no
 acierte» → bucle `while`); BM25, las que nombran algo exacto (`isinstance`, `0.1 + 0.2`).
