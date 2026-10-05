@@ -181,8 +181,28 @@ float("nan") == float("nan")  # False: NaN no es igual ni a sí mismo
 1_000_000  # 1000000 (los guiones bajos solo ayudan a leer)
 ```
 
-Los int de Python no tienen límite de tamaño (`2 ** 1000` funciona). Lo que sí está limitado,
-por seguridad, es convertir a texto enteros de más de 4300 dígitos (`sys.set_int_max_str_digits`).
+ENTEROS GRANDES: CÓMO GUARDA PYTHON LOS INT
+
+En Python los `int` no tienen límite de tamaño, a diferencia de C o Java (donde un int ocupa 32 o 64
+bits y se desborda). Internamente, un int grande se guarda como una lista de «dígitos» de 30 bits: el
+número ocupa más memoria cuanto más grande es, y las operaciones con números enormes son más lentas,
+pero nunca se desbordan. Los `float`, en cambio, sí tienen límite (unos 1.8e308) y precisión de unos
+15-17 dígitos.
+
+```python
+2**1000  # funciona: un número de 302 dígitos
+import sys
+
+sys.getsizeof(1)  # 28 bytes
+sys.getsizeof(2**1000)  # 160 bytes: crece con el número
+(2**1000).bit_length()  # 1001 bits
+float(2**1024)  # OverflowError: el float no cabe
+10**20 + 1 == 10**20  # False: los int son exactos
+1e20 + 1 == 1e20  # True: el float pierde el 1
+```
+
+Lo que sí está limitado, por seguridad, es convertir a texto enteros de más de 4300 dígitos
+(`ValueError: Exceeds the limit...`); se puede cambiar con `sys.set_int_max_str_digits`.
 
 DECIMAL Y FRACTION: CUÁNDO USARLOS
 

@@ -20,16 +20,19 @@ from pathlib import Path
 
 from .trocear import Fragmento
 
-POR_FRAGMENTO = 8
-LOTE = 8  # fragmentos por llamada al modelo
+POR_FRAGMENTO = 10
+LOTE = 6  # fragmentos por llamada al modelo
+VERSION = 2  # forma parte de la huella: al cambiar las instrucciones se regeneran todas
 
 INSTRUCCIONES = f"""Eres un generador de preguntas para el buscador de un tutor de Python en español.
 Para cada fragmento de los apuntes que recibes, escribe {POR_FRAGMENTO} preguntas DISTINTAS que haría un alumno
-y que ese fragmento responde. Varía la forma:
-- muy cortas (3 a 6 palabras) y alguna más larga;
-- con el nombre técnico y sin él (como lo diría alguien que no sabe cómo se llama);
-- en tono coloquial, como en un foro, y alguna como mensaje de error o duda práctica («me sale...», «cómo hago...»);
-- si el fragmento trata un operador o símbolo, incluye el símbolo tal cual en alguna pregunta.
+y que ese fragmento responde:
+- La MITAD, como un principiante que NO conoce el nombre técnico: describe lo que quiere conseguir o lo que le
+  pasa, con palabras normales («hacer una lista en una sola línea», «subir mi librería para que otros la
+  instalen», «meter un objeto dentro de otro», «mi programa no encuentra el archivo»). Sin jerga.
+- La otra mitad, con el nombre técnico (función, módulo, error, operador...), cortas (3 a 6 palabras).
+- Varía el tono: coloquial como en un foro, como duda práctica («cómo hago...», «por qué...», «me sale...»).
+- Si el fragmento trata un operador o símbolo, incluye el símbolo tal cual en alguna pregunta.
 No inventes cosas que el fragmento no trate. Responde SOLO con JSON: {{"id del fragmento": ["pregunta", ...], ...}}"""
 
 
@@ -46,7 +49,7 @@ def leer_json(respuesta: str) -> dict[str, list[str]]:
 
 
 def huella(f: Fragmento) -> str:
-    return hashlib.sha256(f"{f.ruta}\n{f.texto}".encode()).hexdigest()[:16]
+    return hashlib.sha256(f"v{VERSION}\n{f.ruta}\n{f.texto}".encode()).hexdigest()[:16]
 
 
 def cargar(ruta: Path) -> dict[str, list[str]]:

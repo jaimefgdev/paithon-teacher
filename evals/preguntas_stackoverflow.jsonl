@@ -29,7 +29,7 @@
 {"pregunta": "¿Qué significan los símbolos \"&\" y \">>\" en Python?", "esperado": ["Bases numéricas"], "fuente": "https://es.stackoverflow.com/q/453092"}
 {"pregunta": "Métodos A* y Best First Search en grafo de ciudades", "esperado": ["Grafos", "Dijkstra"], "fuente": "https://es.stackoverflow.com/q/153777"}
 {"pregunta": "Limitar dígitos en un número periódico en Python", "esperado": ["Formato de números", "Round() y el redondeo"], "fuente": "https://es.stackoverflow.com/q/236945"}
-{"pregunta": "¿Qué es un \"callback\"?", "esperado": ["Funciones de orden superior"], "fuente": "https://es.stackoverflow.com/q/96218"}
+{"pregunta": "¿Qué es un \"callback\"?", "esperado": ["Funciones de orden superior", "Callbacks: pasar una función como argumento"], "fuente": "https://es.stackoverflow.com/q/96218"}
 {"pregunta": "Generar combinaciones específicas en Python", "esperado": ["Itertools: combinatoria"], "fuente": "https://es.stackoverflow.com/q/204177"}
 {"pregunta": "Cómo importar módulos .py de subcarpetas a carpetas", "esperado": ["Importaciones relativas", "Módulos y paquetes"], "fuente": "https://es.stackoverflow.com/q/1087"}
 {"pregunta": "¿Para qué sirve el parámetro \"/\" al definir una función en Python?", "esperado": ["Parámetros solo posicionales"], "fuente": "https://es.stackoverflow.com/q/394009"}
@@ -57,7 +57,7 @@
 {"pregunta": "¿Cómo recorrer carpetas, subcarpetas, ficheros y filtrarlos en Python?", "esperado": ["Recorrer todos los ficheros", "Pathlib en detalle"], "fuente": "https://es.stackoverflow.com/q/398988"}
 {"pregunta": "¿Es posible declarar una variable que contenga un if statement?", "esperado": ["Condicionales"], "fuente": "https://es.stackoverflow.com/q/95148"}
 {"pregunta": "¿Por qué imprimir una lista es diferente a imprimir sus elementos por separado?", "esperado": ["Str y repr"], "fuente": "https://es.stackoverflow.com/q/111217"}
-{"pregunta": "¿Por qué en Python no se pueden declarar variables que empiezen con un número?", "esperado": ["Convenciones de nombres"], "fuente": "https://es.stackoverflow.com/q/34858"}
+{"pregunta": "¿Por qué en Python no se pueden declarar variables que empiezen con un número?", "esperado": ["Convenciones de nombres", "Reglas para los nombres de variables"], "fuente": "https://es.stackoverflow.com/q/34858"}
 {"pregunta": "Error al instalar paquetes : \"pip\" no se reconoce como un comando interno o externo", "esperado": ["Problemas frecuentes con pip"], "fuente": "https://es.stackoverflow.com/q/348101"}
 {"pregunta": "¿Cómo me conecto a una Base de Datos MySQL con Python?", "esperado": ["Bases de datos"], "fuente": "https://es.stackoverflow.com/q/568"}
 {"pregunta": "¿Por qué al pasar una lista como parámetro de una funcion y modificarla, se modifica la lista original?", "esperado": ["Mutables e inmutables"], "fuente": "https://es.stackoverflow.com/q/132735"}
@@ -70,17 +70,17 @@
 {"pregunta": "¿Cómo saber si un módulo esta instalado?", "esperado": ["Problemas frecuentes con pip"], "fuente": "https://es.stackoverflow.com/q/69860"}
 {"pregunta": "El metodo (Copy()) de las listas en python tiene sentido? (Python)", "esperado": ["Copy y deepcopy", "Copy: copia superficial"], "fuente": "https://es.stackoverflow.com/q/56168"}
 {"pregunta": "¿Cuál es la diferencia entre @staticmethod y @classmethod en Python?", "esperado": ["Métodos de instancia, de clase y estáticos"], "fuente": "https://es.stackoverflow.com/q/79446"}
-{"pregunta": "¿Cómo manejo acentos, Ñ y demás en Python?", "esperado": ["Unicodedecodeerror y encodings", "Str frente a bytes"], "fuente": "https://es.stackoverflow.com/q/2391"}
+{"pregunta": "¿Cómo manejo acentos, Ñ y demás en Python?", "esperado": ["Unicodedecodeerror y encodings", "Str frente a bytes", "Open sin encoding"], "fuente": "https://es.stackoverflow.com/q/2391"}
 {"pregunta": "¿ Las tuplas son mas eficientes porque se almacenan en algun sitio especifico?", "esperado": ["Tuplas", "Lista, tupla, set"], "fuente": "https://es.stackoverflow.com/q/442364"}
 {"pregunta": "¿Por qué la función lambda difiere de la función parcial?", "esperado": ["Functools: cache, partial"], "fuente": "https://es.stackoverflow.com/q/1012"}
-{"pregunta": "¿Cómo valido si una cadena está dentro de otra?", "esperado": ["Métodos de string para comprobar y buscar", "Operadores de identidad y pertenencia"], "fuente": "https://es.stackoverflow.com/q/395505"}
-{"pregunta": "¿Cómo ordeno los elementos de una lista numéricamente?", "esperado": ["Sort frente a sorted"], "fuente": "https://es.stackoverflow.com/q/386941"}
+{"pregunta": "¿Cómo valido si una cadena está dentro de otra?", "esperado": ["Métodos de string para comprobar y buscar", "Operadores de identidad y pertenencia", "Métodos de string más usados"], "fuente": "https://es.stackoverflow.com/q/395505"}
+{"pregunta": "¿Cómo ordeno los elementos de una lista numéricamente?", "esperado": ["Sort frente a sorted", "Fundamentos de Python › Estructuras de datos › Listas"], "fuente": "https://es.stackoverflow.com/q/386941"}
 {"pregunta": "Python. Extraer objeto al azar de una lista", "esperado": ["Números aleatorios: random"], "fuente": "https://es.stackoverflow.com/q/14454"}
 {"pregunta": "Problema al definir zona horaria mediante tzinfo en datetime usando pytz.timezone()", "esperado": ["Zonas horarias con zoneinfo"], "fuente": "https://es.stackoverflow.com/q/93979"}
 {"pregunta": "¿Cómo elimino las vocales de una cadena?", "esperado": ["Métodos de string para transformar"], "fuente": "https://es.stackoverflow.com/q/257986"}
 {"pregunta": "¿Cómo sumar vectores representados por tuplas en Python?", "esperado": ["Sobrecarga de operadores", "Bucle for"], "fuente": "https://es.stackoverflow.com/q/314"}
 {"pregunta": "¿Cómo contar números iguales consecutivos en Python?", "esperado": ["Itertools: agrupar"], "fuente": "https://es.stackoverflow.com/q/519740"}
-{"pregunta": "Como es que se almacenan numeros sumamente grandes en memoria?", "esperado": ["Float: precisión, infinito y nan"], "fuente": "https://es.stackoverflow.com/q/460088"}
+{"pregunta": "Como es que se almacenan numeros sumamente grandes en memoria?", "esperado": ["Float: precisión, infinito y nan", "Enteros grandes: cómo guarda Python los int"], "fuente": "https://es.stackoverflow.com/q/460088"}
 {"pregunta": "¿Qué es y que utilidad tiene super en POO?", "esperado": ["Herencia y super()"], "fuente": "https://es.stackoverflow.com/q/130241"}
 {"pregunta": "Que hace la función assert?", "esperado": ["Assert"], "fuente": "https://es.stackoverflow.com/q/159817"}
 {"pregunta": "Lanzar una excepción en Python", "esperado": ["Manejo de errores", "Relanzar y encadenar", "Excepciones personalizadas"], "fuente": "https://es.stackoverflow.com/q/73855"}

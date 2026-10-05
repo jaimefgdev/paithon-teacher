@@ -14,7 +14,7 @@ import threading
 from array import array
 from collections.abc import Sequence
 from pathlib import Path
-from typing import Protocol
+from typing import Any, Protocol
 
 from .red import post_json
 
@@ -109,3 +109,88 @@ class GeminiEmbedder:
     def consultas(self, textos: Sequence[str]) -> list[list[float]]:
         """Varios textos embebidos como consulta (las preguntas de ejemplo de cada fragmento)."""
         return self._con_cache(textos, "RETRIEVAL_QUERY")
+
+
+def _cargar_fastembed(clase: Any, modelo: str, carpeta: Path | None) -> Any:
+    """Carga un modelo de fastembed desde una carpeta con ficheros reales.
+
+    La caché de Hugging Face guarda los ficheros como enlaces a una carpeta «blobs»; onnxruntime rechaza los modelos
+    grandes cuyos pesos (model.onnx_data) quedan fuera de la carpeta del modelo. Por eso se descarga una copia
+    normal (snapshot_download con local_dir) y se carga desde ahí.
+    """
+    if carpeta is None:
+        return clase(model_name=modelo)
+    from huggingface_hub import snapshot_download
+
+    descripcion = next(m for m in clase.list_supported_models() if m["model"] == modelo)
+    repositorio = descripcion["sources"]["hf"]
+    destino = carpeta / repositorio.replace("/", "--")
+    if not (destino / ".completo").exists():
+        snapshot_download(repositorio, local_dir=destino)
+        (destino / ".completo").touch()
+    return clase(model_name=modelo, specific_model_path=str(destino))
+
+
+class LocalEmbedder:
+    """Embeddings con un modelo que se ejecuta en el propio ordenador (fastembed, ONNX): sin clave ni cuota.
+
+    El modelo se descarga la primera vez (a .cache/modelos). Los de la familia E5 necesitan los prefijos
+    «query: » y «passage: »; los demás reciben el texto tal cual.
+    """
+
+    def __init__(self, cache: Cache, modelo: str, carpeta: Path | None = None, lote: int | None = None) -> None:
+        # Los modelos grandes con textos de 512 tokens gastan mucha memoria por tanda: tandas pequeñas.
+        lote = lote or (4 if "large" in modelo.lower() else 32)
+        self.cache, self.modelo, self.carpeta, self.lote = cache, modelo, carpeta, lote
+        self.nombre = f"local:{modelo}"
+        self._modelo: Any = None
+
+    def _cargar(self) -> Any:
+        if self._modelo is None:
+            from fastembed import TextEmbedding  # dependencia opcional: pip install fastembed
+
+            self._modelo = _cargar_fastembed(TextEmbedding, self.modelo, self.carpeta)
+        return self._modelo
+
+    def _prefijo(self, tarea: str) -> str:
+        if "e5" not in self.modelo.lower():
+            return ""
+        return "query: " if tarea == "RETRIEVAL_QUERY" else "passage: "
+
+    def _con_cache(self, textos: Sequence[str], tarea: str) -> list[list[float]]:
+        claves = [Cache.clave(self.nombre, tarea, t) for t in textos]
+        vectores: list[list[float] | None] = [self.cache.leer(c) for c in claves]
+        faltan = [i for i, v in enumerate(vectores) if v is None]
+        if faltan:
+            prefijo = self._prefijo(tarea)
+            calculados = self._cargar().embed([prefijo + textos[i] for i in faltan], batch_size=self.lote)
+            for i, v in zip(faltan, calculados, strict=True):
+                vector = normalizar([float(x) for x in v])
+                self.cache.guardar(claves[i], vector)
+                vectores[i] = vector
+        return [v for v in vectores if v is not None]
+
+    def documentos(self, textos: Sequence[str]) -> list[list[float]]:
+        return self._con_cache(textos, "RETRIEVAL_DOCUMENT")
+
+    def consulta(self, texto: str) -> list[float]:
+        return self._con_cache([texto], "RETRIEVAL_QUERY")[0]
+
+    def consultas(self, textos: Sequence[str]) -> list[list[float]]:
+        return self._con_cache(textos, "RETRIEVAL_QUERY")
+
+
+class LocalReordenador:
+    """Reordenador cross-encoder local (fastembed): lee la pregunta y cada candidato juntos y los puntúa."""
+
+    def __init__(self, modelo: str = "jinaai/jina-reranker-v2-base-multilingual", carpeta: Path | None = None) -> None:
+        self.modelo, self.carpeta = modelo, carpeta
+        self.nombre = f"local:{modelo}"
+        self._modelo: Any = None
+
+    def puntuar(self, consulta: str, textos: Sequence[str]) -> list[float]:
+        if self._modelo is None:
+            from fastembed.rerank.cross_encoder import TextCrossEncoder
+
+            self._modelo = _cargar_fastembed(TextCrossEncoder, self.modelo, self.carpeta)
+        return [float(x) for x in self._modelo.rerank(consulta, list(textos))]

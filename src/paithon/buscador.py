@@ -10,13 +10,24 @@ from __future__ import annotations
 
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
+from typing import Protocol
 
 from .bm25 import BM25
 from .embeddings import Embedder, coseno
 from .trocear import Fragmento
 
-RRF_K = 60
-CANDIDATOS = 30
+RRF_K = 10  # elegido con las preguntas de evaluación (desarrollo): premia más los primeros puestos
+CANDIDATOS = 50
+PESOS = {"bm25": 1.0, "semantica": 1.0}  # cuánto cuenta cada lista en la fusión
+A_REORDENAR = 20  # los primeros de la fusión que el reordenador vuelve a puntuar
+
+
+class Reordenador(Protocol):
+    """Puntúa la relevancia de cada texto para la consulta leyendo los dos juntos (cross-encoder)."""
+
+    nombre: str
+
+    def puntuar(self, consulta: str, textos: Sequence[str]) -> list[float]: ...
 
 
 @dataclass(frozen=True)
@@ -38,9 +49,13 @@ class Buscador:
         fragmentos: Sequence[Fragmento],
         embedder: Embedder | None = None,
         preguntas: Mapping[str, Sequence[str]] | None = None,
+        reordenador: Reordenador | None = None,
     ) -> None:
         self.fragmentos = list(fragmentos)
         preguntas = preguntas or {}
+        self.reordenador = reordenador
+        # Lo que lee el reordenador: dónde está el fragmento y su texto (sin las preguntas de ejemplo).
+        self.textos_reordenar = [(f.ruta + "\n" + f.texto)[:2000] for f in self.fragmentos]
         textos = [texto_indexable(f, preguntas.get(f.id, ())) for f in self.fragmentos]
         self.bm25 = BM25(textos)
         self.embedder = embedder
@@ -89,10 +104,19 @@ class Buscador:
         origen: dict[int, set[str]] = {}
         for nombre, lista in (("bm25", lexica), ("semantica", semantica)):
             for posicion, i in enumerate(lista):
-                puntos[i] = puntos.get(i, 0.0) + 1.0 / (RRF_K + posicion + 1)
+                puntos[i] = puntos.get(i, 0.0) + PESOS[nombre] / (RRF_K + posicion + 1)
                 origen.setdefault(i, set()).add(nombre)
-        orden = sorted(puntos, key=lambda i: puntos[i], reverse=True)[:k]
+        orden = sorted(puntos, key=lambda i: puntos[i], reverse=True)
+        if self.reordenador and orden:
+            candidatos = orden[:A_REORDENAR]
+            try:
+                nuevas = self.reordenador.puntuar(consulta, [self.textos_reordenar[i] for i in candidatos])
+                puntos.update(zip(candidatos, nuevas, strict=True))
+                orden = sorted(candidatos, key=lambda i: puntos[i], reverse=True)
+            except (OSError, RuntimeError):  # si el reordenador falla, vale el orden de la fusión
+                pass
+        orden = orden[:k]
         return [
-            Resultado(self.fragmentos[i], puntos[i], "ambas" if len(origen[i]) == 2 else next(iter(origen[i])))
+            Resultado(self.fragmentos[i], puntos[i], "ambas" if len(origen[i]) > 1 else next(iter(origen[i])))
             for i in orden
         ]

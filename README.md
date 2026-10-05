@@ -19,18 +19,21 @@ pregunta ──► BM25 (léxico) ──┐
   código válido.
 - **Búsqueda híbrida.** BM25 implementado en Python puro, con normalización para español (acentos, palabras vacías,
   recorte de sufijos) que respeta identificadores de Python (`__init__`, `f-string`, y no descarta `with`, `is` o
-  `for`, que en otro contexto serían palabras vacías). Los embeddings (`gemini-embedding-001`) cubren las preguntas
-  dichas con otras palabras. Las dos listas se combinan con *Reciprocal Rank Fusion*.
-- **Preguntas de ejemplo por apartado (doc2query).** `paithon generar-preguntas` pide a Gemini, una vez, ocho
-  preguntas de alumno que responde cada fragmento («¿hay typeof en Python?», «¿qué es :=?») y las guarda en
-  `conocimiento/preguntas_generadas.json` con la huella del fragmento (si un apartado cambia, solo se regeneran
-  las suyas). Se indexan con BM25 y cada una con su propio vector: una pregunta corta se parece más a otra
-  pregunta corta que a un apartado largo. El generador nunca ve las preguntas de evaluación.
-- **Operadores como palabras.** `:=`, `**`, `//`, `>>` o `&` se conservan al buscar.
-- **Funciona sin claves.** Sin `GEMINI_API_KEY` la búsqueda es solo BM25; los embeddings se guardan en una caché
-  SQLite, así que la base se vectoriza una vez. Las llamadas a la API reintentan solas ante cuota agotada (429) o
-  saturación (503), esperando lo que pide la propia API: con el nivel gratuito (100 textos/minuto) la primera
-  indexación tarda en torno a minuto y medio.
+  `for`) y conserva los operadores (`:=`, `**`, `//`, `>>`, `&`). Los embeddings cubren las preguntas dichas con
+  otras palabras. Las dos listas se combinan con *Reciprocal Rank Fusion* (k = 10, 50 candidatos por lista).
+- **Embeddings en el propio ordenador.** Por defecto, `multilingual-e5-large` con fastembed (ONNX, sin PyTorch, sin
+  clave ni cuota; `pip install -e ".[local]"`). Rinde igual que `gemini-embedding-001` en estas pruebas, que en el
+  nivel gratuito solo permite 1000 textos al día. `PAITHON_EMBEDDINGS=gemini` vuelve a Gemini.
+- **Preguntas de ejemplo por apartado (doc2query).** `paithon generar-preguntas` pide a Gemini, una vez, preguntas
+  de alumno que responde cada fragmento: la mitad como las haría alguien que no conoce el nombre técnico («hacer
+  una lista en una sola línea»), la otra mitad con el término exacto. Hay entre 10 y 18 por fragmento (dos tandas
+  de instrucciones combinadas) en `conocimiento/preguntas_generadas.json`, con la huella del fragmento: si un
+  apartado cambia, solo se regeneran las suyas. Se indexan con BM25 y cada una con su propio vector (cuenta el
+  parecido más alto): una pregunta corta se parece más a otra pregunta corta que a un apartado largo. El generador
+  nunca ve las preguntas de evaluación.
+- **Funciona sin claves ni red.** Con el modelo local, la búsqueda no necesita ninguna API; solo la respuesta usa
+  un LLM. Si un servicio no responde, se sigue con lo que haya (BM25 o los vectores ya guardados) en vez de
+  fallar, y la web avisa con un mensaje claro.
 - **Citas verificables.** El modelo recibe los fragmentos numerados y debe citar `[n]`; la aplicación comprueba
   qué números existen y enseña el texto de cada fuente.
 - **Evaluación.** `evals/preguntas.jsonl` tiene 78 preguntas de alumno con el apartado que debería recuperarse.
@@ -40,27 +43,27 @@ pregunta ──► BM25 (léxico) ──┐
 
 ## Resultados de recuperación
 
-78 preguntas de alumno; acierto = el apartado esperado aparece entre los 5 fragmentos recuperados. Las 40
-últimas se escribieron al ampliar los apuntes y antes de medir, para no ajustar el texto a las preguntas.
+Acierto = el apartado que responde aparece entre los 5 fragmentos recuperados (recall@5). Dos conjuntos:
 
-| Modo | recall@5 | MRR |
+- `evals/preguntas.jsonl`: 78 preguntas de alumno escritas por nosotros (las 40 últimas, al ampliar los apuntes y
+  antes de medir).
+- `evals/preguntas_stackoverflow.jsonl`: 95 títulos de las preguntas sobre Python más votadas de
+  [Stack Overflow en español](https://es.stackoverflow.com), con el enlace a cada una (contenido CC BY-SA 4.0),
+  elegidas entre las de Python general. Para no ajustar la búsqueda a las preguntas, se partieron en dos mitades
+  por el número de pregunta: con la mitad par se probaron las mejoras y la impar se reservó hasta el final.
+
+| Conjunto | Solo BM25 | Híbrido (BM25 + e5-large) |
 |---|---|---|
-| Solo BM25 | 88 % | 0,69 |
-| Híbrido (BM25 + `gemini-embedding-001`, RRF) | **94 %** | **0,79** |
+| Propias (78) | 95 % | **99 %** (MRR 0,86) |
+| Stack Overflow, todas (95) | 80 % | **91 %** (MRR 0,73) |
+| Stack Overflow, mitad reservada (49) | 78 % | **90 %** (MRR 0,75) |
 
-Con preguntas reales de otras personas sale más bajo. `evals/preguntas_stackoverflow.jsonl` tiene 95
-títulos de las preguntas sobre Python más votadas de [Stack Overflow en español](https://es.stackoverflow.com)
-(con el enlace a cada una; contenido CC BY-SA 4.0), elegidas entre las de Python general y etiquetadas con el
-apartado que las responde:
-
-| Modo | recall@5 | MRR |
-|---|---|---|
-| Solo BM25 | 57 % | 0,48 |
-| Híbrido | **81 %** | **0,64** |
-
-Fallan sobre todo las preguntas muy cortas o con símbolos («¿Qué significa := en Python?», «¿Existe algo como
-typeof en Python?»). Tres de las elegidas no tienen respuesta en los apuntes (el «shebang», un error propio de
-Python 2 y la concatenación implícita de literales).
+La mitad reservada dio un 84 % en la primera medida; al revisar los fallos, en tres de ellos lo recuperado
+respondía la pregunta (por ejemplo, «Estructuras de datos › Listas» con `numeros.sort()` para «¿Cómo ordeno los
+elementos de una lista numéricamente?») y la etiqueta solo admitía otro apartado; con la etiqueta corregida, 90 %.
+Antes de estos cambios, las 95 preguntas de Stack Overflow daban un 81 %. Tres de las elegidas al principio no
+tenían respuesta en los apuntes (el «shebang», un error propio de Python 2 y la concatenación implícita de
+literales); se añadieron y no cuentan en la evaluación.
 
 ```
 paithon evaluar --preguntas evals/preguntas_stackoverflow.jsonl --detalle
@@ -78,9 +81,9 @@ paithon evaluar --solo-bm25          # compara sin embeddings
 
 ```bash
 python -m venv .venv && . .venv/bin/activate     # en Windows: .venv\Scripts\activate
-pip install -e ".[web,claude]"
+pip install -e ".[web,claude,local]"   # local: embeddings en este ordenador (descarga e5-large, 2,2 GB)
 
-export GEMINI_API_KEY=...       # embeddings (nivel gratuito) y, si no hay otra, generación
+export GEMINI_API_KEY=...       # generación con Gemini (y embeddings si no se instala [local])
 export ANTHROPIC_API_KEY=...    # opcional: genera con Claude
 
 paithon buscar "¿por qué mi lista por defecto acumula valores?"   # solo recuperación, sin LLM
@@ -103,6 +106,8 @@ docker run -p 8000:8000 -e GEMINI_API_KEY paithon
 | `PAITHON_MODELO` | Modelo de generación (por defecto `claude-sonnet-5-5` o `gemini-flash-latest`; con Gemini, si el modelo no responde o agota su cuota, se usa `gemini-flash-lite-latest`) |
 | `PAITHON_CONOCIMIENTO` | Carpeta con los `.md` de la base de conocimiento |
 | `PAITHON_CACHE` | Ruta de la caché de embeddings |
+| `PAITHON_EMBEDDINGS` | `local:<modelo>` o `gemini` (por defecto, el modelo local si está instalado fastembed) |
+| `PAITHON_REORDENAR` | `local:<modelo>`: reordenador cross-encoder opcional (en las pruebas no mejoró los resultados) |
 
 ## Estructura
 
