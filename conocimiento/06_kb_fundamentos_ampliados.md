@@ -1,5 +1,5 @@
 # CONOCIMIENTO 5 — FUNDAMENTOS AMPLIADOS
-# Base de conocimiento para pAIthon Teacher.
+# Base de conocimiento para PyMentor.
 # Completa los fundamentos: primeros pasos, números, textos, bytes, match, errores explicados y más.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

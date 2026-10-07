@@ -17,7 +17,7 @@ from .tutor import Tutor
 
 ESTATICOS = Path(__file__).parent / "estatico"
 
-app = FastAPI(title="pAIthon Teacher", version=__version__)
+app = FastAPI(title="PyMentor", version=__version__)
 
 
 @lru_cache(maxsize=1)

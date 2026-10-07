@@ -1,5 +1,5 @@
 # CONOCIMIENTO 8 — ALGORITMOS Y ESTRUCTURAS DE DATOS
-# Base de conocimiento para pAIthon Teacher.
+# Base de conocimiento para PyMentor.
 # Complejidad, búsqueda, ordenación, recursión, programación dinámica, grafos y problemas típicos.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

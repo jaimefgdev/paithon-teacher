@@ -1,4 +1,4 @@
-"""Divide la base de conocimiento de pAIthon Teacher en fragmentos citables.
+"""Divide la base de conocimiento de PyMentor en fragmentos citables.
 
 Los documentos usan este formato:
 

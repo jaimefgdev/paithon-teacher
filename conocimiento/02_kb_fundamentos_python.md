@@ -1,5 +1,5 @@
 # CONOCIMIENTO 1 — FUNDAMENTOS DE PYTHON
-# Base de conocimiento para pAIthon Teacher.
+# Base de conocimiento para PyMentor.
 # Cubre todo lo que un alumno de nivel 0 a intermedio necesita.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

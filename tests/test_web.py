@@ -17,7 +17,7 @@ def cliente(fragmentos, monkeypatch):
 
 
 def test_estado_y_pagina(cliente):
-    assert "pAIthon Teacher" in cliente.get("/").text
+    assert "PyMentor" in cliente.get("/").text
     e = cliente.get("/api/estado").json()
     assert e["busqueda"] == "solo BM25" and e["modelo"] == "falso"
 

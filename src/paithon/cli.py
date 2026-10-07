@@ -102,7 +102,7 @@ def main(argv: list[str] | None = None) -> int:
     for flujo in (sys.stdout, sys.stderr):  # la consola de Windows no usa UTF-8 por defecto
         if isinstance(flujo, io.TextIOWrapper):
             flujo.reconfigure(encoding="utf-8")
-    p = argparse.ArgumentParser(prog="paithon", description="pAIthon Teacher: tutor de Python con RAG.")
+    p = argparse.ArgumentParser(prog="paithon", description="PyMentor: tutor de Python con RAG.")
     p.add_argument("--version", action="version", version=__version__)
     sub = p.add_subparsers(dest="orden", required=True)
 

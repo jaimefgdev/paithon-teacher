@@ -1,5 +1,5 @@
 # CONOCIMIENTO 6 — POO Y PYTHON AVANZADO AMPLIADO
-# Base de conocimiento para pAIthon Teacher.
+# Base de conocimiento para PyMentor.
 # Clases explicadas desde cero, métodos especiales, tipado avanzado, itertools, concurrencia e imports.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
