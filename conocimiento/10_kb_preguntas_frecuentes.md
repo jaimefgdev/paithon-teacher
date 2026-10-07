@@ -1,5 +1,5 @@
 # CONOCIMIENTO 9 — PREGUNTAS FRECUENTES
-# Base de conocimiento para PyMentor.
+# Base de conocimiento para pAIthon Teacher.
 # Diferencias que confunden, recetas de «cómo hago...», conceptos de Python y novedades recientes.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

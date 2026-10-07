@@ -1,5 +1,5 @@
 # CONOCIMIENTO 7 — BIBLIOTECA ESTÁNDAR Y HERRAMIENTAS
-# Base de conocimiento para PyMentor.
+# Base de conocimiento para pAIthon Teacher.
 # Módulos de la biblioteca estándar explicados con ejemplos, entornos, empaquetado e interfaces.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "paithon-teacher"
 version = "0.1.0"
-description = "PyMentor: tutor de Python en español con RAG (BM25 + embeddings, respuestas citadas)."
+description = "pAIthon Teacher: tutor de Python en español con RAG (BM25 + embeddings, respuestas citadas)."
 readme = "README.md"
 license = "MIT"
 authors = [{ name = "Jaime Fernández González" }]

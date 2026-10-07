@@ -1,6 +1,6 @@
 # paithon-teacher
 
-**PyMentor**, un tutor de Python en español que responde con RAG (*retrieval-augmented generation*) sobre unos
+**pAIthon Teacher**, un tutor de Python en español que responde con RAG (*retrieval-augmented generation*) sobre unos
 apuntes propios (9 documentos, unos 260 000 caracteres) y **cita el apartado** en el que se apoya cada respuesta.
 
 Nació como un Gem de Gemini. Esta versión es el mismo tutor convertido en una aplicación: recuperación
