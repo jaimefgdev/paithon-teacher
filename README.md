@@ -1,4 +1,4 @@
-# paithon-teacher
+# PyMentor
 
 **PyMentor**, un tutor de Python en español que responde con RAG (*retrieval-augmented generation*) sobre unos
 apuntes propios (9 documentos, unos 260 000 caracteres) y **cita el apartado** en el que se apoya cada respuesta.

@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "paithon-teacher"
+name = "pymentor"
 version = "0.1.0"
 description = "PyMentor: tutor de Python en español con RAG (BM25 + embeddings, respuestas citadas)."
 readme = "README.md"
