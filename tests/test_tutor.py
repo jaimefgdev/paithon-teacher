@@ -9,6 +9,11 @@ def test_citas_usadas():
     assert citas_usadas("Sí [2], y [1] y otra vez [2]; [7] no existe", 5) == [2, 1]
 
 
+def test_citas_agrupadas():
+    assert citas_usadas("Es inmutable [1, 3]. Y como clave [2,3, 9].", 5) == [1, 3, 2]
+    assert citas_usadas("La lista `[1, 2, 3]` no es una cita [4].", 5) == [4]
+
+
 def test_citas_ignoran_el_codigo():
     respuesta = "Se evalúa una vez [2].\n```python\nprint(f())  # [1]\n```\nY `x[3]` tampoco cuenta."
     assert citas_usadas(respuesta, 5) == [2]

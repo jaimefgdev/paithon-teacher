@@ -73,12 +73,14 @@ fetch("/api/estado").then(r => r.json()).then(e => {
 const escapar = s => s.replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
 
 function enLinea(texto, id) {
-  // Dentro de una línea: código, negrita, cursiva y citas [n] (el texto ya viene escapado).
-  return texto
-    .replace(/`([^`]+)`/g, "<code>$1</code>")
+  // Dentro de una línea: código, negrita, cursiva y citas [n] o [n, m] (el texto ya viene escapado).
+  // El código en línea se deja tal cual: «lista[0]» o «[1, 2, 3]» ahí son Python, no citas.
+  return texto.split(/(`[^`]+`)/).map((parte, i) => i % 2 ? `<code>${parte.slice(1, -1)}</code>` : parte
     .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
     .replace(/(^|[^*\w])\*([^*\s][^*]*)\*(?!\*)/g, "$1<em>$2</em>")
-    .replace(/\[(\d+)\]/g, `<sup><a href="#f${id}-$1">[$1]</a></sup>`);
+    .replace(/\[(\d+(?:\s*,\s*\d+)*)\]/g, (_, ns) =>
+      "<sup>[" + ns.split(/\s*,\s*/).map(n => `<a href="#f${id}-${n}">${n}</a>`).join(", ") + "]</sup>")
+  ).join("");
 }
 
 function bloques(trozo, id) {
